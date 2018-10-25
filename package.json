@@ -1,0 +1,52 @@
+{
+  "name": "juggernaut",
+  "version": "1.0.0",
+  "description": "Developing a application for powerlifting measurements based on the juggernaut method",
+  "main": "index.js",
+  "engines": {
+    "node": "8.1.1",
+    "npm": "5.0.3"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "webhook": "./sendgrid_webhook.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakedykstra/Juggernaut.git"
+  },
+  "author": "Jacob Dykstra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakedykstra/Juggernaut/issues"
+  },
+  "homepage": "https://github.com/jakedykstra/Juggernaut#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "*",
+    "express-session": "^1.11.3",
+    "body-parser": "^1.17.2",
+    "concurrently": "^3.5.0",
+    "cors": "^2.8.4",
+    "create-react-app": "^1.5.2",
+    "dotenv": "^6.0.0",
+    "express": "^4.15.3",
+    "jwt-simple": "*",
+    "localtunnel": "^1.8.3",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.11.1",
+    "morgan": "*",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth20": "^1.0.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "*",
+    "path-parser": "^2.0.2",
+    "sendgrid": "^5.1.2",
+    "stripe": "^4.23.1"
+  }
+}

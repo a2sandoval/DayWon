@@ -1,0 +1,19 @@
+Weekly
+- Make sure all days render
+- Build out settings. Add in inverted Jugg
+
+Daily
+- Create a start prompt and make buttons for next
+- highlight current set and have timer
+- have max change on final realization set. Have it confirm with user the change
+
+Create Beautiful UI for Jugg app
+- Find Css online to use? 
+
+React Native
+- Make into react native
+
+AUTH
+- Need to make sure google/fb oauth work
+- Change jsonweb to have tokens last 6-months max
+- test signout

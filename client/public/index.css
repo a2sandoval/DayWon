@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: lightslategray;
+}
+
+.fillableForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+#workoutSubmit {
+  margin-left: 300px;
+}
+
+.input-field {
+  width: 100%;
+  margin-top: 0px;
+  font-size: 26px;
+}
+
+
+/* tables ------------------------------------------------------------ */
+/* ------------------------------------------------------------------- */
+
+.acces-tables {
+  width: 70%;
+}
+
+.main-lift {
+  width: 70%;
+}
+
+.ui.table {
+  margin: 0;
+  width: 70%;
+}
+
+.short-width {
+  padding: 1px;
+  margin: 0;
+}
+
+h5 {
+  padding-top: 5px;
+}
+
+.app_bar {
+  background-color: grey !important;
+}
+
+.tab_bar {
+  background-color: white !important;
+}
+
+button:focus {
+  background-color: red !important;
+}
+
+/* 
+.MuiTabs-root-216 {
+  background-color: red;
+}
+
+.MuiToolbar-regular-38 {
+  background-color: black;
+}
+
+.MuiTab-wrapper-233 {
+  color: black;
+}
+
+.TabIndicator-colorPrimary-238 {
+  background-color: white;
+}
+
+button:focus {
+  background-color: white !important;
+}
+
+.MuiTab-textColorPrimary-228.MuiTab-selected-230 {
+  color: white !important;
+}
+*/

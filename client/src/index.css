@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: lightslategray;
+}
+
+.fillableForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#workoutSubmit {
+  margin-left: 300px;
+}
+
+
+/* tables ------------------------------------------------------------ */
+/* ------------------------------------------------------------------- */
+
+.acces-tables {
+  width: 70%;
+}
+
+.main-lift {
+  width: 70%;
+}
+
+.ui.table {
+  margin: 0;
+  width: 70%;
+}
+
+.short-width {
+  padding: 1px;
+  margin: 0;
+}
+
+h5 {
+  padding-top: 5px;
+}
