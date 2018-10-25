@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import react form
 import { connect } from "react-redux";
 // import * as actions from '../actions';
+import calcs from "../../utils/calcs";
 
 class MaxChart extends Component {
   render() {
@@ -9,35 +10,36 @@ class MaxChart extends Component {
       <div className="max">
         <h3 className="maxChart">BenchPress</h3>
         <h4 className="benchMax">
-          Max:
-          {this.props.measurement.bp} Training Max:
-          {this.props.program.trnMaxCalc(this.props.measurement.bp)}
+          <MaxCalc type="bp" measurement={this.props.measurement} />
         </h4>
         <h3 className="maxChart">Squat</h3>
         <h4 className="squatMax">
-          Max:
-          {this.props.measurement.sqt} Training Max:
-          {this.props.program.trnMaxCalc(this.props.measurement.sqt)}
+          <MaxCalc type="sqt" measurement={this.props.measurement} />
         </h4>
         <h3 className="maxChart">Deadlift</h3>
         <h4 className="deadliftMax">
-          Max:
-          {this.props.measurement.dl} Training Max:
-          {this.props.program.trnMaxCalc(this.props.measurement.dl)}
+          <MaxCalc type="dl" measurement={this.props.measurement} />
         </h4>
         <h3 className="maxChart">Military Press</h3>
         <h4 className="militaryMax">
-          Max:
-          {this.props.measurement.mp} Training Max:
-          {this.props.program.trnMaxCalc(this.props.measurement.mp)}
+          <MaxCalc type="mp" measurement={this.props.measurement} />
         </h4>
       </div>
     );
   }
 }
 
-function mapStateToProps({ measurement, program }) {
-  return { measurement, program };
+function MaxCalc({ type, measurement }) {
+  let max = measurement[type];
+  return (
+    <div>
+      Max: {max} Training Max: {calcs.trnMaxCalc(max)}
+    </div>
+  );
+}
+
+function mapStateToProps({ measurement }) {
+  return { measurement };
 }
 
 export default connect(mapStateToProps)(MaxChart);

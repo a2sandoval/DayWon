@@ -2,7 +2,6 @@ const calcs = {
   increments(weight, weightCapacity = 2.5) {
     //incrementing for weights available. Divide actual weight by weight capacity, if the decimal place rounds up or down we determine the fixed weight for the user
     let fixedWeight = Math.round(weight / weightCapacity) * weightCapacity;
-    console.log(fixedWeight);
     return fixedWeight;
   },
 

@@ -3,6 +3,8 @@ import { Grid } from "@material-ui/core";
 import { connect } from "react-redux";
 import calcs from "../../utils/calcs";
 import program from "../../utils/allProgramData";
+import WeeklyFormPrimary from "./tables/WeeklyFormPrim";
+import WeeklyFormAccess from "./tables/WeeklyFormAcc";
 
 class WeeklyView extends Component {
   constructor(props) {
@@ -81,36 +83,31 @@ class WeeklyView extends Component {
     }
   };
 
-  populateExtra = dayEntered => {
-    return this[dayEntered].accesWorkouts.map((val, i) => {
-      var setArr = [];
-      var repArr = [];
-      let sets = null;
-      let reps = null;
-      val.reps.map((repsInSet, i) => {
-        let setCount = i + 1;
-        setArr.push(setCount);
-        repArr.push(repsInSet);
-        let key = i;
-      });
+  tableHead = () => {
+    return (
+      <tr>
+        <th>Lift</th>
+        <th>Weight</th>
+        <th>Reps</th>
+        <th>Set</th>
+        <th>% of Max</th>
+      </tr>
+    );
+  };
 
-      if (repArr.every(val => val === repArr[0])) {
-        sets = setArr[0] + "-" + setArr[setArr.length - 1];
-        reps = repArr[0];
-      } else {
-        sets = setArr.join("/");
-        reps = repArr.join("/");
-      }
-      return (
-        <tr>
-          <td>{val.lift}</td>
-          <td>-</td>
-          <td>{reps}</td>
-          <td>{sets}</td>
-          <td>-</td>
-        </tr>
-      );
-    });
+  renderForms = (dayInState, dayToPopulate) => {
+    return (
+      <tbody>
+        <WeeklyFormPrimary
+          programDaySearch={this.programDaySearch}
+          dayInState={this.state[dayInState] - 1}
+          populateMain={this.populateMain}
+          dayToPopulate={[dayToPopulate]}
+          daysWorkoutInState={this[dayToPopulate]}
+        />
+        <WeeklyFormAccess daysWorkoutInState={this[dayToPopulate]} />
+      </tbody>
+    );
   };
 
   changeDay = direction => {
@@ -210,95 +207,23 @@ class WeeklyView extends Component {
         </div>
         <h4>{this.programDaySearch[this.state.day - 1].day}</h4>
         <table>
-          <thead>
-            <tr>
-              <th>Lift</th>
-              <th>Weight</th>
-              <th>Reps</th>
-              <th>Set</th>
-              <th>% of Max</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>{this.programDaySearch[this.state.day - 1].day}</td>
-              <td>{this.populateMain("todaysWorkout", "weight")}</td>
-              <td> {this.populateMain("todaysWorkout", "reps")} </td>
-              <td>{this.populateMain("todaysWorkout", "set")}</td>
-              <td>{this.populateMain("todaysWorkout", "weightPerc")}</td>
-            </tr>
-            {this.populateExtra("todaysWorkout")}
-          </tbody>
+          <thead>{this.tableHead()}</thead>
+          {this.renderForms("day", "todaysWorkout")}
         </table>
         <h4>{this.programDaySearch[this.state.nextDay - 1].day}</h4>
         <table>
-          <thead>
-            <tr>
-              <th>Lift</th>
-              <th>Weight</th>
-              <th>Reps</th>
-              <th>Set</th>
-              <th>% of Max</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>{this.programDaySearch[this.state.nextDay - 1].day}</td>
-              <td>{this.populateMain("nextDayWorkouts", "weight")}</td>
-              <td> {this.populateMain("nextDayWorkouts", "reps")} </td>
-              <td>{this.populateMain("nextDayWorkouts", "set")}</td>
-              <td>{this.populateMain("nextDayWorkouts", "weightPerc")}</td>
-            </tr>
-            {this.populateExtra("nextDayWorkouts")}
-          </tbody>
+          <thead>{this.tableHead()}</thead>
+          {this.renderForms("nextDay", "nextDayWorkouts")}
         </table>
         <h4>{this.programDaySearch[this.state.twoDays - 1].day}</h4>
         <table>
-          <thead>
-            <tr>
-              <th>Accessory to </th>
-              <th>Weight</th>
-              <th>Reps</th>
-              <th>Set</th>
-              <th>% of Max</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>{this.programDaySearch[this.state.twoDays - 1].day}</td>
-              <td>{this.populateMain("twoDaysWorkouts", "weight")}</td>
-              <td> {this.populateMain("twoDaysWorkouts", "reps")} </td>
-              <td>{this.populateMain("twoDaysWorkouts", "set")}</td>
-              <td>{this.populateMain("twoDaysWorkouts", "weightPerc")}</td>
-            </tr>
-            {this.populateExtra("twoDaysWorkouts")}
-          </tbody>
+          <thead>{this.tableHead()}</thead>
+          {this.renderForms("twoDays", "twoDaysWorkouts")}
         </table>
         <h4>{this.programDaySearch[this.state.threeDays - 1].day}</h4>
         <table>
-          <thead>
-            <tr>
-              <th>Accessory to </th>
-              <th>Weight</th>
-              <th>Reps</th>
-              <th>Set</th>
-              <th>% of Max</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>{this.programDaySearch[this.state.threeDays - 1].day}</td>
-              <td>{this.populateMain("threeDaysWorkouts", "weight")}</td>
-              <td> {this.populateMain("threeDaysWorkouts", "reps")} </td>
-              <td>{this.populateMain("threeDaysWorkouts", "set")}</td>
-              <td>{this.populateMain("threeDaysWorkouts", "weightPerc")}</td>
-            </tr>
-            {this.populateExtra("threeDaysWorkouts")}
-          </tbody>
+          <thead>{this.tableHead()}</thead>
+          {this.renderForms("threedays", "threeDaysWorkouts")}
         </table>
       </div>
     );
@@ -308,7 +233,6 @@ class WeeklyView extends Component {
 function mapStateToProps({
   workoutDay,
   userMaxes,
-  program,
   powerliftDay,
   measurement,
   settings
@@ -316,7 +240,7 @@ function mapStateToProps({
   return {
     workoutDay,
     userMaxes,
-    program,
+
     powerliftDay,
     measurement,
     settings

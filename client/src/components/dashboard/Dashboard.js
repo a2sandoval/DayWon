@@ -10,9 +10,9 @@ const Dashboard = props => {
   return (
     <div>
       <Grid container>
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
           <Graph />
-        </Grid>
+        </Grid> */}
         <Grid item xs={6}>
           <Maxes />
           <Stats />

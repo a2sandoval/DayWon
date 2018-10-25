@@ -3,8 +3,43 @@ import calcs from "../../../utils/calcs";
 
 function PrimaryForm(props) {
   // console.log(props);
+
+  let isCurrentSet = row => {
+    console.log(props);
+    // if currentSet is this row
+    if (props.currentSet === row) {
+      return "Next";
+    }
+    // else if previousSet is holds this row
+    else if (props.previousSet.includes(row) === true) {
+      return "Done";
+    }
+    // if it's not a previous set but isnt set as current because current isn't set, set it as current
+    else if (!props.currentSet) {
+      props.setRowAsCurrent(row);
+      return "Next";
+    }
+    // if its not previous and not current while current is set, then it must be upcoming
+    else if (
+      props.previousSet.includes(row) === false &&
+      props.currentSet !== row
+    ) {
+      return "Coming Up";
+    }
+  };
+
+  let classNaming = name => {
+    if (name === props.row) {
+      return "currentSet";
+    } else if (props.previousSet.includes(name) === true) {
+      return "previousSet";
+    } else {
+      return "upcomingSet";
+    }
+  };
+
   return (
-    <tr>
+    <tr className={classNaming(props.rowClassNaming)} id={props.row}>
       <td data-label="Set">{props.set}</td>
       <td>
         <input
@@ -30,7 +65,9 @@ function PrimaryForm(props) {
         {calcs.weightPerc(props.weightPerc)}
       </td>
       <td>
-        <button>next</button>
+        <button onClick={() => props.nextSet(props.row)}>
+          {isCurrentSet(props.row)}
+        </button>
       </td>
     </tr>
   );

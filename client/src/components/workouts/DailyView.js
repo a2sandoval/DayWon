@@ -24,7 +24,10 @@ class DailyView extends Component {
       workoutDay: null,
       programDay: {},
       open: false,
-      keyCount: 0
+      keyCount: 0,
+      currentSet: "",
+      upcomingSet: "",
+      previousSet: []
     };
   }
 
@@ -74,6 +77,7 @@ class DailyView extends Component {
         let key = programDay.primaryWorkouts.lift + "_" + increment + "_weight";
         let repInput =
           programDay.primaryWorkouts.lift + "_" + increment + "_reps";
+        let row = `${programDay.primaryWorkouts.lift}_set${increment}_row`;
         console.log(this.props);
         let weightCalc = calcs.totalWeight(
           programDay.primaryWorkouts.weightPerc[i],
@@ -97,6 +101,11 @@ class DailyView extends Component {
             weightPerc={programDay.primaryWorkouts.weightPerc[i]}
             reps={set}
             set={increment}
+            row={row}
+            nextSet={this.nextSet}
+            currentSet={this.state.currentSet}
+            previousSet={this.state.previousSet}
+            setRowAsCurrent={this.setRowAsCurrent}
           />
         );
       });
@@ -145,6 +154,9 @@ class DailyView extends Component {
             updateVal={this.updateVal}
             inputRepVal={this.state[repInput]}
             inputWeightVal={this.state[key]}
+            nextSet={this.nextSet}
+            currentSet={this.state.currentSet}
+            previousSet={this.state.previousSet}
           />
         );
       });
@@ -190,6 +202,29 @@ class DailyView extends Component {
     }
   };
 
+  setRowAsCurrent = row => {
+    this.setState({
+      currentSet: row
+    });
+    console.log(this.state.currentSet);
+  };
+
+  nextSet = val => {
+    if (!this.state.previousSet) {
+      this.setState({
+        previousSet: [val],
+        currentSet: ""
+      });
+    } else {
+      let newState = [...this.state.previousSet, val];
+      this.setState({
+        previousSet: newState,
+        currentSet: ""
+      });
+    }
+    console.log(this.state.previousState);
+  };
+
   submitWorkout = () => {
     console.log("workout submitted");
   };
@@ -201,7 +236,7 @@ class DailyView extends Component {
   render() {
     return (
       <div className="Daily">
-        <button onCLick={() => this.workoutRender("open")}>
+        <button onClick={() => this.workoutRender("open")}>
           Start Workout
         </button>
         <Modal
@@ -223,7 +258,6 @@ class DailyView extends Component {
 function mapStateToProps({
   workoutDay,
   userMaxes,
-  program,
   powerliftDay,
   measurement,
   settings
@@ -231,7 +265,6 @@ function mapStateToProps({
   return {
     workoutDay,
     userMaxes,
-    program,
     powerliftDay,
     measurement,
     settings

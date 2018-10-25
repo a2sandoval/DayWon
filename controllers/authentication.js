@@ -61,7 +61,3 @@ exports.signup = function(req, res, next) {
     });
   });
 }
-
-exports.signinSocial = function(req, res, next) {
-  res.send({ token: tokenForUser(req.user), user: req.user });
-}
