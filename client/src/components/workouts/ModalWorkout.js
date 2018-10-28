@@ -16,9 +16,8 @@ import PrimaryForm from "./tables/PrimaryForm";
 import DailyViewLayout from "./tables/DailyViewLayout";
 import AccesForm from "./tables/AccesForm";
 import calcs from "../../utils/calcs";
-import ModalWorkout from "./ModalWorkout";
 
-class DailyView extends Component {
+class ModalWorkout extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -235,12 +234,6 @@ class DailyView extends Component {
     console.log(this.state);
     return this.userDay;
   };
-
-  workoutRender = open => {
-    console.log("button clicked");
-    open ? this.setState({ open: true }) : this.setState({ open: false });
-  };
-
   setRowAsCurrent = row => {
     this.setState({
       currentSet: row
@@ -300,23 +293,12 @@ class DailyView extends Component {
 
   render() {
     return (
-      <div className="Daily">
-        <button onClick={() => this.workoutRender("open")}>
-          Start Workout
-        </button>
-        <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={this.state.open}
-          onClose={() => this.workoutRender()}
-        >
-          <div className="workout-modal">
-            <ModalWorkout />
+      <div className="workout-modal">
+        <div className="row">
+          <div className="col s6 offset-s3">
+            {this.showWorkouts(this.props.workoutDay)}
           </div>
-        </Modal>
-        <button onClick={() => this.updateDay("minus")}>last workout</button>
-        <button onClick={() => this.updateDay("plus")}>next workout </button>
-        {this.showWorkouts(this.props.workoutDay)}
+        </div>
       </div>
     );
   }
@@ -341,4 +323,4 @@ function mapStateToProps({
 export default connect(
   mapStateToProps,
   actions
-)(DailyView);
+)(ModalWorkout);

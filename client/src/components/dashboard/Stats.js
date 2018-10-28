@@ -8,7 +8,7 @@ class JuggStats extends Component {
 
   render() {
     return (
-      <div className="stats">
+      <div className="stats col l3 s6 offset-s3">
         <h3 className="logged">Days Logged: {this.logged}</h3>
         <h3 className="volume">Total Volume: {this.volume}</h3>
       </div>

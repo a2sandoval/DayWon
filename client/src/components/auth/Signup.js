@@ -11,7 +11,7 @@ class Signup extends Component {
     super(props);
 
     this.state = {
-      clicked: false
+      clicked: true
     };
   }
   onSubmit = formProps => {
@@ -40,8 +40,9 @@ class Signup extends Component {
       return (
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
-            <label>Email</label>
+            <label className="col s6 offset-s3 email">Email</label>
             <Field
+              className="col s6 offset-s3"
               name="email"
               type="text"
               component="input"
@@ -49,8 +50,9 @@ class Signup extends Component {
             />
           </fieldset>
           <fieldset>
-            <label>Password</label>
+            <label className="col s6 offset-s3 password">Password</label>
             <Field
+              className="col s6 offset-s3"
               name="password"
               type="password"
               component="input"
@@ -58,7 +60,7 @@ class Signup extends Component {
             />
           </fieldset>
           <div>{this.props.errorMessage}</div>
-          <button>Sign Up!</button>
+          <button className="col s6 offset-s3">Sign Up!</button>
         </form>
       );
     }

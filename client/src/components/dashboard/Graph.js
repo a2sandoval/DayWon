@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
+import "../style/Graph.css";
 
 let bpObj = {
   id: "benchpress",

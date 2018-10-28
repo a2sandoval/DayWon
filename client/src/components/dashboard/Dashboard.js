@@ -3,22 +3,23 @@ import Graph from "./Graph";
 import Maxes from "./Maxes";
 import MaxCalc from "./MaxCalc";
 import Stats from "./Stats";
-import Grid from "@material-ui/core/Grid";
+import "../style/Dashboard.css";
+
+const graphStyle = {
+  height: "500px"
+};
 
 const Dashboard = props => {
   console.log("props");
   return (
-    <div>
-      <Grid container>
-        {/* <Grid item xs={6}>
-          <Graph />
-        </Grid> */}
-        <Grid item xs={6}>
-          <Maxes />
-          <Stats />
-          <MaxCalc />
-        </Grid>
-      </Grid>
+    <div className="row">
+      <div className="graph-component col s10 offset-s1 l6" style={graphStyle}>
+        Graph
+      </div>
+      <div className="s9 offset-s1 l6">
+        <Maxes />
+        <MaxCalc />
+      </div>
     </div>
   );
 };

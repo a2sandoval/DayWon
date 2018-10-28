@@ -10,7 +10,7 @@ function PrimaryForm(props) {
     if (props.currentSet === row) {
       return "Next";
     }
-    // else if previousSet is holds this row
+    // else if previousSet holds this row
     else if (props.previousSet.includes(row) === true) {
       return "Done";
     }
@@ -54,7 +54,7 @@ function PrimaryForm(props) {
       <td>
         {" "}
         <input
-          onChange={e => props.updateVal(e.target)}
+          onChange={e => props.updateVal(e.target, props.set, props.workoutDay)}
           id={props.idToStateWeight}
           type="text-field"
           placeholder={props.inputWeightVal}

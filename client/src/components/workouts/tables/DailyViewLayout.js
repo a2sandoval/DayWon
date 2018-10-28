@@ -22,7 +22,11 @@ export default function DailyViewLayout(props) {
         <tbody>{props.primaryForm()}</tbody>
       </table>
       {props.accessForm()}
-      <button type="submit" id="workoutSubmit" onClick={props.submitWorkout()}>
+      <button
+        type="submit"
+        id="workoutSubmit"
+        onClick={e => props.submitWorkout(e)}
+      >
         Submit Workout
       </button>
     </div>

@@ -97,10 +97,10 @@ export const signout = () => {
 };
 
 // WORKOUTS ------------------------------------------
-export const submitWorkout = (values, history) => async dispatch => {
+export const submitWorkout = values => async dispatch => {
+  console.log(values);
   const res = await axios.post("/api/workout", values);
-
-  history.push("/dashboard");
+  // history.push("/dashboard");
   dispatch({ type: POST_WORKOUT, payload: res.data });
 };
 

@@ -62,7 +62,7 @@ class Header extends Component {
           <AppBar className="app_bar" position="static">
             <Toolbar>
               <IconButton aria-label="Menu" />
-              <Typography variant="headline">Juggernaut</Typography>
+              <img src="../../../public/images/DayWon.png" alt="DayWon logo" />
               <Button>Login</Button>
             </Toolbar>
           </AppBar>
@@ -87,7 +87,7 @@ class Header extends Component {
                   <MenuItem onClick={this.handleClose}>Settings</MenuItem>
                 </Menu>
               </IconButton>
-              <Typography variant="headline">Juggernaut</Typography>
+              <img src="../../../public/images/DayWon.png" alt="DayWon logo" />
               <Button onClick={this.handleSignOut}>Logout</Button>
               <Button>{this.props.user.name}</Button>
             </Toolbar>

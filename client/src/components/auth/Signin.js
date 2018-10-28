@@ -10,7 +10,7 @@ class Signin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false
+      clicked: true
     };
   }
   onSubmit = formProps => {
@@ -37,18 +37,20 @@ class Signin extends Component {
         // we then use handleSubmit to call onSubmit which is hte juction we developed for handling sign in. This then references teh onSubmit method above but note: it doesnt call it with ()
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
-            <label>Email</label>
+            <label className="col s6 offset-s3">Email</label>
             <Field
               name="email"
               type="text"
               component="input"
               // the field automatically wants to see automcomplete to help fill out the form, but for usernmae/password, people wont have an autoComplete so we set it as none
               autoComplete="none"
+              className="col s6 offset-s3"
             />
           </fieldset>
           <fieldset>
-            <label>Password</label>
+            <label className="col s6 offset-s3">Password</label>
             <Field
+              className="col s6 offset-s3"
               name="password"
               type="password"
               component="input"
@@ -56,7 +58,7 @@ class Signin extends Component {
             />
           </fieldset>
           <div>{this.props.errorMessage}</div>
-          <button>Sign In!</button>
+          <button className="col s6 offset-s3">Sign In!</button>
         </form>
       );
     }

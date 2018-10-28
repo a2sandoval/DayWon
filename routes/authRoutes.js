@@ -17,4 +17,32 @@ module.exports = app => {
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
 
-}
+  app.get('/api/logout', (req, res) => {
+    // req.logout kills the cookie with the id
+    req.logout();
+    res.redirect('/');
+  });
+  
+  //TODO: change this later!!!
+  app.get('/home', (req, res) => {
+    res.redirect('/');
+  })
+
+  app.get('/profile', 
+  function(req, res){
+    //  TODO: all of this
+    //db.User.find({})
+    // .populate("UserMaxes Workout")
+    // .then(function(dbUser) {
+    //   // If any Libraries are found, send them to the client with any associated Books
+    //   res.json(dbUser);
+    // })
+    res.send( req.user );
+
+  });
+
+    // test to make sure we are getting our user after auth process is complete
+    app.get('/api/current_user', (req, res) => {
+      res.send(req.user);
+    });
+  };
