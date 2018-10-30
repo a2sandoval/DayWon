@@ -18,7 +18,6 @@ const Dashboard = props => {
       </div>
       <div className="s9 offset-s1 l6">
         <Maxes />
-        <MaxCalc />
       </div>
     </div>
   );

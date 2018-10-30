@@ -3,10 +3,23 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 // import * as actions from '../actions';
 import calcs from "../../utils/calcs";
+import { Modal } from "@material-ui/core";
+import MaxCalc from "./MaxCalc";
+import ModalWorkout from "../workouts/ModalWorkout";
 
 class MaxChart extends Component {
+  state = {
+    open: false
+  };
+
   startMaxCalcModal = () => {
     console.log("startModal");
+    this.workoutRender("open");
+  };
+
+  workoutRender = open => {
+    console.log("button clicked");
+    open ? this.setState({ open: true }) : this.setState({ open: false });
   };
 
   startWorkoutModal = () => {
@@ -14,6 +27,7 @@ class MaxChart extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="col s9 m6">
         <div className="card">
@@ -32,34 +46,39 @@ class MaxChart extends Component {
                 programs... they're done by the best.
               </p>
               <br />
-              <p>User Maxes:</p>
+              <p>
+                <b>User Maxes:</b>
+              </p>
               <div className="row">
                 <div className="col s3">
                   <p>Benchpress </p>
 
                   <p>
-                    <MaxCalc type="bp" measurement={this.props.measurement} />
+                    <MaxRender type="bp" measurement={this.props.measurement} />
                   </p>
                 </div>
                 <div className="col s3">
                   <p>Squat </p>
 
                   <p>
-                    <MaxCalc type="sqt" measurement={this.props.measurement} />
+                    <MaxRender
+                      type="sqt"
+                      measurement={this.props.measurement}
+                    />
                   </p>
                 </div>
                 <div className="col s3">
                   <p>Deadlift </p>
 
                   <p>
-                    <MaxCalc type="dl" measurement={this.props.measurement} />
+                    <MaxRender type="dl" measurement={this.props.measurement} />
                   </p>
                 </div>
                 <div className="col s3">
                   <p>Overhead Press </p>
 
                   <p>
-                    <MaxCalc type="mp" measurement={this.props.measurement} />
+                    <MaxRender type="mp" measurement={this.props.measurement} />
                   </p>
                 </div>
               </div>
@@ -80,16 +99,28 @@ class MaxChart extends Component {
             </div>
           </div>
         </div>
+        <Modal
+          className="col s6 offset-s3 max-calc"
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.open}
+          onClose={() => this.workoutRender()}
+        >
+          <div className="workout-modal">
+            <MaxCalc />
+          </div>
+        </Modal>
       </div>
     );
   }
 }
 
-function MaxCalc({ type, measurement }) {
+function MaxRender({ type, measurement }) {
   let max = measurement[type];
   return (
     <div>
-      Max: {max} Training Max: {calcs.trnMaxCalc(max)}
+      Max: {max} <br />
+      Training Max: {calcs.trnMaxCalc(max)}
     </div>
   );
 }

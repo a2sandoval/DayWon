@@ -5,7 +5,6 @@ import * as actions from "../actions";
 
 import Header from "./partials/Header";
 import Footer from "./partials/Footer";
-import Sidebar from "./partials/Sidebar";
 import Home from "./Home";
 import Settings from "./settings/Settings";
 import Welcome from "./Welcome";

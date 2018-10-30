@@ -4,61 +4,66 @@ import calcs from "../../../utils/calcs";
 function PrimaryForm(props) {
   // console.log(props);
 
-  let isCurrentSet = row => {
-    console.log(props);
+  let isCurrentSet = (row, classNaming) => {
+    if (!props.currentSet) {
+      props.setRowAsCurrent(row);
+    }
     // if currentSet is this row
     if (props.currentSet === row) {
-      return "Next";
+      return !classNaming ? "Next" : "currentSet";
     }
     // else if previousSet holds this row
     else if (props.previousSet.includes(row) === true) {
-      return "Done";
-    }
-    // if it's not a previous set but isnt set as current because current isn't set, set it as current
-    else if (!props.currentSet) {
-      props.setRowAsCurrent(row);
-      return "Next";
+      return !classNaming ? "Done" : "previousSet";
     }
     // if its not previous and not current while current is set, then it must be upcoming
     else if (
       props.previousSet.includes(row) === false &&
       props.currentSet !== row
     ) {
-      return "Coming Up";
+      return !classNaming ? "Upcoming" : "upcomingSet";
     }
   };
 
-  let classNaming = name => {
-    if (name === props.row) {
-      return "currentSet";
-    } else if (props.previousSet.includes(name) === true) {
-      return "previousSet";
+  let renderVal = type => {
+    let workoutData = props.liftingData[props.workoutDay][props.set];
+    if (!workoutData) {
+      if (type === "reps") {
+        return props.inputRepVal;
+      } else {
+        return props.inputWeightVal;
+      }
     } else {
-      return "upcomingSet";
+      console.log(workoutData[type]);
+      return workoutData[type];
     }
   };
 
   return (
-    <tr className={classNaming(props.rowClassNaming)} id={props.row}>
+    <tr className={isCurrentSet(props.row, "for class naming")} id={props.row}>
       <td data-label="Set">{props.set}</td>
       <td>
         <input
-          onChange={e => props.updateVal(e.target)}
+          onChange={e =>
+            props.updateVal(e.target, props.set, props.workoutDay, "reps")
+          }
           className="input-field"
           id={props.idToStateReps}
           type="text-field"
-          placeholder={props.reps}
-          value={props.inputRepVal}
+          placeholder={renderVal("reps")}
+          value={renderVal("reps")}
         />{" "}
       </td>
       <td>
         {" "}
         <input
-          onChange={e => props.updateVal(e.target, props.set, props.workoutDay)}
+          onChange={e =>
+            props.updateVal(e.target, props.set, props.workoutDay, "weight")
+          }
           id={props.idToStateWeight}
           type="text-field"
-          placeholder={props.inputWeightVal}
-          value={props.inputWeightVal}
+          placeholder={renderVal("weight")}
+          value={renderVal("weight")}
         />{" "}
       </td>
       <td data-label="Weight-Percentage">

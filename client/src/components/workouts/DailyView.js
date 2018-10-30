@@ -17,6 +17,7 @@ import DailyViewLayout from "./tables/DailyViewLayout";
 import AccesForm from "./tables/AccesForm";
 import calcs from "../../utils/calcs";
 import ModalWorkout from "./ModalWorkout";
+import "../style/Daily.css";
 
 class DailyView extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class DailyView extends Component {
       open: false,
       keyCount: 0,
       previousSet: [],
+      currentSet: "",
       liftingData: {
         Squat: {},
         Benchpress: {},
@@ -40,6 +42,7 @@ class DailyView extends Component {
   userDay = this.props.workoutDay;
   maxForMeasurement = "bp";
   workoutData = {};
+  rowIsCurrent = "";
 
   // immidiately called on render with workout day
   showWorkouts = workoutDay => {
@@ -85,7 +88,7 @@ class DailyView extends Component {
         let repInput =
           programDay.primaryWorkouts.lift + "_" + increment + "_reps";
         let row = `${programDay.primaryWorkouts.lift}_set${increment}_row`;
-        console.log(this.state);
+        // console.log(this.state);
         let weightCalc = calcs.totalWeight(
           programDay.primaryWorkouts.weightPerc[i],
           userMax,
@@ -93,7 +96,6 @@ class DailyView extends Component {
         );
         if (programDay === this.state.programDay) {
         } else {
-          this.setState({ programDay });
           let newState = (key, repInput, set, lift, increment, weightCalc) => {
             if (this.state.liftingData[lift][increment]) {
               return;
@@ -102,22 +104,21 @@ class DailyView extends Component {
               ...this.state.liftingData,
               [lift]: {
                 ...this.state.liftingData[lift],
-                [increment]: [
-                  {
-                    ...this.state.liftingData[lift][increment],
-                    [repInput]: set,
-                    [key]: weightCalc
-                  }
-                ]
+                [increment]: {
+                  ...this.state.liftingData[lift][increment],
+                  reps: set,
+                  weight: weightCalc
+                }
               }
             };
             this.workoutData = workoutData;
-            console.log(this.workoutData);
+            // console.log(this.workoutData);
             return this.setState(
               {
                 liftingData: workoutData,
                 [key]: weightCalc,
-                [repInput]: set
+                [repInput]: set,
+                programDay
               },
               () => {
                 console.log(this.state.liftingData);
@@ -139,10 +140,12 @@ class DailyView extends Component {
             set={increment}
             row={row}
             workoutDay={lift}
+            liftingData={this.state.liftingData}
             nextSet={this.nextSet}
             currentSet={this.state.currentSet}
             previousSet={this.state.previousSet}
             setRowAsCurrent={this.setRowAsCurrent}
+            rowIsCurrent={this.rowIsCurrent}
           />
         );
       });
@@ -167,6 +170,9 @@ class DailyView extends Component {
         );
       });
     };
+
+    // inputRepVal2={this.state.liftingData[lift][increment]["reps"]}
+    // inputWeightVal2={this.state.liftingData[lift][increment]["weight"]}
 
     let populateAccessForm = i => {
       return programDay.accesWorkouts[i].reps.map((set, i) => {
@@ -212,14 +218,21 @@ class DailyView extends Component {
     );
   };
 
-  updateVal = (e, increment, workout) => {
+  updateVal = (e, increment, workout, type) => {
+    console.log(this.state.liftingData);
     let updateInputData = { ...this.state.liftingData };
-    updateInputData[workout][increment][e.id] = e.value;
+    updateInputData[workout][increment][type] = e.value;
     this.workoutData = updateInputData;
     console.log(this.workoutData);
-    this.setState({
-      [e.id]: e.value
-    });
+    this.setState(
+      {
+        [type]: e.value,
+        liftingData: this.workoutData
+      },
+      () => {
+        console.log(this.state.liftingData);
+      }
+    );
     console.log(this.state.liftingData);
   };
 
@@ -241,11 +254,18 @@ class DailyView extends Component {
     open ? this.setState({ open: true }) : this.setState({ open: false });
   };
 
-  setRowAsCurrent = row => {
-    this.setState({
-      currentSet: row
-    });
-    console.log(this.state.currentSet);
+  setRowAsCurrent = (row, cb) => {
+    this.setState(
+      prevState => {
+        console.log(prevState.currentSet);
+        if (!prevState.currentSet && !this.state.previousSet.includes(row)) {
+          return { currentSet: row };
+        } else {
+          return;
+        }
+      },
+      () => console.log(this.state.currentSet)
+    );
   };
 
   nextSet = val => {
@@ -268,7 +288,9 @@ class DailyView extends Component {
     let program = this.state.programDay;
     let programDayLift = this.state.programDay.day;
     //TODO: Change obj to have weight and reps + array (or I could look at key length)
-    let last = this.state.liftingData[programDayLift].length - 1;
+
+    let last = Object.keys(this.state.liftingData[programDayLift]).length - 1;
+    console.log(last);
     let weight = this.state.liftingData[programDayLift][last][weight];
     let reps = this.state.liftingData[programDayLift][last][reps];
     let { wave } = program.wave;
@@ -298,6 +320,8 @@ class DailyView extends Component {
     console.log(e);
   };
 
+  componentDidUpdate() {}
+
   render() {
     return (
       <div className="Daily">
@@ -308,7 +332,7 @@ class DailyView extends Component {
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
           open={this.state.open}
-          onClose={() => this.workoutRender()}
+          onClose={this.workoutRender}
         >
           <div className="workout-modal">
             <ModalWorkout />

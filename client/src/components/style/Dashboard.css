@@ -1,3 +1,23 @@
+.grid {
+  display: grid;
+  grid-template-columns: [col1] 25% [col2] 65% [col3];
+  grid-template-rows: [row1] 15% [row2] 15% [row3] 35% [row4] 35% [row5]; 
+}
+
+.header {
+  grid-column-start: col1;
+  grid-column-end: col4;
+  grid-row-start: row1;
+  grid-row-end: row2;
+}
+
+.main {
+  grid-column-start: col1;
+  grid-column-end: col4;
+  grid-row-start: row2;
+  grid-row-end: row3;
+}
+
 .stats {
   background-color: red;
 }
@@ -5,4 +25,71 @@
 .click {
   display: flex;
   justify-content: space-around;
+}
+
+
+.btn:hover {
+  background-color: #da364a;
+}
+
+.btn:active {
+  background-color: #6d1b25;
+}
+
+.btn {
+  background-color: grey;
+}
+
+.max-calc {
+  background-color: white;
+  color: white;
+  width: 25%;
+  margin: auto;
+  height: 45%;
+}
+
+.weight-label {
+  grid-column-start: col1;
+  grid-column-end: col2;
+  grid-row-start: row3;
+  grid-row-end: row4;
+}
+
+.reps-label {
+  grid-column-start: col1;
+  grid-column-end: col2;
+  grid-row-start: row3;
+  grid-row-end: row4;
+}
+
+.max-calc-weight-inputs {
+  /* margin: 20px !important;
+  width: 40px !important; */
+  grid-column-start: col2;
+  grid-column-end: col3;
+  grid-row-start: row3;
+  grid-row-end: row4;
+}
+
+.max-calc-reps-inputs {
+  /* margin: 20px !important;
+  width: 40px !important; */
+  grid-column-start: col2;
+  grid-column-end: col3;
+  grid-row-start: row3;
+  grid-row-end: row4;
+}
+
+.new-max {
+  font-size: 24px;
+  justify-self: center;
+  align-self: center;
+  grid-column-start: col2;
+  grid-column-end: col3;
+  grid-row-start: row3;
+  grid-row-end: row5;
+}
+
+.input-form {
+  margin-left: 20px;
 }
