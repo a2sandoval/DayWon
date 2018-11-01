@@ -1,48 +1,154 @@
-const Authentication = require('../controllers/authentication');
-const passportLocal = require('../services/passport');
-require('../models/User');
+const express = require('express');
+const router = express.Router();
+const gravatar = require('gravatar');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const requireAuth = passport.authenticate('jwt', { session: false });
-const requireSignin = passport.authenticate('local', { session: false });
 
-// this app arrow function that wraps all the code allows us to call use our app function and we export it to our index.js (with the server)
+// Load Input Validation
+const validateRegisterInput = require('./validation/register');
+const validateLoginInput = require('./validation/login');
+
+// Load User model
+const User = require('../models/User');
+
 module.exports = app => {
 
   // --------------------------------------------------------------------
   // LOCAL 
   // --------------------------------------------------------------------
-  app.get('/', requireAuth, function(req, res) {
+  app.get('/', (req, res) => {
     res.send({ hi: 'there' });
   });
-  app.post('/signin', requireSignin, Authentication.signin);
-  app.post('/signup', Authentication.signup);
+
+  app.post('/signin', (req, res) => {
+    const { errors, isValid } = validateLoginInput(req.body);
+
+  // Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  const email = req.body.email;
+  const password = req.body.password;
+
+  // Find user by email
+  User.findOne({ email }).then(user => {
+    // Check for user
+    if (!user) {
+      errors.email = 'User not found';
+      return res.status(404).json(errors);
+    }
+
+    // Check Password
+    bcrypt.compare(password, user.password).then(isMatch => {
+      if (isMatch) {
+        // User Matched
+        const payload = { id: user.id, email: user.email }; // Create JWT Payload
+
+        // Sign Token
+        jwt.sign(
+          payload,
+          process.env.secret,
+          { expiresIn: 3600 },
+          (err, token) => {
+            res.json({
+              success: true,
+              token: 'Bearer ' + token
+            });
+          }
+        );
+      } else {
+        errors.password = 'Password incorrect';
+        return res.status(400).json(errors);
+      }
+    });
+  });
+  });
+
+  app.post('/signup', (req, res)=>{
+    console.log(req.body);
+    const { errors, isValid } = validateRegisterInput(req.body);
+
+    // Check Validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  User.findOne({ email: req.body.email }).then(user => {
+    if (user) {
+      errors.email = 'Email already exists';
+      return res.status(400).json(errors);
+    } else {
+      const avatar = gravatar.url(req.body.email, {
+        s: '200', // Size
+        r: 'pg', // Rating
+        d: 'mm' // Default
+      });
+
+      const newUser = new User({
+        name: req.body.name,
+        email: req.body.email,
+        avatar,
+        password: req.body.password
+      });
+
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if (err) throw err;
+          newUser.password = hash;
+          newUser
+            .save()
+            .then(user => res.json(user))
+            .catch(err => console.log(err));
+        });
+      });
+    }
+  });
+  });
+
 
   app.get('/api/logout', (req, res) => {
     // req.logout kills the cookie with the id
     req.logout();
     res.redirect('/');
   });
+
+  app.get('/api/checkToken', (req, res) => { 
+    console.log(req.headers.token);
+    console.log(req.headers);
+    console.log(req.headers.authorization);
+      if (req.headers.token) {
+        console.log(req.headers.token);
+          var token = req.headers.token;
+          jwt.verify(token, process.env.secret, (err, authorizedData) => {
+            if(err){
+                //If error send Forbidden (403)
+                console.log('ERROR: Could not connect to the protected route');
+                res.sendStatus(403);
+            } else {
+                //If token is successfully verified, we can send the autorized data 
+                res.json({
+                    message: 'Successful log in',
+                    authorizedData
+                });
+                console.log('SUCCESS: Connected to protected route');
+              }
+            });
+            var decoded = jwt.verify(token, process.env.secret)
+            console.log("iddddd");
+            console.log(decoded);
+      }
+  });
   
   //TODO: change this later!!!
-  app.get('/home', (req, res) => {
-    res.redirect('/');
-  })
 
-  app.get('/profile', 
-  function(req, res){
-    //  TODO: all of this
-    //db.User.find({})
-    // .populate("UserMaxes Workout")
-    // .then(function(dbUser) {
-    //   // If any Libraries are found, send them to the client with any associated Books
-    //   res.json(dbUser);
-    // })
-    res.send( req.user );
 
-  });
-
-    // test to make sure we are getting our user after auth process is complete
-    app.get('/api/current_user', (req, res) => {
-      res.send(req.user);
+  app.get('/profile', passport.authenticate('jwt', {session: false}), (req, res) => {
+    res.json({
+      id: req.user.id,
+      name: req.user.name,
+      email: req.user.email
     });
-  };
+  })
+}

@@ -1,4 +1,5 @@
-// app.get('/api/')
+const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
 module.exports = app => {
 
@@ -14,14 +15,19 @@ module.exports = app => {
   app.get('/api/program', function(req, res){
   })
 
-  app.post('/api/workout/:id', (req,res)=> {
-    User.findById(req.param.id, function(err, user){
+  app.post('/api/workout', (req,res)=> {
+    console.log(req.body);
+    User.findById(req.body.userId, function(err, user){
       if(err){
         console.log(err);
       } else {
-        console.log(req.body);
+        console.log("user");
       }
     })
+  })
+
+  app.get('/*', (req, res) => {
+    res.redirect('/');
   })
 
 }

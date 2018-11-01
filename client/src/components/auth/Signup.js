@@ -15,11 +15,10 @@ class Signup extends Component {
     };
   }
   onSubmit = formProps => {
-    console.log(formProps);
     // we call the signup action creator that is available inside of our component due to the connect below
     // we set a callback here so that after signing up they will be taken to the feature page
-    console.log(this.props);
     this.props.signup(formProps, () => {
+      console.log("called");
       this.props.history.push("/home");
     });
   };
@@ -31,11 +30,9 @@ class Signup extends Component {
   };
 
   handleOutput = () => {
-    console.log(this.props);
     if (this.state.clicked === false) {
       return <button onClick={this.handleClick}>Signup</button>;
     } else {
-      console.log("clicked");
       const { handleSubmit } = this.props;
       return (
         <form onSubmit={handleSubmit(this.onSubmit)}>

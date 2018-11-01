@@ -1,4 +1,7 @@
 import axios from "axios";
+import setAuthToken from "../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
+
 import {
   AUTH_USER,
   POST_WORKOUT,
@@ -15,13 +18,8 @@ import {
 export const signup = (formProps, callback) => async dispatch => {
   try {
     const response = await axios.post("/signup", formProps);
-
-    dispatch({
-      type: AUTH_USER,
-      payload: { authenticated: response.data.token }
-    });
-    localStorage.setItem("token", response.data.token);
-    callback();
+    console.log(response);
+    dispatch(signin(formProps, callback));
   } catch (e) {
     dispatch({
       type: AUTH_ERROR,
@@ -38,8 +36,11 @@ export const signin = (formProps, callback) => async dispatch => {
       type: AUTH_USER,
       payload: { authenticated: response.data.token }
     });
-    dispatch({ type: FETCH_USER, payload: response.data.user });
-    localStorage.setItem("token", response.data.token);
+    const { token } = response.data;
+    // Set token to ls
+    localStorage.setItem("token", token);
+    // Set token to Auth header
+    setAuthToken(token);
     callback();
   } catch (e) {
     dispatch({ type: AUTH_ERROR, payload: "Invalid login credentials" });
@@ -72,18 +73,16 @@ export const signInFacebook = callback => async dispatch => {
   }
 };
 
-export const authUser = cb => async dispatch => {
-  const res = await axios.get("/profile");
-  dispatch({ type: FETCH_USER, payload: res });
-  console.log(res);
-  console.log("profile response");
-  // if (res.data)
-  // dispatch({ type: FETCH_USER_LIFT_DATA, payload: response.data.user });
-  cb();
+export const authUser = callback => async dispatch => {
+  let token = localStorage.getItem("token");
+  const decoded = jwt_decode(token);
+  console.log(decoded);
+  dispatch({ type: FETCH_USER, payload: decoded });
 };
 
 export const signout = () => {
   localStorage.removeItem("token");
+  setAuthToken(false);
   return {
     type: AUTH_USER,
     payload: {
@@ -97,9 +96,10 @@ export const signout = () => {
 };
 
 // WORKOUTS ------------------------------------------
-export const submitWorkout = values => async dispatch => {
+export const submitWorkout = (values, id) => async dispatch => {
   console.log(values);
-  const res = await axios.post("/api/workout", values);
+
+  const res = await axios.post("/api/workout/", values);
   // history.push("/dashboard");
   dispatch({ type: POST_WORKOUT, payload: res.data });
 };

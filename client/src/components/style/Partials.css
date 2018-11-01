@@ -1,0 +1,96 @@
+/* Header component -------------------------------------------------*/
+
+.flex-container {
+  display: flex;
+}
+
+.header {
+  padding: 75px 0;
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.line {
+position: absolute;
+width: 80%;
+height: 0px;
+left: 10%;
+top: 50px;
+border: 3px solid #5C9EAD;
+}
+
+.signOut {
+  position: absolute;
+  font-size: 18px;
+  top: 2%;
+  right: 10%;
+}
+
+.signOut button:active {
+  font-size: 19px;
+}
+
+.logo {
+width: 228px;
+height: 61px;
+left: 89px;
+top: 40px;
+font-family: 'Sedgwick Ave', cursive;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 48px;
+text-decoration: underline;
+color: #E39774 !important;
+text-shadow:
+   -1px -1px 0 #5C9EAD,  
+    1px -1px 0 #5C9EAD,
+    -1px 1px 0 #5C9EAD,
+     1px 1px 0 #5C9EAD;
+
+}
+
+.header__icons {
+width: 700px;
+height: 35px;
+justify-content: space-between;
+font-family: Sedgwick Ave;
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+}
+
+.header__icons--color {
+  font-size: 24px;
+  color: #326273 !important;
+}
+
+.header__icons button {
+  border: none;
+  background-color: transparent;
+}
+
+.header__icons button:hover {
+  color: #E39774;
+}
+
+.header__icons button:active {
+  color: #E39774;
+  font-size: 25px;
+  text-shadow:
+   -1px -1px 0 #5C9EAD,  
+    1px -1px 0 #5C9EAD,
+    -1px 1px 0 #5C9EAD,
+     1px 1px 0 #5C9EAD;
+}
+
+
+
+
+
+
+
+
+
+/* Footer component -------------------------------------------------*/

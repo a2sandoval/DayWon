@@ -26,14 +26,15 @@ function PrimaryForm(props) {
   };
 
   let renderVal = type => {
-    let workoutData = props.liftingData[props.workoutDay][props.set];
-    if (!workoutData) {
+    // let workoutData = props.liftingData[props.workoutDay][props.set];
+    if (!props.liftingData[props.workoutDay][props.set]) {
       if (type === "reps") {
         return props.inputRepVal;
       } else {
         return props.inputWeightVal;
       }
     } else {
+      let workoutData = props.liftingData[props.workoutDay][props.set];
       console.log(workoutData[type]);
       return workoutData[type];
     }

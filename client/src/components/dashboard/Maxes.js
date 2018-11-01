@@ -29,27 +29,41 @@ class MaxChart extends Component {
   render() {
     console.log(this.state);
     return (
-      <div className="col s9 m6">
-        <div className="card">
-          <div className="card-image">
-            <img src="http://www.crossfitnorthfulton.com/wp-content/uploads/2012/11/crossfitnorthfulton-216.jpg" />
-            <span class="card-title">DayWon</span>
+      <div className="col s12">
+        <div className="intro s8">
+          Program - Program Name
+          <div className="intro-par">
+            <p>
+              It takes time to load up heavy weight onto the bar. For those
+              without the right program they'll never get there. We're going to
+              get you on track but it will come down to you. Your dedication,
+              max effort, and patience will determine your success or downfall.
+              Learn the proper mechanics and enjoy these programs... they're
+              done by the best.
+            </p>
+            <p>
+              Juggernaut paragraph Lorem ipsum dolor sit, amet consectetur
+              adipisicing elit. Dolorum nobis dolor ab iusto nesciunt? Quos
+              molestiae aut voluptatum quisquam perspiciatis temporibus quae
+              placeat nemo ad, delectus totam pariatur cupiditate eos possimus
+              libero, exercitationem dolorem ab ipsa debitis officia voluptates?
+              Quod.
+            </p>
           </div>
-          <div className="card-stacked">
-            <div className="card-content">
-              <p>
-                It takes time to load up heavy weight onto the bar. For those
-                without the right program they'll never get there. We're going
-                to get you on track but it will come down to you. Your
-                dedication, max effort, and patience will determine your success
-                or downfall. Learn the proper mechanics and enjoy these
-                programs... they're done by the best.
-              </p>
-              <br />
-              <p>
-                <b>User Maxes:</b>
-              </p>
-              <div className="row">
+          <div className="stats">
+            <div className="totals">
+              <div className="title">History</div>
+              <div className="lists">
+                Days logged: <br />
+                Total Sets: <br />
+                Total Volume: <br />
+                Avg Daily Volume:
+              </div>
+            </div>
+            <div>
+              {/* Moving this all to the pi chart */}
+              <div className="title">Maxes</div>
+              <div className="lists row">
                 <div className="col s3">
                   <p>Benchpress </p>
 
@@ -83,7 +97,7 @@ class MaxChart extends Component {
                 </div>
               </div>
             </div>
-            <div class="card-action click">
+            <div class="buttons">
               <button
                 onClick={() => this.startWorkoutModal()}
                 className="waves-effect waves-light btn"

@@ -34,8 +34,7 @@ const jwtOptions = {
   // we tell it that whenever a request comes in that we need to handle, look the request header and find authorization
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
   // tell it the secret it should use to decode this token
-  //TODO: fix
-  secretOrKey: "Hi There"
+  secretOrKey: process.env.secret
 };
 
 // Create JWT strategy
@@ -50,9 +49,9 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
 
     if (user) {
       // done without an error and that user
-      done(null, user);
+      return done(null, user);
     } else {
-      done(null, false);
+     return done(null, false);
     }
   });
 });

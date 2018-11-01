@@ -80,14 +80,14 @@ class DailyView extends Component {
   };
 
   formLayout = (programDay, userMax) => {
-    let primaryForm = () => {
+    let primaryForm = obj => {
+      if (obj === "setting data") {
       return programDay.primaryWorkouts.reps.map((set, i) => {
         let increment = i + 1;
-        let key = programDay.primaryWorkouts.lift + "_" + increment + "_weight";
         let lift = programDay.primaryWorkouts.lift;
-        let repInput =
-          programDay.primaryWorkouts.lift + "_" + increment + "_reps";
-        let row = `${programDay.primaryWorkouts.lift}_set${increment}_row`;
+        let key = lift + "_" + increment + "_weight";
+        let repInput = lift + "_" + increment + "_reps";
+        let row = `${lift}_set${increment}_row`;
         // console.log(this.state);
         let weightCalc = calcs.totalWeight(
           programDay.primaryWorkouts.weightPerc[i],
@@ -151,24 +151,28 @@ class DailyView extends Component {
       });
     };
 
-    let accessForm = () => {
-      return programDay.accesWorkouts.map((workout, i) => {
-        return (
-          <div className="access" id="lift">
-            <h5>{workout.lift}</h5>
-            <table className="acces-tables ui celled table">
-              <thead>
-                <tr>
-                  <th className="short-width">Set</th>
-                  <th>Reps</th>
-                  <th>Weight</th>
-                </tr>
-              </thead>
-              <tbody>{populateAccessForm(i)}</tbody>
-            </table>
-          </div>
-        );
-      });
+    let accessForm = obj => {
+      if (obj === "setting data") {
+        populateAccessForm(obj);
+      } else {
+        return programDay.accesWorkouts.map((workout, i) => {
+          return (
+            <div className="access" id="lift">
+              <h5>{workout.lift}</h5>
+              <table className="acces-tables ui celled table">
+                <thead>
+                  <tr>
+                    <th className="short-width">Set</th>
+                    <th>Reps</th>
+                    <th>Weight</th>
+                  </tr>
+                </thead>
+                <tbody>{populateAccessForm(i)}</tbody>
+              </table>
+            </div>
+          );
+        });
+      }
     };
 
     // inputRepVal2={this.state.liftingData[lift][increment]["reps"]}
@@ -176,32 +180,68 @@ class DailyView extends Component {
 
     let populateAccessForm = i => {
       return programDay.accesWorkouts[i].reps.map((set, i) => {
-        let key = i + 1;
-        let weightInput =
-          programDay.accesWorkouts[i].lift + "_" + key + "_weight";
-        let repInput = programDay.accesWorkouts[i].lift + "_" + key + "_reps";
+        let increment = i + 1;
+        let key =
+          programDay.accesWorkouts[i].lift + "_" + increment + "_weight";
+        let lift = programDay.accesWorkouts[i].lift;
+        let repInput = lift + "_" + key + "_reps";
+        let row = `${lift}_set${increment}_row`;
+        let weight;
+        // check if theres data on lift
+        // if (!this.props[programDay.day][lift]) {
+        weight = "Log weight for later reference";
+        // } else {
+        //   weight = this.props[programDay.day][lift][0];
+        // }
+
         if (programDay === this.state.programDay) {
         } else {
-          this.setState({
-            programDay: programDay,
-            [weightInput]: "",
-            [repInput]: set
+          let accessLift = {
+            [lift]: [
+              {
+                reps: set,
+                weight: weight,
+                set: increment
+              }
+            ]
+          };
+          console.log(accessLift);
+          setState({
+            programDay,
+            accessLift
           });
         }
         return (
           <AccesForm
-            set={key}
+            set={increment}
             reps={set}
+            row={row}
             idToStateReps={repInput}
             idToStateWeight={key}
             updateVal={this.updateVal}
             inputRepVal={this.state[repInput]}
             inputWeightVal={this.state[key]}
+            weight={weight}
             nextSet={this.nextSet}
             currentSet={this.state.currentSet}
             previousSet={this.state.previousSet}
+            workoutDay={lift}
+            liftingData={this.state.liftingData}
+            nextSet={this.nextSet}
+            currentSet={this.state.currentSet}
+            previousSet={this.state.previousSet}
+            setRowAsCurrent={this.setRowAsCurrent}
+            rowIsCurrent={this.rowIsCurrent}
           />
         );
+      });
+    };
+
+    updatesRendered = () => {
+      accessForm("setting data");
+      primaryForm("setting data");
+      this.setState({
+        programDay
       });
     };
 
@@ -311,7 +351,8 @@ class DailyView extends Component {
     let workoutSubmit = {
       workoutDay: programDayLift,
       maxForWorkout: userMax,
-      ...this.state.liftingData
+      ...this.state.liftingData,
+      ...this.props.user
     };
     this.props.submitWorkout(workoutSubmit);
   };
@@ -351,14 +392,16 @@ function mapStateToProps({
   userMaxes,
   powerliftDay,
   measurement,
-  settings
+  settings,
+  user
 }) {
   return {
     workoutDay,
     userMaxes,
     powerliftDay,
     measurement,
-    settings
+    settings,
+    user
   };
 }
 

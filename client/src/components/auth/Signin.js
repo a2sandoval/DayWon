@@ -32,7 +32,6 @@ class Signin extends Component {
     if (this.state.clicked === false) {
       return <button onClick={this.handleClick}>Signin</button>;
     } else {
-      console.log("clicked");
       return (
         // we then use handleSubmit to call onSubmit which is hte juction we developed for handling sign in. This then references teh onSubmit method above but note: it doesnt call it with ()
         <form onSubmit={handleSubmit(this.onSubmit)}>

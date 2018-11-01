@@ -1,23 +1,25 @@
 import React from "react";
 import Graph from "./Graph";
 import Maxes from "./Maxes";
+import MyPie from "./Pie";
 import MaxCalc from "./MaxCalc";
 import Stats from "./Stats";
 import "../style/Dashboard.css";
 
-const graphStyle = {
-  height: "500px"
-};
-
 const Dashboard = props => {
   console.log("props");
   return (
-    <div className="row">
-      <div className="graph-component col s10 offset-s1 l6" style={graphStyle}>
-        Graph
-      </div>
-      <div className="s9 offset-s1 l6">
-        <Maxes />
+    <div className="dash-components">
+      <div className="row">
+        <div className="s12">
+          <Maxes />
+        </div>
+        <div className="graph-component col s9">
+          <Graph />
+        </div>
+        <div className="pie-chart col s3" id="pie-chart">
+          <MyPie />
+        </div>
       </div>
     </div>
   );

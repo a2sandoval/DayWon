@@ -1,21 +1,8 @@
-.grid {
-  display: grid;
-  grid-template-columns: [col1] 25% [col2] 65% [col3];
-  grid-template-rows: [row1] 15% [row2] 15% [row3] 35% [row4] 35% [row5]; 
-}
 
-.header {
-  grid-column-start: col1;
-  grid-column-end: col4;
-  grid-row-start: row1;
-  grid-row-end: row2;
-}
-
-.main {
-  grid-column-start: col1;
-  grid-column-end: col4;
-  grid-row-start: row2;
-  grid-row-end: row3;
+/* Dashboard components --------------------------------------- */
+.dash-components {
+  margin: auto;
+  width: 80%;
 }
 
 .stats {
@@ -49,47 +36,41 @@
 }
 
 .weight-label {
-  grid-column-start: col1;
-  grid-column-end: col2;
-  grid-row-start: row3;
-  grid-row-end: row4;
+
 }
 
 .reps-label {
-  grid-column-start: col1;
-  grid-column-end: col2;
-  grid-row-start: row3;
-  grid-row-end: row4;
 }
+
 
 .max-calc-weight-inputs {
   /* margin: 20px !important;
   width: 40px !important; */
-  grid-column-start: col2;
-  grid-column-end: col3;
-  grid-row-start: row3;
-  grid-row-end: row4;
 }
 
 .max-calc-reps-inputs {
   /* margin: 20px !important;
   width: 40px !important; */
-  grid-column-start: col2;
-  grid-column-end: col3;
-  grid-row-start: row3;
-  grid-row-end: row4;
 }
 
 .new-max {
   font-size: 24px;
   justify-self: center;
   align-self: center;
-  grid-column-start: col2;
-  grid-column-end: col3;
-  grid-row-start: row3;
-  grid-row-end: row5;
 }
 
 .input-form {
   margin-left: 20px;
+}
+
+/* Graph Component ------------------------------------------------------ */
+
+.graph-component {
+  height: 400px;
+  width: 800px;
+  background-color: #6d1b25;
+}
+
+.pie-chart {
+  height: 500px;
 }
