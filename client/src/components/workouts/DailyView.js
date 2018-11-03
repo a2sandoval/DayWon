@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-import {
-  Grid,
-  InputAdornment,
-  TextField,
-  MenuItem,
-  Paper,
-  Modal
-} from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-import { Visibility, VisibilityOff } from "@material-ui/icons";
+import { Modal } from "@material-ui/core";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 import program from "../../utils/allProgramData";
@@ -34,7 +25,8 @@ class DailyView extends Component {
         Benchpress: {},
         "Military Press": {},
         Deadlift: {}
-      }
+      },
+      accesData: {}
     };
   }
 
@@ -79,9 +71,12 @@ class DailyView extends Component {
     }
   };
 
+  handleSubmit = e => {
+    console.log(e);
+  };
+
   formLayout = (programDay, userMax) => {
-    let primaryForm = obj => {
-      if (obj === "setting data") {
+    let primaryForm = programDay => {
       return programDay.primaryWorkouts.reps.map((set, i) => {
         let increment = i + 1;
         let lift = programDay.primaryWorkouts.lift;
@@ -139,6 +134,7 @@ class DailyView extends Component {
             reps={set}
             set={increment}
             row={row}
+            programDay={programDay}
             workoutDay={lift}
             liftingData={this.state.liftingData}
             nextSet={this.nextSet}
@@ -151,106 +147,77 @@ class DailyView extends Component {
       });
     };
 
-    let accessForm = obj => {
-      if (obj === "setting data") {
-        populateAccessForm(obj);
-      } else {
-        return programDay.accesWorkouts.map((workout, i) => {
+    let accessForm = () => {
+      return programDay.accesWorkouts.map((workout, i) => {
+        return programDay.accesWorkouts[i].reps.map((set, i) => {
+          let increment = i + 1;
+          let lift = programDay.accesWorkouts[i].lift;
+          let key = lift + "_" + increment + "_weight";
+          let repInput = lift + "_" + key + "_reps";
+          let row = `${lift}_set${increment}_row`;
+          let weight;
+          // check if theres data on lift
+          // if (!this.props[programDay.day][lift]) {
+          weight = "Log weight for later reference";
+          // } else {
+          //   weight = this.props[programDay.day][lift][0];
+          // }
+
+          if (programDay === this.state.programDay) {
+          } else {
+            this.setState({
+              programDay,
+              repInput: set,
+              key: weight
+            });
+          }
           return (
-            <div className="access" id="lift">
-              <h5>{workout.lift}</h5>
-              <table className="acces-tables ui celled table">
-                <thead>
-                  <tr>
-                    <th className="short-width">Set</th>
-                    <th>Reps</th>
-                    <th>Weight</th>
-                  </tr>
-                </thead>
-                <tbody>{populateAccessForm(i)}</tbody>
-              </table>
-            </div>
+            <AccesForm
+              set={increment}
+              reps={set}
+              row={row}
+              idToStateReps={repInput}
+              idToStateWeight={key}
+              updateVal={this.updateVal}
+              inputRepVal={this.state[repInput]}
+              inputWeightVal={this.state[key]}
+              weight={weight}
+              nextSet={this.nextSet}
+              currentSet={this.state.currentSet}
+              previousSet={this.state.previousSet}
+              workoutDay={lift}
+              liftingData={this.state.liftingData}
+              setRowAsCurrent={this.setRowAsCurrent}
+              rowIsCurrent={this.rowIsCurrent}
+            />
           );
         });
-      }
+      });
     };
+
+    // {/* <div className="access" id="lift">
+    // <h5>{workout.lift}</h5>
+    // <table className="acces-tables ui celled table">
+    //   <thead>
+    //     <tr>
+    //       <th className="short-width">Set</th>
+    //       <th>Reps</th>
+    //       <th>Weight</th>
+    //     </tr>
+    //   </thead> */}
+
+    //               {/* </table>
+    // </div> */}
 
     // inputRepVal2={this.state.liftingData[lift][increment]["reps"]}
-    // inputWeightVal2={this.state.liftingData[lift][increment]["weight"]}
-
-    let populateAccessForm = i => {
-      return programDay.accesWorkouts[i].reps.map((set, i) => {
-        let increment = i + 1;
-        let key =
-          programDay.accesWorkouts[i].lift + "_" + increment + "_weight";
-        let lift = programDay.accesWorkouts[i].lift;
-        let repInput = lift + "_" + key + "_reps";
-        let row = `${lift}_set${increment}_row`;
-        let weight;
-        // check if theres data on lift
-        // if (!this.props[programDay.day][lift]) {
-        weight = "Log weight for later reference";
-        // } else {
-        //   weight = this.props[programDay.day][lift][0];
-        // }
-
-        if (programDay === this.state.programDay) {
-        } else {
-          let accessLift = {
-            [lift]: [
-              {
-                reps: set,
-                weight: weight,
-                set: increment
-              }
-            ]
-          };
-          console.log(accessLift);
-          setState({
-            programDay,
-            accessLift
-          });
-        }
-        return (
-          <AccesForm
-            set={increment}
-            reps={set}
-            row={row}
-            idToStateReps={repInput}
-            idToStateWeight={key}
-            updateVal={this.updateVal}
-            inputRepVal={this.state[repInput]}
-            inputWeightVal={this.state[key]}
-            weight={weight}
-            nextSet={this.nextSet}
-            currentSet={this.state.currentSet}
-            previousSet={this.state.previousSet}
-            workoutDay={lift}
-            liftingData={this.state.liftingData}
-            nextSet={this.nextSet}
-            currentSet={this.state.currentSet}
-            previousSet={this.state.previousSet}
-            setRowAsCurrent={this.setRowAsCurrent}
-            rowIsCurrent={this.rowIsCurrent}
-          />
-        );
-      });
-    };
-
-    updatesRendered = () => {
-      accessForm("setting data");
-      primaryForm("setting data");
-      this.setState({
-        programDay
-      });
-    };
-
+    // inputWeightVal2={this.state.liftingData[lift][increment]["weight"]
     return (
       <DailyViewLayout
+        handleSubmit={this.handleSubmit}
         week={programDay.week}
         wave={programDay.wave}
         day={programDay.workout}
-        programDay={programDay.programDay}
+        programDay={programDay}
         primaryForm={primaryForm}
         accessForm={accessForm}
         submitWorkout={this.submitWorkout}
@@ -258,22 +225,29 @@ class DailyView extends Component {
     );
   };
 
-  updateVal = (e, increment, workout, type) => {
+  updateVal = (e, increment, workout, type, id) => {
     console.log(this.state.liftingData);
-    let updateInputData = { ...this.state.liftingData };
-    updateInputData[workout][increment][type] = e.value;
-    this.workoutData = updateInputData;
-    console.log(this.workoutData);
-    this.setState(
-      {
-        [type]: e.value,
-        liftingData: this.workoutData
-      },
-      () => {
-        console.log(this.state.liftingData);
-      }
-    );
-    console.log(this.state.liftingData);
+    console.log(this.state);
+    let updateInputData = {};
+    if (id) {
+      this.setState({
+        [id]: e.value
+      });
+    } else {
+      updateInputData = { ...this.state.liftingData };
+      updateInputData[workout][increment][type] = e.value;
+      this.workoutData = updateInputData;
+      console.log(this.workoutData);
+      this.setState(
+        {
+          [type]: e.value,
+          liftingData: this.workoutData
+        },
+        () => {
+          console.log(this.state.liftingData);
+        }
+      );
+    }
   };
 
   updateDay = calc => {
@@ -360,8 +334,6 @@ class DailyView extends Component {
   handleSubmit = e => {
     console.log(e);
   };
-
-  componentDidUpdate() {}
 
   render() {
     return (

@@ -35,13 +35,15 @@ function PrimaryForm(props) {
       }
     } else {
       let workoutData = props.liftingData[props.workoutDay][props.set];
-      console.log(workoutData[type]);
       return workoutData[type];
     }
   };
 
   return (
     <tr className={isCurrentSet(props.row, "for class naming")} id={props.row}>
+      {/* <td rowSpan={props.programDay.primaryWorkouts.reps.length - 1}>
+        {props.lift}
+      </td> */}
       <td data-label="Set">{props.set}</td>
       <td>
         <input

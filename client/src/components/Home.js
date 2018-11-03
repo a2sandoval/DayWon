@@ -9,21 +9,9 @@ import { connect } from "react-redux";
 import Signout from "./auth/Signout";
 
 class Home extends Component {
-  componentDidMount() {
-    if (!localStorage.getItem("token")) {
-      this.props.history.push("/");
-    }
-    this.props.authUser(() => {
-      console.log("authUser");
-    });
-  }
+  componentDidMount() {}
 
-  componentDidUpdate() {
-    if (!localStorage.getItem("token")) {
-      this.props.history.push("/");
-    }
-    console.log(this.props.user);
-  }
+  componentDidUpdate() {}
 
   render() {
     return (
