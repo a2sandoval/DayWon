@@ -1,0 +1,46 @@
+.login-page {
+  background-color: white;
+  margin-top: 10%;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-on {
+  background-color: white;
+  color: black;
+}
+
+.button-off {
+  background-color: darkgray;
+}
+
+.btn:hover {
+  background-color: #da364a;
+}
+
+.btn:active {
+  background-color: #6d1b25;
+}
+
+#button-switch {
+  padding-top: 20px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+fieldset {
+  border:none;
+}
+
+.email {
+
+}
+
+.password {
+
+}

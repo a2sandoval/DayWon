@@ -1,24 +1,26 @@
 import React from "react";
 import Graph from "./Graph";
 import Maxes from "./Maxes";
+import MyPie from "./Pie";
 import MaxCalc from "./MaxCalc";
 import Stats from "./Stats";
-import Grid from "@material-ui/core/Grid";
+import "../style/Dashboard.css";
 
 const Dashboard = props => {
   console.log("props");
   return (
-    <div>
-      <Grid container>
-        <Grid item xs={6}>
-          <Graph />
-        </Grid>
-        <Grid item xs={6}>
+    <div className="dash-components">
+      <div className="row">
+        <div className="s12">
           <Maxes />
-          <Stats />
-          <MaxCalc />
-        </Grid>
-      </Grid>
+        </div>
+        <div className="graph-component col s9">
+          <Graph />
+        </div>
+        <div className="pie-chart col s3" id="pie-chart">
+          <MyPie />
+        </div>
+      </div>
     </div>
   );
 };

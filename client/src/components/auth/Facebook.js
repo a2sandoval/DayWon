@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
+import "materialize-social/materialize-social.css";
 
 //TODO: make this work with redux. Also need to send this to the backend server eventually.
 class Facebook extends Component {
@@ -18,7 +19,16 @@ class Facebook extends Component {
   }
 
   render() {
-    return <button onClick={this.handleClick}>Facebook</button>;
+    return (
+      <div className="col s6">
+        <button
+          onClick={this.handleClick}
+          className="waves-effect waves-light btn social facebook "
+        >
+          <i className="fa fa-facebook" /> Sign in with facebook
+        </button>
+      </div>
+    );
   }
 }
 

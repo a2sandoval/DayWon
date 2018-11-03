@@ -1,8 +1,11 @@
-body {
+a {
+  color: #326273 !important;
+}
+
+/* body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: lightslategray;
 }
 
 .fillableForm {
@@ -25,7 +28,7 @@ body {
 
 /* tables ------------------------------------------------------------ */
 /* ------------------------------------------------------------------- */
-
+/* 
 .acces-tables {
   width: 70%;
 }
@@ -46,19 +49,25 @@ body {
 
 h5 {
   padding-top: 5px;
-}
-
+} */
+/* 
 .app_bar {
-  background-color: grey !important;
+  background-color: #d8d8d8
+  !important;
 }
 
 .tab_bar {
-  background-color: white !important;
+  background-color: #191919 !important;
+  color: white !important;
 }
 
 button:focus {
-  background-color: red !important;
+  background-color: #982533 !important;
 }
+
+.MuiTab-textColorPrimary-105 {
+  color: white !important;
+} */
 
 /* 
 .MuiTabs-root-216 {

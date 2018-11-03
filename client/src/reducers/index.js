@@ -6,7 +6,6 @@ import measurements from "./workoutData/measurement";
 import settings from "./later/settings";
 // import videos from './videos';
 import workout from "./workoutData/workout";
-import program from "./workoutData/program";
 import workoutDay from "./workoutData/workoutDay";
 
 export default combineReducers({
@@ -16,7 +15,6 @@ export default combineReducers({
   settings: settings,
   // videos: videos,
   user: user,
-  program: program,
   workout: workout,
   workoutDay: workoutDay
 });

@@ -31,7 +31,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(morgan('combined'));
 app.use(cors());
-app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(require('express-session')({ secret: process.env.secret, resave: true, saveUninitialized: true }));
 
 // passport middlewares
 app.use(passport.initialize());

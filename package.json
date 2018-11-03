@@ -26,10 +26,12 @@
   },
   "homepage": "https://github.com/jakedykstra/Juggernaut#readme",
   "dependencies": {
-    "bcrypt-nodejs": "*",
+    "bcryptjs": "^2.4.3",
     "express-session": "^1.11.3",
     "body-parser": "^1.17.2",
     "concurrently": "^3.5.0",
+    "gravatar": "^1.6.0",
+    "jsonwebtoken": "^8.2.0",
     "cors": "^2.8.4",
     "create-react-app": "^1.5.2",
     "dotenv": "^6.0.0",
@@ -41,12 +43,9 @@
     "morgan": "*",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
-    "passport-facebook": "^2.1.1",
-    "passport-google-oauth20": "^1.0.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "*",
     "path-parser": "^2.0.2",
-    "sendgrid": "^5.1.2",
-    "stripe": "^4.23.1"
+    "validator": "^9.4.1"
   }
 }

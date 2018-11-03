@@ -1,0 +1,76 @@
+
+/* Dashboard components --------------------------------------- */
+.dash-components {
+  margin: auto;
+  width: 80%;
+}
+
+.stats {
+  background-color: red;
+}
+
+.click {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.btn:hover {
+  background-color: #da364a;
+}
+
+.btn:active {
+  background-color: #6d1b25;
+}
+
+.btn {
+  background-color: grey;
+}
+
+.max-calc {
+  background-color: white;
+  color: white;
+  width: 25%;
+  margin: auto;
+  height: 45%;
+}
+
+.weight-label {
+
+}
+
+.reps-label {
+}
+
+
+.max-calc-weight-inputs {
+  /* margin: 20px !important;
+  width: 40px !important; */
+}
+
+.max-calc-reps-inputs {
+  /* margin: 20px !important;
+  width: 40px !important; */
+}
+
+.new-max {
+  font-size: 24px;
+  justify-self: center;
+  align-self: center;
+}
+
+.input-form {
+  margin-left: 20px;
+}
+
+/* Graph Component ------------------------------------------------------ */
+
+.graph-component {
+  height: 400px;
+  width: 800px;
+  background-color: #6d1b25;
+}
+
+.pie-chart {
+  height: 500px;
+}

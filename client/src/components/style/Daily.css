@@ -1,0 +1,11 @@
+.upcomingSet {
+  background-color: lightslategrey;
+}
+
+.previousSet {
+  background-color: darkslategray;
+}
+
+.currentSet {
+  background-color: white;
+}

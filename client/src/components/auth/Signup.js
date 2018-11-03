@@ -11,15 +11,14 @@ class Signup extends Component {
     super(props);
 
     this.state = {
-      clicked: false
+      clicked: true
     };
   }
   onSubmit = formProps => {
-    console.log(formProps);
     // we call the signup action creator that is available inside of our component due to the connect below
     // we set a callback here so that after signing up they will be taken to the feature page
-    console.log(this.props);
     this.props.signup(formProps, () => {
+      console.log("called");
       this.props.history.push("/home");
     });
   };
@@ -31,17 +30,16 @@ class Signup extends Component {
   };
 
   handleOutput = () => {
-    console.log(this.props);
     if (this.state.clicked === false) {
       return <button onClick={this.handleClick}>Signup</button>;
     } else {
-      console.log("clicked");
       const { handleSubmit } = this.props;
       return (
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <fieldset>
-            <label>Email</label>
+            <label className="col s6 offset-s3 email">Email</label>
             <Field
+              className="col s6 offset-s3"
               name="email"
               type="text"
               component="input"
@@ -49,8 +47,9 @@ class Signup extends Component {
             />
           </fieldset>
           <fieldset>
-            <label>Password</label>
+            <label className="col s6 offset-s3 password">Password</label>
             <Field
+              className="col s6 offset-s3"
               name="password"
               type="password"
               component="input"
@@ -58,7 +57,7 @@ class Signup extends Component {
             />
           </fieldset>
           <div>{this.props.errorMessage}</div>
-          <button>Sign Up!</button>
+          <button className="col s6 offset-s3">Sign Up!</button>
         </form>
       );
     }
