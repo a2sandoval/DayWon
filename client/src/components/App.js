@@ -9,7 +9,6 @@ import Home from "./Home";
 import DailyView from "./workouts/DailyView";
 import WeeklyView from "./workouts/WeeklyView";
 import Settings from "./settings/Settings";
-import Welcome from "./Welcome";
 import Workouts from "./workouts/workouts";
 import Videos from "./videos/Videos";
 import Calculator from "./sidebarFeats/calculator/Calc";
@@ -26,7 +25,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <Route exact path="/" component={Welcome} />
+            <Route exact path="/" component={Home} />
             {/* <Route exact path="/register" component={Measurements} />  */}
             <Route exact path="/home" component={Home} />
             <Route exact path="/workout" component={DailyView} />

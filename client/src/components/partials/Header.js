@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-import Signout from "../auth/Signout";
 import DailyView from "../workouts/DailyView";
 import WeeklyView from "../workouts/WeeklyView";
 import { connect } from "react-redux";
@@ -12,10 +11,7 @@ class Header extends Component {
     anchorEl: null
   };
 
-  handleSignOut = () => {
-    console.log("signout clicked");
-    this.props.signout();
-  };
+  handleSignOut = () => {};
 
   handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -45,9 +41,7 @@ class Header extends Component {
           </div>
           <div className="header__icons flex-container">
             <div className="line" />
-            <div className="signOut">
-              <Signout />
-            </div>
+            <div className="signOut" />
             <div className="1h header__icons--color">
               <Link to="/workout">
                 <button>Start Workout</button>
