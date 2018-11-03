@@ -6,7 +6,6 @@ import Footer from "./partials/Footer";
 import Dashboard from "./dashboard/Dashboard";
 import * as actions from "../actions";
 import { connect } from "react-redux";
-import Signout from "./auth/Signout";
 
 class Home extends Component {
   componentDidMount() {}
