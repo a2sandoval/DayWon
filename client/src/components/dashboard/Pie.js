@@ -9,10 +9,10 @@ function MyPie(props) {
   width={450}
   height={250}
   margin={{
-    top: 80,
-    right: 120,
-    bottom: 80,
-    left: 120
+    top: 20,
+    right: 30,
+    bottom: 20,
+    left: 30
   }}
   data={[
     {

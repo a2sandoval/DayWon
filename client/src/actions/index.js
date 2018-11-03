@@ -16,69 +16,21 @@ import {
 // auth -------------------------------------------------------------
 
 export const signup = (formProps, callback) => async dispatch => {
-  try {
-    const response = await axios.post("/signup", formProps);
-    console.log(response);
-    dispatch(signin(formProps, callback));
-  } catch (e) {
-    dispatch({
-      type: AUTH_ERROR,
-      payload: "Email in use"
-    });
-  }
+  // try {
+  //   const response = await axios.post("/signup", formProps);
+  //   console.log(response);
+  //   dispatch(signin(formProps, callback));
+  // } catch (e) {
+  //   dispatch({
+  //     type: AUTH_ERROR,
+  //     payload: "Email in use"
+  //   });
+  // }
 };
 
-export const signin = (formProps, callback) => async dispatch => {
-  try {
-    const response = await axios.post("/signin", formProps);
-    console.log(response);
-    dispatch({
-      type: AUTH_USER,
-      payload: { authenticated: response.data.token }
-    });
-    const { token } = response.data;
-    // Set token to ls
-    localStorage.setItem("token", token);
-    // Set token to Auth header
-    setAuthToken(token);
-    callback();
-  } catch (e) {
-    dispatch({ type: AUTH_ERROR, payload: "Invalid login credentials" });
-  }
-};
+export const signin = (formProps, callback) => async dispatch => {};
 
-export const signInGoogle = callback => async dispatch => {
-  try {
-    const response = await axios.get("/auth/google");
-    dispatch({ type: AUTH_USER, payload: response.data.token });
-    localStorage.setItem("token", { authenticated: response.data.token });
-    callback();
-  } catch (e) {
-    dispatch({ type: SOCIAL_USER, payload: "Invalid login credentials" });
-  }
-};
-
-export const signInFacebook = callback => async dispatch => {
-  try {
-    const response = await axios.get("/auth/facebook");
-
-    dispatch({
-      type: AUTH_USER,
-      payload: { authenticated: response.data.token }
-    });
-    localStorage.setItem("token", response.data.token);
-    callback();
-  } catch (e) {
-    dispatch({ type: SOCIAL_USER, payload: "Invalid login credentials" });
-  }
-};
-
-export const authUser = callback => async dispatch => {
-  let token = localStorage.getItem("token");
-  const decoded = jwt_decode(token);
-  console.log(decoded);
-  dispatch({ type: FETCH_USER, payload: decoded });
-};
+export const authUser = callback => async dispatch => {};
 
 export const signout = () => {
   localStorage.removeItem("token");

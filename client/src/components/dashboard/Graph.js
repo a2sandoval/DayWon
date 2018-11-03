@@ -66,8 +66,8 @@ class graph extends Component {
     console.log(this.props);
     return (
       <Line
-        width={450}
-        height={200}
+        width={900}
+        height={400}
         margin={{
           top: 10,
           right: 10,

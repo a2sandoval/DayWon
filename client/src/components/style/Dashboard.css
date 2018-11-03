@@ -6,7 +6,7 @@
 }
 
 .stats {
-  background-color: red;
+  
 }
 
 .click {
@@ -68,9 +68,10 @@
 .graph-component {
   height: 400px;
   width: 800px;
-  background-color: #6d1b25;
+  padding-top: 30px;
 }
 
 .pie-chart {
-  height: 500px;
+  height: 800px;
+  background-color: white;
 }
