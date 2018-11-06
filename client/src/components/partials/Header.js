@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-import DailyView from "../workouts/DailyView";
-import WeeklyView from "../workouts/WeeklyView";
+import Signout from "../auth/Signout";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 import "../style/Partials.css";
@@ -11,7 +10,10 @@ class Header extends Component {
     anchorEl: null
   };
 
-  handleSignOut = () => {};
+  handleSignOut = () => {
+    console.log("signout clicked");
+    this.props.signout();
+  };
 
   handleClick = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -25,42 +27,37 @@ class Header extends Component {
     const { anchorEl } = this.state;
     console.log(this.props);
     console.log("logging auth");
-    if (!localStorage.getItem("token")) {
-      return (
-        <div className="header">
-          <div className="logo">DayWon</div>
+
+    return (
+      <div className="header flex-container">
+        <div className="logo">
+          <Link to="/home" className="logo">
+            DayWon
+          </Link>
         </div>
-      );
-    } else {
-      return (
-        <div className="header flex-container">
-          <div className="logo">
-            <Link to="/home" className="logo">
-              DayWon
+        <div className="header__icons flex-container">
+          <div className="line" />
+          <div className="signOut">
+            <Signout />
+          </div>
+          <div className="1h header__icons--color">
+            <Link to="/workout">
+              <button>Start Workout</button>
             </Link>
           </div>
-          <div className="header__icons flex-container">
-            <div className="line" />
-            <div className="signOut" />
-            <div className="1h header__icons--color">
-              <Link to="/workout">
-                <button>Start Workout</button>
-              </Link>
-            </div>
-            <div className="2h header__icons--color">
-              <Link to="/home">
-                <button>Dashboard</button>
-              </Link>
-            </div>
-            <div className="3h header__icons--color">
-              <Link to="workout-week">
-                <button>View Workouts</button>
-              </Link>
-            </div>
+          <div className="2h header__icons--color">
+            <Link to="/home">
+              <button>Dashboard</button>
+            </Link>
+          </div>
+          <div className="3h header__icons--color">
+            <Link to="workout-week">
+              <button>View Workouts</button>
+            </Link>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 

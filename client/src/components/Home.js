@@ -6,11 +6,24 @@ import Footer from "./partials/Footer";
 import Dashboard from "./dashboard/Dashboard";
 import * as actions from "../actions";
 import { connect } from "react-redux";
+import Signout from "./auth/Signout";
 
 class Home extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    if (!localStorage.getItem("token")) {
+      this.props.history.push("/");
+    }
+    this.props.authUser(() => {
+      console.log("authUser");
+    });
+  }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    if (!localStorage.getItem("token")) {
+      this.props.history.push("/");
+    }
+    console.log(this.props.user);
+  }
 
   render() {
     return (

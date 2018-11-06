@@ -1,9 +1,9 @@
 .upcomingSet {
-  background-color: lightslategrey;
+  opacity: .4;
 }
 
 .previousSet {
-  background-color: darkslategray;
+  opacity: .2;
 }
 
 .currentSet {

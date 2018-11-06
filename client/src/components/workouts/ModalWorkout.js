@@ -1,14 +1,4 @@
 import React, { Component } from "react";
-import {
-  Grid,
-  InputAdornment,
-  TextField,
-  MenuItem,
-  Paper,
-  Modal
-} from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-import { Visibility, VisibilityOff } from "@material-ui/icons";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 import program from "../../utils/allProgramData";

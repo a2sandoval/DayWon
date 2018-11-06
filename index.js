@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 require('dotenv').config()
 // express doesn't know how to handle cookies, this helps
 const morgan = require('morgan');
+const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 const cors = require('cors');
 // these are just require statements because we need to link them to the index.js but we don't need to use them in any of the code below
 
 require('./models/User');
+require('./services/passport');
 
 mongoose.Promise = global.Promise;
 // we pass the address of the mongo instance we crated on mlab.com. Each project on there will give us a uri. We place it in config to hide from people
@@ -30,6 +32,10 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 app.use(cors());
 app.use(require('express-session')({ secret: "fur babies", resave: true, saveUninitialized: true }));
+
+// passport middlewares
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // requiring routes

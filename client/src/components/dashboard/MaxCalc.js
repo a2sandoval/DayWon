@@ -24,7 +24,7 @@ class MaxCalc extends Component {
     let newMaxVal =
       this.state.weightValue * this.state.repsValue * 0.033 +
       this.state.weightValue;
-    if (newMaxVal === 0 || typeof newMaxVal === string) {
+    if (newMaxVal === 0 || typeof newMaxVal === "string") {
       return "Waiting on input";
     }
     return newMaxVal.toFixed(2);
