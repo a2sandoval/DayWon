@@ -17,6 +17,7 @@ import {
 
 export const signup = (formProps, callback) => async dispatch => {
   try {
+    console.log(formProps);
     const response = await axios.post("/api/signup", formProps);
     console.log(response);
     dispatch(signin(formProps, callback));
@@ -56,6 +57,8 @@ export const authUser = callback => async dispatch => {
 
 export const signout = () => {
   localStorage.removeItem("token");
+  localStorage.removeItem("tokenFB");
+  localStorage.removeItem("tokenGoog");
   setAuthToken(false);
   return {
     type: AUTH_USER,
@@ -67,6 +70,43 @@ export const signout = () => {
       picture: ""
     }
   };
+};
+
+export const googleSignIn = (res, cb) => async dispatch => {
+  try {
+    console.log(res.access_token);
+    console.log(res.profileObj);
+    console.log(res.profileObj.email);
+    console.log(res.profileObj.name);
+    console.log(res.profileObj.googleId);
+    console.log(res.profileObj.imageUrl);
+    dispatch({
+      type: SOCIAL_USER,
+      payload: { authenticated: res }
+    });
+    // localStorage.setItem("tokenGoog", res.access_token);
+    cb();
+  } catch (e) {
+    dispatch({ type: AUTH_ERROR, payload: "Invalid login credentials" });
+  }
+};
+
+export const facebookSignIn = (res, cb) => async dispatch => {
+  try {
+    console.log(res.accessToken);
+    console.log(res.email);
+    console.log(res.name);
+    console.log(res.picture.data.url);
+    console.log(res.userID);
+    dispatch({
+      type: SOCIAL_USER,
+      payload: { authenticated: res }
+    });
+    // localStorage.setItem("tokenFB", res.accessToken);
+    cb();
+  } catch (e) {
+    dispatch({ type: AUTH_ERROR, payload: "Invalid login credentials" });
+  }
 };
 
 // WORKOUTS ------------------------------------------

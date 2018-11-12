@@ -28,7 +28,6 @@ export default function WeeklyFormAccess(props) {
           <td>-</td>
           <td>{reps}</td>
           <td>{sets}</td>
-          <td>-</td>
         </tr>
       );
     });

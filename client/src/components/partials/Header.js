@@ -4,6 +4,7 @@ import Signout from "../auth/Signout";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 import "../style/Partials.css";
+import dayWon_logo from "../../images/dayWon.png";
 
 class Header extends Component {
   state = {
@@ -32,7 +33,7 @@ class Header extends Component {
       <div className="header flex-container">
         <div className="logo">
           <Link to="/home" className="logo">
-            DayWon
+            <img src={dayWon_logo} alt="dayWon logo" />
           </Link>
         </div>
         <div className="header__icons flex-container">

@@ -5,6 +5,7 @@ import calcs from "../../utils/calcs";
 import program from "../../utils/allProgramData";
 import WeeklyFormPrimary from "./tables/WeeklyFormPrim";
 import WeeklyFormAccess from "./tables/WeeklyFormAcc";
+import "../style/Weekly.css";
 
 class WeeklyView extends Component {
   constructor(props) {
@@ -90,7 +91,6 @@ class WeeklyView extends Component {
         <th>Weight</th>
         <th>Reps</th>
         <th>Set</th>
-        <th>% of Max</th>
       </tr>
     );
   };
@@ -190,10 +190,10 @@ class WeeklyView extends Component {
       this.getWorkout(this.state.threeDays, "threeDaysWorkouts");
     }
     return (
-      <div>
-        <div>
+      <div className="weekly-view">
+        <div className="workoutday-view">
           <h6>Workout {[this.state.day]}</h6>
-          <h6>
+          <div className="workoutday-buttons">
             <button onClick={() => this.changeWeek("previous")}>
               Previous Week
             </button>
@@ -203,24 +203,24 @@ class WeeklyView extends Component {
             <button onClick={() => this.changeToToday()}>Today</button>
             <button onClick={() => this.changeDay("next")}>Next Day</button>
             <button onClick={() => this.changeWeek("next")}>Next Week</button>
-          </h6>
+          </div>
         </div>
-        <h4>{this.programDaySearch[this.state.day - 1].day}</h4>
+        <h5>{this.programDaySearch[this.state.day - 1].day}</h5>
         <table>
           <thead>{this.tableHead()}</thead>
           {this.renderForms("day", "todaysWorkout")}
         </table>
-        <h4>{this.programDaySearch[this.state.nextDay - 1].day}</h4>
+        <h5>{this.programDaySearch[this.state.nextDay - 1].day}</h5>
         <table>
           <thead>{this.tableHead()}</thead>
           {this.renderForms("nextDay", "nextDayWorkouts")}
         </table>
-        <h4>{this.programDaySearch[this.state.twoDays - 1].day}</h4>
+        <h5>{this.programDaySearch[this.state.twoDays - 1].day}</h5>
         <table>
           <thead>{this.tableHead()}</thead>
           {this.renderForms("twoDays", "twoDaysWorkouts")}
         </table>
-        <h4>{this.programDaySearch[this.state.threeDays - 1].day}</h4>
+        <h5>{this.programDaySearch[this.state.threeDays - 1].day}</h5>
         <table>
           <thead>{this.tableHead()}</thead>
           {this.renderForms("threedays", "threeDaysWorkouts")}

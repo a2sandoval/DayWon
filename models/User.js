@@ -10,6 +10,7 @@ const userSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   // match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   password: String,
+  googleId: String,
   bpMax: {
     type: Number,
     validate: [

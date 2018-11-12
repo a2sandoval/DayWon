@@ -7,23 +7,27 @@ import { Modal } from "@material-ui/core";
 import MaxCalc from "./MaxCalc";
 import ModalWorkout from "../workouts/ModalWorkout";
 
-class MaxChart extends Component {
+class Intro extends Component {
   state = {
-    open: false
+    openCalc: false,
+    openWorkout: false
   };
 
   startMaxCalcModal = () => {
-    console.log("startModal");
-    this.workoutRender("open");
+    console.log("start calc");
+    this.workoutRender("Calc", "open");
   };
 
-  workoutRender = open => {
-    console.log("button clicked");
-    open ? this.setState({ open: true }) : this.setState({ open: false });
+  workoutRender = (type, open) => {
+    let openType = "open" + type;
+    open
+      ? this.setState({ [openType]: true })
+      : this.setState({ [openType]: false });
   };
 
   startWorkoutModal = () => {
-    console.log("startModal");
+    console.log("start Workout");
+    this.workoutRender("Workout", "open");
   };
 
   render() {
@@ -69,11 +73,21 @@ class MaxChart extends Component {
           className="col s6 offset-s3 max-calc"
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
-          open={this.state.open}
-          onClose={() => this.workoutRender()}
+          open={this.state.openCalc}
+          onClose={() => this.workoutRender("Calc")}
+        >
+          <div className="calc-modal">
+            <MaxCalc />
+          </div>
+        </Modal>
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.openWorkout}
+          onClose={() => this.workoutRender("Workout")}
         >
           <div className="workout-modal">
-            <MaxCalc />
+            <ModalWorkout />
           </div>
         </Modal>
       </div>
@@ -85,4 +99,4 @@ function mapStateToProps({ measurement }) {
   return { measurement };
 }
 
-export default connect(mapStateToProps)(MaxChart);
+export default connect(mapStateToProps)(Intro);

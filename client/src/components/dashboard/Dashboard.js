@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Graph from "./Graph";
-import Maxes from "./Maxes";
+import Intro from "./Intro";
 import MyPie from "./Pie";
 import PieStats from "./PieStats";
 import MaxCalc from "./MaxCalc";
@@ -14,7 +14,7 @@ class Dashboard extends Component {
       <div className="dash-components">
         <div className="row">
           <div className="s12">
-            <Maxes />
+            <Intro />
           </div>
           <div className="graph-component col s9">
             <Graph />

@@ -8,29 +8,28 @@ import program from "../../utils/allProgramData";
 import DailyViewLayout from "./tables/DailyViewLayout";
 import calcs from "../../utils/calcs";
 import ModalWorkout from "./ModalWorkout";
+import Timer from "./Timer";
 import "../style/Daily.css";
 
 class DailyView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      workoutDay: null,
-      programDay: {},
-      open: false,
-      keyCount: 0,
-      previousSet: [],
-      currentSet: "",
-      liftingData: {
-        Squat: {},
-        Benchpress: {},
-        "Military Press": {},
-        Deadlift: {}
-      },
-      workouts: [],
-      accesData: {},
-      runThrough: 0
-    };
-  }
+  state = {
+    workoutDay: null,
+    programDay: {},
+    open: false,
+    keyCount: 0,
+    previousSet: [],
+    currentSet: "",
+    liftingData: {
+      Squat: {},
+      Benchpress: {},
+      "Military Press": {},
+      Deadlift: {}
+    },
+    workouts: [],
+    accesData: {},
+    runThrough: 0,
+    nextWorkoutTime: false
+  };
 
   liftType = undefined;
   userDay = this.props.workoutDay;
@@ -207,7 +206,11 @@ class DailyView extends Component {
 
   workoutRender = open => {
     console.log("button clicked");
-    open ? this.setState({ open: true }) : this.setState({ open: false });
+    if (open) {
+      this.setState({ open: true });
+    } else {
+      this.setState({ open: false });
+    }
   };
 
   setRowAsCurrent = (row, cb) => {
@@ -229,13 +232,15 @@ class DailyView extends Component {
     if (!this.state.previousSet) {
       this.setState({
         previousSet: [val],
-        currentSet: ""
+        currentSet: "",
+        nextWorkoutTime: true
       });
     } else {
       let newState = [...this.state.previousSet, val];
       this.setState({
         previousSet: newState,
-        currentSet: ""
+        currentSet: "",
+        nextWorkoutTime: true
       });
     }
     console.log(this.state.previousState);
@@ -276,6 +281,12 @@ class DailyView extends Component {
     this.props.submitWorkout(workoutSubmit);
   };
 
+  updated = () => {
+    this.setState({
+      nextWorkoutTime: false
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     console.log(e);
@@ -297,7 +308,7 @@ class DailyView extends Component {
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
           open={this.state.open}
-          onClose={this.workoutRender}
+          onClose={() => this.workoutRender()}
         >
           <div className="workout-modal">
             <ModalWorkout />
@@ -305,6 +316,7 @@ class DailyView extends Component {
         </Modal>
         <button onClick={() => this.updateDay("minus")}>last workout</button>
         <button onClick={() => this.updateDay("plus")}>next workout </button>
+        <Timer update={this.state.nextWorkoutTime} updated={this.updated} />
         <DailyViewLayout
           handleSubmit={this.handleSubmit}
           week={this.state.programDay.week}

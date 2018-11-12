@@ -1,32 +1,41 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect, Route } from "react-router-dom";
 import * as actions from "../../actions";
+import FacebookLogin from "react-facebook-login";
 import { connect } from "react-redux";
 import "materialize-social/materialize-social.css";
 
 //TODO: make this work with redux. Also need to send this to the backend server eventually.
 class Facebook extends Component {
-  constructor(props) {
-    super(props);
-  }
+  state = {
+    isLoggedIn: false,
+    fbLoggedIn: false,
+    userId: "",
+    name: "",
+    email: "",
+    picture: ""
+  };
 
-  handleClick() {
-    console.log("clicked");
-    this.props.signInFacebook(() => {
-      this.props.history.push("/home");
+  responseFacebook = response => {
+    console.log(response);
+    this.props.facebookSignIn(response, () => {
+      this.setState({ isLoggedIn: true });
     });
-  }
+  };
 
   render() {
+    if (this.state.isLoggedIn === true) {
+      return <Redirect to="/home" />;
+    }
     return (
       <div className="col s6">
-        <button
-          onClick={this.handleClick}
-          className="waves-effect waves-light btn social facebook "
-        >
-          <i className="fa fa-facebook" /> Sign in with facebook
-        </button>
+        <FacebookLogin
+          appId="666797230358262"
+          autoLoad={true}
+          fields="name,email,picture"
+          callback={this.responseFacebook}
+          size="small"
+        />
       </div>
     );
   }

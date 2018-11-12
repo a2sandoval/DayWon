@@ -10,7 +10,7 @@ export default function(
   // take in the action type and if FETCH_USER return user data as state
   switch (action.type) {
     case SOCIAL_USER:
-      return action.payload || state;
+      return action.payload.access_token || state;
     case SIGN_OUT:
       return action.payload || state;
     case AUTH_USER:

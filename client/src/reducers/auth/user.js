@@ -19,6 +19,7 @@ export default function(
         userId: action.payload.id,
         email: action.payload.email
       };
+
     default:
       return state;
   }

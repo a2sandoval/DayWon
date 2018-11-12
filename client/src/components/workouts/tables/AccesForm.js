@@ -22,7 +22,7 @@ export default function AccesForm(props) {
     }
   };
 
-  console.log(props);
+  // console.log(props);
   return (
     <tr className={isCurrentSet(props.row, "for class naming")} id={props.row}>
       <td data-label="Set">{[props.set] + " - " + [props.lift]}</td>

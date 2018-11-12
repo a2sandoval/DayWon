@@ -54,8 +54,8 @@ function MaxRender({ type, measurement }) {
   let max = measurement[type];
   return (
     <React.Fragment>
-      Max: {max} <br />
-      Training Max: {calcs.trnMaxCalc(max)}
+      1RM: {max} <br />
+      T1RM: {calcs.trnMaxCalc(max)}
     </React.Fragment>
   );
 }

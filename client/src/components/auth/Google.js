@@ -3,26 +3,24 @@ import { Redirect } from "react-router-dom";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
 import "materialize-social/materialize-social.css";
+import GoogleLogin from "react-google-login";
 class Google extends Component {
-  //TODO: make this work with redux. Also need to send this to the backend server eventually.
-  constructor(props) {
-    super(props);
-  }
-  handleClick() {
-    console.log("clicked");
-    this.props.signInGoogle(() => {
+  responseGoogle = response => {
+    console.log(response);
+    this.props.googleSignIn(response, () => {
       this.props.history.push("/home");
     });
-  }
+  };
+
   render() {
     return (
       <div className="col s6">
-        <button
-          className="waves-effect waves-light btn social google"
-          onClick={this.handleClick}
-        >
-          <i className="fa fa-google" /> Sign in with google
-        </button>
+        <GoogleLogin
+          clientId="970171233090-9vn8tgslea4i26o5hcfskbg2ic1l3ao1.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={this.responseGoogle}
+          onFailure={this.responseGoogle}
+        />
       </div>
     );
   }
