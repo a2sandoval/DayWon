@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import Header from "./partials/Header";
 import Footer from "./partials/Footer";
 import Dashboard from "./dashboard/Dashboard";
-import * as actions from "../actions";
+import * as actions from "../redux/modules/actions";
 import { connect } from "react-redux";
 
 class Home extends Component {
