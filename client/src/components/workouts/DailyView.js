@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Modal } from "@material-ui/core";
 import { connect } from "react-redux";
-import * as actions from "../../actions";
+import * as actions from "../../redux/modules/actions";
 import program from "../../utils/allProgramData";
 import PrimaryForm from "./tables/PrimaryForm";
 import DailyViewLayout from "./tables/DailyViewLayout";

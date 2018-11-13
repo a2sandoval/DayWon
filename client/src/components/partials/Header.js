@@ -3,7 +3,7 @@
 // import DailyView from "../workouts/DailyView";
 // import WeeklyView from "../workouts/WeeklyView";
 import { connect } from "react-redux";
-import * as actions from "../../actions";
+import * as actions from "../../redux/modules/actions";
 import "../style/Partials.css";
 import { withRouter } from 'react-router-dom';
 
