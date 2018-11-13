@@ -1,4 +1,4 @@
-import { FETCH_USER_LIFT_DATA, FETCH_WORKOUT_DATA } from "../../actions/types";
+import { FETCH_USER_LIFT_DATA, FETCH_WORKOUT_DATA } from "../actions/types";
 
 export default function(
   state = {

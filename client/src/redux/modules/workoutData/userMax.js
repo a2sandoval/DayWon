@@ -1,4 +1,4 @@
-import { FETCH_USERMAX } from '../../actions/types';
+import { FETCH_USERMAX } from "../actions/types";
 
 export default function(state = 100, action) {
   switch (action.type) {
