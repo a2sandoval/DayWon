@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./style/Welcome.css";
 import { Link, Redirect } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
-import * as actions from "../actions";
+import * as actions from "../redux/modules/actions";
 import { connect } from "react-redux";
 
 class Home extends Component {

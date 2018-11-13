@@ -1,4 +1,4 @@
-import { CHANGE_WEIGHT } from "../../actions/types";
+import { CHANGE_WEIGHT } from "../actions/types";
 
 export default function(
   state = {

@@ -3,7 +3,7 @@ import update from "react-addons-update"; // ES6
 // import PureRenderMixin from "react-addons-pure-render-mixin"; // ES6
 import { Modal } from "@material-ui/core";
 import { connect } from "react-redux";
-import * as actions from "../../actions";
+import * as actions from "../../redux/modules/actions";
 import program from "../../utils/allProgramData";
 import DailyViewLayout from "./tables/DailyViewLayout";
 import calcs from "../../utils/calcs";
