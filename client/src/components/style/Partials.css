@@ -23,8 +23,7 @@ border: 2px solid #5C9EAD;
 .signOut {
   position: absolute;
   font-size: 18px;
-  top: -250px;
-  right: 1px;
+  top: -265px;
   color: #326273;
 }
 
@@ -34,18 +33,18 @@ border: 2px solid #5C9EAD;
 
 .logo {
 position: absolute;
-top: -5px;
+top: 0px;
 object-fit: contain;
-width: 550px;
+width: 450px;
 height: 412px;
-left: calc(50% - 275px);
+left: calc(50% - 225px);
 }
 
 .logo img {
 position: absolute;
 object-fit: contain;
 top: -50px;
-width: 550px;
+width: 450px;
 height: 412px;
 }
 
