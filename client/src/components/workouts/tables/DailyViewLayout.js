@@ -4,7 +4,7 @@ import AccesForm from "./AccesForm";
 import "../../style/Daily.css";
 
 export default function DailyViewLayout(props) {
-  console.log(props);
+  // console.log(props);
 
   let primOrAcces = type => {
     let workoutDay = props.programDay.workout;
@@ -29,8 +29,6 @@ export default function DailyViewLayout(props) {
             setRowAsCurrent={props.setRowAsCurrent}
             rowIsCurrent={props.rowIsCurrent}
             nextSet={props.nextSet}
-            submitWorkout={props.submitWorkout}
-            handleSubmit={props.handleSubmit}
           />
         );
       });
@@ -59,6 +57,11 @@ export default function DailyViewLayout(props) {
         });
       });
     }
+  };
+
+  let handleSubmit = e => {
+    e.preventDefault();
+    console.log("submit handled");
   };
 
   let keyPress = (e, row) => {

@@ -4740,6 +4740,65 @@ const program = {
   },
   cowboy_method: {
     info: "this method is developed by flksj;fsd;l for "
+  },
+  "5/3/1": {
+    about:
+      "Also known as the boring but big method, this is a great program for introductory lifters and competitors alike",
+    timePerPrimarySet: 180,
+    programWorkouts: [
+      {
+        workout: 1,
+        week: 1,
+        phase: "Cycle 1",
+        day: "Squat",
+        wave: 5,
+        primaryWorkouts: {
+          lift: "Squat",
+          reps: [5, 5, "5+"],
+          sets: 5,
+          weightPerc: [0.65, 0.75, 0.85]
+        }
+      },
+      {
+        workout: 2,
+        week: 1,
+        phase: "Cycle 1",
+        day: "Bench",
+        wave: 5,
+        primaryWorkouts: {
+          lift: "Bench",
+          reps: [5, 5, "5+"],
+          sets: 5,
+          weightPerc: [0.65, 0.75, 0.85]
+        }
+      },
+      {
+        workout: 3,
+        week: 1,
+        phase: "Cycle 1",
+        day: "Deadlift",
+        wave: 5,
+        primaryWorkouts: {
+          lift: "Deadlift",
+          reps: [5, 5, "5+"],
+          sets: 5,
+          weightPerc: [0.65, 0.75, 0.85]
+        }
+      },
+      {
+        workout: 4,
+        week: 1,
+        phase: "Cycle 1",
+        day: "OH Press",
+        wave: 5,
+        primaryWorkouts: {
+          lift: "OH Press",
+          reps: [5, 5, "5+"],
+          sets: 5,
+          weightPerc: [0.65, 0.75, 0.85]
+        }
+      }
+    ]
   }
 };
 

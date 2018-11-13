@@ -107,7 +107,7 @@ class ModalWorkout extends Component {
             };
           },
           () => {
-            console.log(this.state.liftingData);
+            // console.log(this.state.liftingData);
           }
         );
       });
@@ -126,7 +126,7 @@ class ModalWorkout extends Component {
           let weight = "To Failure";
           let weightPerc = "User determined";
           this.setState(state => {
-            console.log(state);
+            // console.log(state);
             if (state.runThrough === 25) {
               return null;
             }
@@ -153,8 +153,8 @@ class ModalWorkout extends Component {
   };
 
   updateVal = (e, increment, workout, type) => {
-    console.log(this.state.liftingData);
-    console.log(this.state);
+    // console.log(this.state.liftingData);
+    // console.log(this.state);
     let updateInputData = {};
     updateInputData = { ...this.state.liftingData };
     updateInputData[workout][increment][type] = e.target.value;
@@ -190,7 +190,7 @@ class ModalWorkout extends Component {
   setRowAsCurrent = (row, cb) => {
     this.setState(
       prevState => {
-        console.log(prevState.currentSet);
+        // console.log(prevState.currentSet);
         if (!prevState.currentSet && !this.state.previousSet.includes(row)) {
           return { currentSet: row };
         } else {
@@ -217,23 +217,21 @@ class ModalWorkout extends Component {
         nextWorkoutTime: true
       });
     }
-    console.log(this.state.previousState);
+    // console.log(this.state.previousState);
   };
 
   submitWorkout = e => {
     e.preventDefault();
-    console.log(e.target.value);
-    console.log(e);
-    console.log(e.target);
     let program = this.state.programDay;
     let programDayLift = this.state.programDay.day;
     let last = Object.keys(this.state.liftingData[programDayLift]).length - 1;
-    console.log(last);
+    // console.log(last);
     let weight = this.state.liftingData[programDayLift][last][weight];
     let reps = this.state.liftingData[programDayLift][last][reps];
     let { wave } = program.wave;
     let repsLeft = reps - wave;
     let addToTrainingMax = 0;
+    // Updates the USER Max to DB
     if (repsLeft > 0 && program.phase === "Realization") {
       if (programDayLift === "Squat" || programDayLift === "Deadlift") {
         addToTrainingMax = repsLeft * 2.5;
@@ -249,21 +247,18 @@ class ModalWorkout extends Component {
     let workoutSubmit = {
       workoutDay: programDayLift,
       maxForWorkout: userMax,
-      ...this.state.liftingData,
-      ...this.props.user
+      workoutEntered: this.state.liftingData,
+      user: this.props.user
     };
-    this.props.submitWorkout(workoutSubmit);
+    console.log(workoutSubmit);
+    //TODO: Make action for sending to DB
+    // this.props.submitWorkout(workoutSubmit);
   };
 
   updated = () => {
     this.setState({
       nextWorkoutTime: false
     });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    console.log(e);
   };
 
   componentWillMount() {
@@ -292,7 +287,7 @@ class ModalWorkout extends Component {
             <Timer update={this.state.nextWorkoutTime} updated={this.updated} />
           </div>
           <DailyViewLayout
-            handleSubmit={this.handleSubmit}
+            submitWorkout={this.submitWorkout}
             week={this.state.programDay.week}
             wave={this.state.programDay.wave}
             day={this.state.programDay.workout}

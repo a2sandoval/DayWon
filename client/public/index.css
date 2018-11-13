@@ -1,34 +1,34 @@
-a {
-  color: #326273 !important;
-}
-
-/* body {
+body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgba(238, 238, 238, 0.9);
+  box-shadow: inset 0 0 0 1000px rgba(238, 238, 238, 0.9);
+  background-image: url("./images/beach.jpg");
+  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+}
+
+.container {
+  background-color: #f2f2f2;
 }
 
 .fillableForm {
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-size: 20px;
 }
 
 #workoutSubmit {
   margin-left: 300px;
 }
 
-.input-field {
-  width: 100%;
-  margin-top: 0px;
-  font-size: 26px;
-}
-
 
 /* tables ------------------------------------------------------------ */
 /* ------------------------------------------------------------------- */
-/* 
+
 .acces-tables {
   width: 70%;
 }
@@ -46,48 +46,4 @@ a {
 
 h5 {
   padding-top: 5px;
-} */
-/* 
-.app_bar {
-  background-color: #d8d8d8
-  !important;
 }
-
-.tab_bar {
-  background-color: #191919 !important;
-  color: white !important;
-}
-
-button:focus {
-  background-color: #982533 !important;
-}
-
-.MuiTab-textColorPrimary-105 {
-  color: white !important;
-} */
-
-/* 
-.MuiTabs-root-216 {
-  background-color: red;
-}
-
-.MuiToolbar-regular-38 {
-  background-color: black;
-}
-
-.MuiTab-wrapper-233 {
-  color: black;
-}
-
-.TabIndicator-colorPrimary-238 {
-  background-color: white;
-}
-
-button:focus {
-  background-color: white !important;
-}
-
-.MuiTab-textColorPrimary-228.MuiTab-selected-230 {
-  color: white !important;
-}
-*/

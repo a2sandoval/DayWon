@@ -5,6 +5,7 @@ import dayWon_logo from "../../images/dayWon.png";
 import { Link, Redirect } from "react-router-dom";
 import DailyView from "../workouts/DailyView";
 import WeeklyView from "../workouts/WeeklyView";
+// import Dashboard from "../dashboard";
 
 import * as AuthService from "../../utils/AuthService";
 // import './Header.css';
