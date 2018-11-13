@@ -3,7 +3,7 @@ import "./style/Welcome.css";
 import { Link, Redirect } from "react-router-dom";
 import Header from "./partials/Header";
 import Footer from "./partials/Footer";
-import Dashboard from "./dashboard/Dashboard";
+// import Dashboard from "./dashboard/Dashboard";
 import * as actions from "../redux/modules/actions";
 import { connect } from "react-redux";
 
@@ -16,7 +16,7 @@ class Home extends Component {
     return (
       <div className="row">
         <div className="col s12">
-          <Dashboard />
+        
         </div>
       </div>
     );
