@@ -138,11 +138,11 @@ font-size: .8rem;
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  height: 60%;
+  height: 80%;
   overflow: auto;
 }
 
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
   .fillableForm {
   height: 65%;
   }
@@ -151,7 +151,7 @@ font-size: .8rem;
   .fillableForm {
   height: 75%;
   }
-  }
+  } */
 
 .program-title {
   margin: 1.5rem 3rem 0rem 3rem;

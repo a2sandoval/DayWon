@@ -28,16 +28,7 @@ export default function AccesForm(props) {
       <td data-label="Set">{[props.set] + " - " + [props.lift]}</td>
       <td>
         <input
-          onChange={e =>
-            props.updateVal(
-              e,
-              props.set,
-              props.workoutDay,
-              "reps",
-              props.idToStateReps,
-              props.id
-            )
-          }
+          onChange={e => props.updateVal(e, props.set, props.lift, "reps")}
           id={props.idToStateReps}
           className="input-field"
           type="text-field"
@@ -47,20 +38,11 @@ export default function AccesForm(props) {
       </td>
       <td>
         <input
-          onChange={e =>
-            props.updateVal(
-              e,
-              props.set,
-              props.workoutDay,
-              "weight",
-              props.idToStateWeight,
-              props.id
-            )
-          }
+          onChange={e => props.updateVal(e, props.set, props.lift, "weight")}
           id={props.idToStateWeight}
           className="input-field"
           type="text-field"
-          placeholder="Weight optimal for failure"
+          placeholder="To failure"
           value={props.liftingData[props.lift][props.set]["weight"]}
         />
       </td>

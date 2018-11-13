@@ -17,12 +17,7 @@ class ModalWorkout extends Component {
     keyCount: 0,
     previousSet: [],
     currentSet: "",
-    liftingData: {
-      Squat: {},
-      Benchpress: {},
-      "Military Press": {},
-      Deadlift: {}
-    },
+    liftingData: {},
     workouts: [],
     accesData: {},
     runThrough: 0,
@@ -80,10 +75,13 @@ class ModalWorkout extends Component {
   };
 
   formLayout = (programDay, userMax) => {
+    let lift = programDay.primaryWorkouts.lift;
+    this.setState(state => ({
+      liftingData: { ...state.liftingData, [lift]: {} }
+    }));
     let primaryForm = programDay => {
       return programDay.primaryWorkouts.reps.map((set, i) => {
         let increment = i + 1;
-        let lift = programDay.primaryWorkouts.lift;
         let weightPerc = programDay.primaryWorkouts.weightPerc[i];
         let weightCalc = calcs.totalWeight(
           programDay.primaryWorkouts.weightPerc[i],
@@ -125,7 +123,7 @@ class ModalWorkout extends Component {
         }
         return programDay.accesWorkouts[i].reps.map((set, j) => {
           let increment = j + 1;
-          let weight = "Log weight for later reference";
+          let weight = "To Failure";
           let weightPerc = "User determined";
           this.setState(state => {
             console.log(state);
@@ -154,34 +152,15 @@ class ModalWorkout extends Component {
     accessForm(programDay);
   };
 
-  updateVal = (e, increment, workout, type, acces, id) => {
+  updateVal = (e, increment, workout, type) => {
     console.log(this.state.liftingData);
     console.log(this.state);
     let updateInputData = {};
-    if (acces) {
-      let accesDataArrIndex = this.state.accesData.findIndex(val => {
-        if (val.id === id) {
-          return val;
-        }
-        console.log(accesDataArrIndex);
-      });
-      this.setState(state => ({
-        [acces]: e.target.value,
-        liftingData: { ...state.liftingData },
-        accesData: update(this.state.accesData, {
-          [accesDataArrIndex]: { [type]: { $set: [e.target.value] } }
-        })
-      }));
-    } else {
-      updateInputData = { ...this.state.liftingData };
-      updateInputData[workout][increment][type] = e.value;
-      this.workoutData = updateInputData;
-      console.log(this.workoutData);
-      this.setState({
-        [type]: e.value,
-        liftingData: this.workoutData
-      });
-    }
+    updateInputData = { ...this.state.liftingData };
+    updateInputData[workout][increment][type] = e.target.value;
+    this.setState({
+      liftingData: updateInputData
+    });
   };
 
   updateDay = calc => {
@@ -325,6 +304,7 @@ class ModalWorkout extends Component {
             previousSet={this.state.previousSet}
             setRowAsCurrent={this.setRowAsCurrent}
             rowIsCurrent={this.rowIsCurrent}
+            updateVal={this.updateVal}
           />
         </div>
       </div>
