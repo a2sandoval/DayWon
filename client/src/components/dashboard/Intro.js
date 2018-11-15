@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 // import react form
 import { connect } from "react-redux";
-// import * as actions from '../actions';
+import * as actions from "../../redux/modules/actions";
 import calcs from "../../utils/calcs";
 import { Modal } from "@material-ui/core";
+import UpdateMax from "./UpdateMax";
 import MaxCalc from "./MaxCalc";
 import ModalWorkout from "../workouts/ModalWorkout";
 
 class Intro extends Component {
   state = {
     openCalc: false,
-    openWorkout: false
-  };
-
-  startMaxCalcModal = () => {
-    console.log("start calc");
-    this.workoutRender("Calc", "open");
+    openWorkout: false,
+    openMaxUpdate: false
   };
 
   workoutRender = (type, open) => {
@@ -25,9 +22,8 @@ class Intro extends Component {
       : this.setState({ [openType]: false });
   };
 
-  startWorkoutModal = () => {
-    console.log("start Workout");
-    this.workoutRender("Workout", "open");
+  startModal = type => {
+    this.workoutRender(type, "open");
   };
 
   render() {
@@ -56,16 +52,24 @@ class Intro extends Component {
           </div>
           <div className="buttons">
             <button
-              onClick={() => this.startWorkoutModal()}
+              onClick={() => this.startModal("Workout")}
               className="waves-effect waves-light btn"
             >
               Start Today's Workout
             </button>
             <button
-              onClick={() => this.startMaxCalcModal()}
+              onClick={() => this.startModal("Calc")}
               className="waves-effect waves-light btn"
             >
-              Update Your Max with our Max Calculator
+              {" "}
+              View Max Calculator{" "}
+            </button>
+            <button
+              onClick={() => this.startModal("MaxUpdate")}
+              className="waves-effect waves-light btn"
+            >
+              {" "}
+              Update Your Max
             </button>
           </div>
         </div>
@@ -90,13 +94,30 @@ class Intro extends Component {
             <ModalWorkout />
           </div>
         </Modal>
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.openMaxUpdate}
+          onClose={() => this.workoutRender("MaxUpdate")}
+        >
+          <div className="maxUpdate-modal">
+            <UpdateMax
+              newMax={this.props.newMax}
+              measurement={this.props.measurement}
+              user={this.props.user}
+            />
+          </div>
+        </Modal>
       </div>
     );
   }
 }
 
-function mapStateToProps({ measurement }) {
-  return { measurement };
+function mapStateToProps({ measurement, user }) {
+  return { measurement, user };
 }
 
-export default connect(mapStateToProps)(Intro);
+export default connect(
+  mapStateToProps,
+  actions
+)(Intro);

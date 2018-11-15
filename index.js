@@ -9,12 +9,12 @@ const keys = require('./config/keys');
 const cors = require('cors');
 // these are just require statements because we need to link them to the index.js but we don't need to use them in any of the code below
 
-require('./models/User');
+require('./models');
 require('./services/passport');
 
 mongoose.Promise = global.Promise;
 // we pass the address of the mongo instance we crated on mlab.com. Each project on there will give us a uri. We place it in config to hide from people
-mongoose.connect("mongodb://localhost/jugg", {
+mongoose.connect("mongodb://localhost/DayWon", {
   useMongoClient: true
 })
 

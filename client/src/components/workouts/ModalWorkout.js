@@ -248,11 +248,12 @@ class ModalWorkout extends Component {
       workoutDay: programDayLift,
       maxForWorkout: userMax,
       workoutEntered: this.state.liftingData,
-      user: this.props.user
+      user: this.props.user,
+      maxes: this.props.measurement
     };
     console.log(workoutSubmit);
     //TODO: Make action for sending to DB
-    // this.props.submitWorkout(workoutSubmit);
+    this.props.submitWorkout(workoutSubmit);
   };
 
   updated = () => {

@@ -33,20 +33,19 @@
   width: 33%;
   position: absolute;
   left: 33%;
-  height: 40%;
+  height: 45%;
   padding: 5px 30px;
   top: 25%;
 }
 
 @media screen and (max-width: 1040px) {
   .calc-modal {
-  height: 44%;
+  height: 48%;
   width: 45%;
   left: 27.5%
   }
   }
-
-  @media screen and (max-width: 560px) {
+@media screen and (max-width: 740px) {
   .calc-modal {
   width: 50%;
   left: 25%
@@ -91,6 +90,30 @@
 
 .input-form {
   margin-left: 20px;
+}
+
+.maxUpdate-modal {
+  background: rgb(214, 213, 213);
+  color: white;
+  width: 33%;
+  position: absolute;
+  left: 33%;
+  height: 70%;
+  padding: 5px 30px;
+  top: 15%;
+}
+
+.maxUpdate-modal button{
+  color: #E39774;
+  border: none;
+  background: none;
+  padding: 0 1rem;
+  margin-left: 1rem;
+}
+
+.maxUpdate-modal button:hover {
+  background: #5C9EAD;
+  color: white;
 }
 
 /* Graph Component ------------------------------------------------------ */

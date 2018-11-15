@@ -3,9 +3,9 @@ import { CHANGE_WEIGHT } from "../actions/types";
 export default function(
   state = {
     weightType: "lb",
-    weightIncrement: 1,
+    weightIncrement: 2.5,
     program: "juggernaut",
-    weightCapacity: 2.5
+    timePerSet: 180
   },
   action
 ) {

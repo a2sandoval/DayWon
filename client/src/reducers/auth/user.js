@@ -1,12 +1,16 @@
-import { FETCH_USER, SIGN_OUT_USER } from "../../actions/types";
+import { FETCH_USER, SIGN_OUT_USER } from "../../redux/modules/actions/types";
 
 // state is null before user is authenticated
 export default function(
   state = {
     isLoggedIn: false,
-    userId: "",
+    name: "",
     email: "",
-    picture: ""
+    picture: "",
+    userId: "",
+    settingsId: "",
+    maxesId: "",
+    workoutsId: ""
   },
   action
 ) {
@@ -14,10 +18,15 @@ export default function(
   switch (action.type) {
     case FETCH_USER:
       console.log("fetching user");
+      console.log(action.payload);
       return {
         isLoggedIn: true,
-        userId: action.payload.id,
-        email: action.payload.email
+        name: action.payload.profile.name,
+        email: action.payload.profile.email,
+        userId: action.payload.id._id,
+        settingsId: action.payload.id.settings,
+        maxesId: action.payload.id.userMaxes,
+        workoutsId: action.payload.id.historicalWorkouts
       };
 
     default:
