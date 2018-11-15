@@ -19,24 +19,25 @@ function MyPie(props) {
     {
       id: 'Bench',
       label: 'Bench',
-      value: 225,
+      value: 123,
+      color: "red",
     },
     {
       id: 'Squat',
       label: 'Squat',
-      value: 295,
+      value: 245,
 
     },
     {
       id: 'Deadlift',
       label: 'Deadlift',
-      value: 360,
+      value: 138,
 
     },
     {
       id: 'Military',
       label: 'Military',
-      value: 155,
+      value: 130,
 
     }
   ]}

@@ -14,7 +14,7 @@ class Graph extends Component {
                 datasets: [
                     {
                         label: 'Weight Progress',
-                        data: [138, 123, 145, 130],
+                        data: [180, 165, 245, 130],
                         backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)'],
                     }
                 ]
@@ -39,7 +39,10 @@ class Graph extends Component {
                         position: 'bottom'
                     }
                     }}
-                />,
+                    min={50}
+                    max={200}
+                />
+  
                   {/* <Line
                     data={this.state.chartData}
                     width={700}
