@@ -5,23 +5,79 @@ import * as actions from "../../redux/modules/actions";
 import { Bar, Line, Pie, Bubble, Doughnut, Scatter } from 'react-chartjs-2';
 
 
-// let bpObj = {
-//   id: "benchpress",
-//   data: []
-// };
-// let sqtObj = {
-//   id: "squat",
-//   data: []
-// };
-// let dlObj = {
-//   id: "deadlift",
-//   data: []
-// };
-// let mpObj = {
-//   id: "military press",
-//   data: []
-// };
+class Graph extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            chartData: {
+                labels: ['Deadlift', 'Benchpress', 'Squat', 'Military Press'],
+                datasets: [
+                    {
+                        label: 'Weight Progress',
+                        data: [138, 123, 145, 130],
+                        backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)'],
+                    }
+                ]
+            }
+        }
+    }
 
+    render() {
+        return (
+            <div classname='chart'>
+                <Bar
+                    data={this.state.chartData}
+                    width={700}
+                    height={375}
+                    options={{
+                        title: {
+                            display: true,
+                            text: 'Best lift'
+                        },
+                    legend: {
+                        display: true,
+                        position: 'bottom'
+                    }
+                    }}
+                />,
+                  {/* <Line
+                    data={this.state.chartData}
+                    width={700}
+                    height={375}
+                    options={{
+                        title: {
+                            display: true,
+                            text: 'Best lift'
+                        },
+                    legend: {
+                        display: true,
+                        position: 'bottom'
+                    }
+                    }}
+                />     */}
+            </div>
+        )
+    }
+}
+
+export default Graph;
+
+// let bpObj = {
+//     id: "benchpress",
+//     data: []
+//   };
+//   let sqtObj = {
+//     id: "squat",
+//     data: []
+//   };
+//   let dlObj = {
+//     id: "deadlift",
+//     data: []
+//   };
+//   let mpObj = {
+//     id: "military press",
+//     data: []
+//   };
 // let data = [];
 
 // class graph extends Component {
@@ -99,35 +155,3 @@ import { Bar, Line, Pie, Bubble, Doughnut, Scatter } from 'react-chartjs-2';
 //   actions
 // )(graph);
 
-class Graph extends Component{
-  constructor(props){
-      super(props);
-      this.state = {
-          chartData: {
-             labels:['Deadlift', 'Benchpress', 'Squat', 'Overhead'],
-             datasets: [
-                 {
-                     label: 'Weight Progress',
-                     data:[45,123,130,145],
-                     backgroundColor:['rgba(255, 99, 132, 0.6)','rgba(54, 162, 235, 0.6)','rgba(255, 206, 86, 0.6)','rgba(75, 192, 192, 0.6)'],
-                 }
-             ]
-          }
-      }
-  }
-  
-     render(){
-       return(
-           <div classname='chart'>
-           <Bar
-   data={this.state.chartData}
-   width= {700}
-   height={350}
-   options={{}}
- />
-           </div>
-       )
-   }
- }
- 
- export default Graph

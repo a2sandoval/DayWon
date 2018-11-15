@@ -1,7 +1,8 @@
 /* eslint-disable */
 import { render } from 'react-dom'
 import React from "react";
-import { Pie } from "@nivo/pie";
+import { ResponsivePie, Pie } from "@nivo/pie";
+// import { Pie, Bar, Doughnut } from 'react-chartjs-2';
 
 function MyPie(props) {
   return(
@@ -24,19 +25,21 @@ function MyPie(props) {
       id: 'Squat',
       label: 'Squat',
       value: 295,
+
     },
     {
       id: 'Deadlift',
       label: 'Deadlift',
       value: 360,
+
     },
     {
       id: 'Military',
       label: 'Military',
       value: 155,
+
     }
   ]}
-  animate
 />
   )
 }
