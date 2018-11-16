@@ -28,7 +28,7 @@ class Dashboard extends Component {
             <Intro />
           </div>
           <div className="graph-component col s9">
-            <Graph />
+            <Graph measurement={this.props.measurement} />
           </div>
           <div className="pie-chart col s3" id="pie-chart">
             <MyPie measurement={this.props.measurement} />

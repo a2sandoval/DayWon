@@ -38,7 +38,7 @@ export default function PieStats(props) {
             </p>
           </div>
           <div className="col s3">
-            <p>Overhead Press </p>
+            <p>Military Press </p>
 
             <p>
               <MaxRender type="mp" measurement={props.measurement} />

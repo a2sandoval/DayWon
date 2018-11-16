@@ -28,11 +28,13 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
+    "chart.js": "^2.7.3",
     "concurrently": "^3.5.0",
     "cors": "^2.8.4",
     "create-react-app": "^1.5.2",
     "dotenv": "^6.0.0",
     "express": "^4.15.3",
+
     "express-graphql": "^0.7.1",
     "express-session": "^1.11.3",
     "graphql": "^14.0.2",
@@ -49,6 +51,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "*",
     "path-parser": "^2.0.2",
+    "react-chartjs-2": "^2.7.4",
     "validator": "^9.4.1"
   }
 }

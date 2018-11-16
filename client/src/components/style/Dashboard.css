@@ -16,7 +16,7 @@
 
 
 .btn:hover {
-  background-color: #da364a;
+  background-color: #1d67bb;
 }
 
 .btn:active {
@@ -239,4 +239,10 @@
 .pie-chart {
   height: 800px;
   background-color: white;
+  border-style: solid;
+  border-color: darkgray;
+  border: outset;
+}
+#root{
+  width: 90%;
 }
