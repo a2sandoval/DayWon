@@ -116,6 +116,118 @@
   color: white;
 }
 
+.videos-modal {
+  background: rgb(214, 213, 213);
+  color: white;
+  width: 80%;
+  position: absolute;
+  left: 10%;
+  height: 70%;
+  padding: 5px 30px;
+  top: 15%;
+}
+
+.video-player {
+  display: flex;
+  flex-direction: row;
+}
+
+.video-detail {
+  margin-top: 10%;
+  flex: 2;
+  flex-basis: 70%;
+}
+
+.embed-responsive {
+  width: 90%;
+  height: 50%;
+  object-fit: contain;
+  background-size: contain;
+}
+
+.video-detail iframe {
+  background-size: contain;
+  width: 100%;
+  height: 56.25%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1104px) {
+  .embed-responsive {
+    width: 90%;
+    height: 40%;
+    object-fit: contain;
+    background-size: contain;
+  } 
+   .video-detail iframe {
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  }
+@media screen and (max-width: 1300px) {
+  .embed-responsive {
+    width: 90%;
+    height: 50%;
+    object-fit: contain;
+    background-size: contain;
+  } 
+   .video-detail iframe {
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  }
+@media screen and (min-width: 1500px) {
+  .embed-responsive {
+    width: 90%;
+    height: 65%;
+    object-fit: contain;
+    background-size: contain;
+  } 
+   .video-detail iframe {
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  }
+
+.video-list {
+  flex: 1;
+  flex-basis: 30%;
+  overflow-y: auto;
+}
+
+.video-item img {
+  max-width: 64px;
+}
+
+.video-detail .details {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.videos-modal button {
+  color: #E39774;
+  border: none;
+  background: none;
+  padding: 0 1rem;
+  margin-left: 1rem;
+}
+
+.active-button {
+  background: #5C9EAD;
+  color: white;
+}
+
+
+
+
 /* Graph Component ------------------------------------------------------ */
 
 .graph-component {

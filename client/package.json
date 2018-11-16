@@ -43,6 +43,7 @@
     "redux": "^3.7.1",
     "redux-form": "^7.0.1",
     "redux-thunk": "^2.2.0",
+    "youtube-api-search": "0.0.5",
     "yup": "^0.26.6"
   },
   "scripts": {

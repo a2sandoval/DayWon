@@ -7,12 +7,14 @@ import { Modal } from "@material-ui/core";
 import UpdateMax from "./UpdateMax";
 import MaxCalc from "./MaxCalc";
 import ModalWorkout from "../workouts/ModalWorkout";
+import Videos from "./Video/Videos";
 
 class Intro extends Component {
   state = {
     openCalc: false,
     openWorkout: false,
-    openMaxUpdate: false
+    openMaxUpdate: false,
+    openHowToVideos: false
   };
 
   workoutRender = (type, open) => {
@@ -71,6 +73,13 @@ class Intro extends Component {
               {" "}
               Update Your Max
             </button>
+            <button
+              onClick={() => this.startModal("HowToVideos")}
+              className="waves-effect waves-light btn"
+            >
+              {" "}
+              How To Videos
+            </button>
           </div>
         </div>
         <Modal
@@ -106,6 +115,16 @@ class Intro extends Component {
               measurement={this.props.measurement}
               user={this.props.user}
             />
+          </div>
+        </Modal>
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.openHowToVideos}
+          onClose={() => this.workoutRender("HowToVideos")}
+        >
+          <div className="videos-modal">
+            <Videos />
           </div>
         </Modal>
       </div>
