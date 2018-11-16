@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../style/Partials.css";
-import dayWon_logo from "../../images/DayWon.png";
+import dayWon_logo from "../../images/dayWon.png";
 import { Link, Redirect } from "react-router-dom";
 // import Dashboard from "../dashboard";
 
