@@ -6,8 +6,8 @@
 
 .header {
   padding: 75px 0 0 0;
-  width: 80%;
-  margin: auto;
+  width: 80vw;
+  margin-left: 10vw;
   justify-content: space-between;
   height: 400px;
 }

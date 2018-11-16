@@ -1,0 +1,39 @@
+.user-components {
+  background-color: rgba(238, 238, 238, 0.9);
+  height: 40%;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.user-components button {
+  border: none;
+  background: none;
+  color:  #E39774;
+  position: relative;
+  left: calc(50% - 42 px);
+}
+
+.user-components button:hover {
+  background: #5C9EAD;
+  color: white;
+}
+
+@media screen and (max-width: 950px) {
+  .user-components {
+    font-size: 1.8rem;
+    width: 70%;
+    left: 15%;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .user-components {
+    font-size: 1.6rem;
+    width: 80%;
+    left: 10%;
+  }
+}

@@ -10,6 +10,10 @@ class User extends Component {
     open: false
   };
 
+  border = {
+    borderRadius: "50%"
+  };
+
   settingsRender = open => {
     !open ? this.setState({ open: false }) : this.setState({ open: true });
   };
@@ -19,6 +23,14 @@ class User extends Component {
     return (
       <div className="user-components">
         <div className="row">
+          <div>
+            <img
+              src={this.props.user.picture}
+              height="40px"
+              style={this.border}
+              alt="profile"
+            />
+          </div>
           <div className="s12">Welcome {this.props.user.name}</div>
           <div className="maxes">Your current maxes are</div>
           <div className="userdata">Here are your user stats</div>
