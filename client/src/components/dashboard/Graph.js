@@ -32,7 +32,7 @@ class Graph extends Component {
     render() {
         return (
             <div classname='chart'>
-                <Bar
+                { <Bar
                     data={this.state.chartData}
                     width={700}
                     height={375}
@@ -48,8 +48,8 @@ class Graph extends Component {
                     }}
                     min={50}
                     max={200}
-                />
-                {/* { <Doughnut
+                /> }
+                {/* {<Doughnut
                     data={this.state.chartData}
                     width={700}
                     height={375}
