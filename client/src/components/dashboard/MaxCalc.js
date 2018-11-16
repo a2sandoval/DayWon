@@ -24,7 +24,7 @@ class MaxCalc extends Component {
     let newMaxVal =
       this.state.weightValue * this.state.repsValue * 0.033 +
       this.state.weightValue;
-    if (newMaxVal === 0 || typeof newMaxVal === string) {
+    if (newMaxVal === 0 || typeof newMaxVal === "string") {
       return "Waiting on input";
     }
     return newMaxVal.toFixed(2);
@@ -32,9 +32,9 @@ class MaxCalc extends Component {
 
   render() {
     return (
-      <div className="grid">
-        <h3 className="header">Max Calculator</h3>
-        <p className="main">
+      <div className="calc">
+        <h3 className="calc__header">Max Calculator</h3>
+        <p className="calc__main">
           Enter in the number of reps and weight to generate your max estimate
         </p>
         <form className="input-form">

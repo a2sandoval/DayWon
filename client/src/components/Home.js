@@ -1,23 +1,36 @@
 import React, { Component } from "react";
 import "./style/Welcome.css";
 import { Link, Redirect } from "react-router-dom";
+import Dashboard from "./dashboard/Dashboard";
 import Header from "./partials/Header";
 import Footer from "./partials/Footer";
-// import Dashboard from "./dashboard/Dashboard";
 import * as actions from "../redux/modules/actions";
 import { connect } from "react-redux";
 
 class Home extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    if (!localStorage.getItem("profile")) {
+      this.props.history.push("/");
+    }
+    if (localStorage.getItem("profile")) {
+      // this.props.authUser(() => {
+      //   console.log("authUser");
+      // });
+    }
+  }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    if (!localStorage.getItem("token") && !localStorage.getItem("profile")) {
+      this.props.history.push("/");
+    }
+    console.log(this.props.user);
+  }
 
   render() {
+    console.log(this.props);
     return (
       <div className="row">
-        <div className="col s12">
-        
-        </div>
+        <div className="col s12" />
       </div>
     );
   }

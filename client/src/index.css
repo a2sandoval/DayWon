@@ -8,7 +8,6 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-
 }
 
 .container {
@@ -29,18 +28,7 @@
 /* tables ------------------------------------------------------------ */
 /* ------------------------------------------------------------------- 
 
-.acces-tables {
-  width: 70%;
-}
 
-.main-lift {
-  width: 70%;
-}
-
-.ui.table {
-  margin: 0;
-  width: 70%;
-}
 
 .short-width {
   padding: 1px;

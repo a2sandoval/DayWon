@@ -44,11 +44,11 @@ function PrimaryForm(props) {
       {/* <td rowSpan={props.programDay.primaryWorkouts.reps.length - 1}>
         {props.lift}
       </td> */}
-      <td data-label="Set">{props.set}</td>
+      <td data-label="Set">{[props.set] + " - " + [props.workoutDay]}</td>
       <td>
         <input
           onChange={e =>
-            props.updateVal(e.target, props.set, props.workoutDay, "reps")
+            props.updateVal(e, props.set, props.workoutDay, "reps")
           }
           className="input-field"
           id={props.idToStateReps}
@@ -61,7 +61,7 @@ function PrimaryForm(props) {
         {" "}
         <input
           onChange={e =>
-            props.updateVal(e.target, props.set, props.workoutDay, "weight")
+            props.updateVal(e, props.set, props.workoutDay, "weight")
           }
           id={props.idToStateWeight}
           type="text-field"
@@ -70,10 +70,13 @@ function PrimaryForm(props) {
         />{" "}
       </td>
       <td data-label="Weight-Percentage">
-        {calcs.weightPerc(props.weightPerc)}
+        {calcs.weightPerc(
+          props.liftingData[props.lift][props.set]["weightPerc"]
+        )}
+        %
       </td>
       <td>
-        <button onClick={() => props.nextSet(props.row)}>
+        <button onClick={e => props.nextSet(e, props.row)}>
           {isCurrentSet(props.row)}
         </button>
       </td>

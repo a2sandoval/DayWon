@@ -28,7 +28,6 @@ export default function WeeklyFormPrimary(props) {
           <td>-</td>
           <td>{reps}</td>
           <td>{sets}</td>
-          <td>-</td>
         </tr>
       );
     });
@@ -40,7 +39,6 @@ export default function WeeklyFormPrimary(props) {
       <td>{props.populateMain(props.dayToPopulate, "weight")}</td>
       <td> {props.populateMain(props.dayToPopulate, "reps")} </td>
       <td>{props.populateMain(props.dayToPopulate, "set")}</td>
-      <td>{props.populateMain(props.dayToPopulate, "weightPerc")}</td>
     </tr>
   );
 }

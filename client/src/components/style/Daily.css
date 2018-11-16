@@ -1,11 +1,184 @@
 .upcomingSet {
-  background-color: lightslategrey;
+  opacity: .4;
 }
 
 .previousSet {
-  background-color: darkslategray;
+  opacity: .2;
 }
 
 .currentSet {
   background-color: white;
+  font-weight: 700;
 }
+
+.workout-modal {
+  display: flex;
+  margin: 3rem 5%;
+  overflow: auto;
+  background: rgb(214, 213, 213);
+  width: 90%;
+  height: 90%;
+}
+
+@media screen and (max-width: 720px) {
+  .workout-modal {
+    width: 95%;
+    margin: 4rem 2.5%;
+  }
+  }
+
+.daily {
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media screen and (max-width: 950px) {
+  .daily {
+  margin: 0
+  }
+}
+
+
+.diffWorkout {
+  align-self: flex-start;
+  font-size: .8rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.change-day-buttons button{
+  border: none;
+  background: none;
+  padding: 0 1rem;
+  margin-left: 1rem;
+}
+
+.change-day-buttons button:hover {
+  background: #5C9EAD;
+  color: white;
+}
+
+.main-lift {
+margin: .5rem 3rem;
+font-size: .8rem;
+}
+
+@media screen and (max-width: 950px) {
+  .main-lift {
+  margin: .5rem 0;
+  }
+
+  .fillableForm {
+    height: 80%;
+    }
+  }
+
+.main-lift tbody {
+  overflow-y: scroll;
+}
+
+.main-lift tbody tr{
+  padding: 0;
+  border: none;
+}
+
+.main-lift tbody tr td {
+  padding: 0;
+}
+
+.main-lift tbody tr button {
+  border: none;
+  background: #5C9EAD;
+  color: white;
+
+}
+
+.main-lift tbody td input {
+  border: none;
+}
+
+.timer {
+  margin-top: 2rem;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.timer-clock {
+  color: #E39774;
+  font-weight: 500;
+  font-size: 3rem;
+  align-self: center;
+  padding: 0px 5px;
+  border-bottom: #5C9EAD 2px solid;
+}
+
+.timer-buttons button {
+  border: none;
+  background: none;
+  margin-top: 1rem;
+}
+
+.timer-buttons button:hover {
+  color: white;
+  background: #5C9EAD;
+}
+
+#negative-value {
+  color: red;
+}
+
+.fillableForm {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  overflow: auto;
+}
+
+/* @media screen and (max-width: 1200px) {
+  .fillableForm {
+  height: 65%;
+  }
+  }
+@media screen and (max-width: 990px) {
+  .fillableForm {
+  height: 75%;
+  }
+  } */
+
+.program-title {
+  margin: 1.5rem 3rem 0rem 3rem;
+  color: #E39774;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+
+.program-status {
+  font-size: 1rem;  
+}
+
+#workoutSubmit {
+  border: none;
+  background: none;
+  color: #E39774;
+  font-size: 2.5rem;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0;
+}
+
+#workoutSubmit:hover {
+  background: #5C9EAD;
+  color: white;
+}
+

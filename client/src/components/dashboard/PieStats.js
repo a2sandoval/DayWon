@@ -53,9 +53,9 @@ export default function PieStats(props) {
 function MaxRender({ type, measurement }) {
   let max = measurement[type];
   return (
-    <div>
-      Max: {max} <br />
-      Training Max: {calcs.trnMaxCalc(max)}
-    </div>
+    <React.Fragment>
+      1RM: {max} <br />
+      T1RM: {calcs.trnMaxCalc(max)}
+    </React.Fragment>
   );
 }

@@ -1,20 +1,31 @@
 import React, { Component } from "react";
 import Graph from "./Graph";
-import Maxes from "./Maxes";
+import Intro from "./Intro";
 import MyPie from "./Pie";
 import PieStats from "./PieStats";
 import MaxCalc from "./MaxCalc";
 import Stats from "./Stats";
 import "../style/Dashboard.css";
 import { connect } from "react-redux";
+import * as actions from "../../redux/modules/actions";
 
 class Dashboard extends Component {
+  componentDidMount() {
+    if (localStorage.getItem("profile")) {
+      console.log(localStorage.getItem("profile"));
+      let profile = JSON.parse(localStorage.getItem("profile"));
+      this.props.userToDb(profile, () => {
+        console.log("handled user");
+        console.log(this.props.user);
+      });
+    }
+  }
   render() {
     return (
       <div className="dash-components">
         <div className="row">
           <div className="s12">
-            <Maxes />
+            <Intro />
           </div>
           <div className="graph-component col s9">
             <Graph measurement={this.props.measurement} />
@@ -29,11 +40,14 @@ class Dashboard extends Component {
   }
 }
 
-function mapStateToProps({ measurement }) {
-  return { measurement };
+function mapStateToProps({ measurement, user }) {
+  return { measurement, user };
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(
+  mapStateToProps,
+  actions
+)(Dashboard);
 
 // this page will have a graph of workouts and weight lifted, three lines for power three
 // below will be number of days completed and total volume lifted

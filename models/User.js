@@ -7,56 +7,22 @@ const userSchema = new Schema({
   // here we pass the properties to the model
   // always need type, because email gets additional properties we wrap it in an object
   // emails need to be unique, also mongoose doesn't force case, meaning if one is uppercase and the other is upper, it'll see them as different emails, so here we force it to be lowercase before handling. NOte: it can be hard to understand at first
+  name: String,
   email: { type: String, unique: true, lowercase: true },
   // match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   password: String,
-  bpMax: {
-    type: Number,
-    validate: [
-      // Function takes in the new `longstring` value to be saved as an argument
-      function(input) {
-        // If this returns true, proceed. If not, return the error message below
-        return input.length >= 6;
-      },
-      // Error Message
-      "You don't lift that much."
-    ]
-  },
-  dlMax: {
-    type: Number,
-    validate: [
-      function(input) {
-        return input.length >= 6;
-      },
-      "You don't lift that much."
-    ]
-  },
-  sqtMax: {
-    type: Number,
-    validate: [
-      function(input) {
-        return input.length >= 6;
-      },
-      "You don't lift that much."
-    ]
-  },
-  mpMax: {
-    type: Number,
-    validate: [
-      function(input) {
-        return input.length >= 6;
-      },
-      "You don't lift that much."
-    ]
-  },
-  historicalMaxes: {
-    type: Schema.Types.ObjectId,
-    ref: 'UserMaxes'
-  },
-  historicalWorkouts: {
-    type: Schema.Types.ObjectId,
-    ref: 'Workout'
-  }
+  picture: String,
+  userMaxes: 
+    {
+      type: Schema.Types.ObjectId,
+      ref: "UserMaxes"
+    },
+  historicalWorkouts: Array,
+  settings: 
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Settings'
+    }
 });
 
 // On Save Hook, encrypt password
@@ -103,7 +69,7 @@ const userSchema = new Schema({
 // this loads the schema into mongoose which corresponds to a collection called user
 // note its a modelclass, so it represents all users
 //TODO:
-const ModelClass = mongoose.model('user', userSchema);
+const UserClass = mongoose.model('user', userSchema);
 
 // Export the model
-module.exports = ModelClass;
+module.exports = UserClass;

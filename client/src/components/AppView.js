@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Switch, Route } from 'react-router-dom';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Switch, Route } from "react-router-dom";
 
-import Header from './partials/Header'
-import Home from './Home';
-import DailyView from "./workouts/DailyView";
+import Header from "./partials/Header";
+import Home from "./Home";
+import User from "./User/User";
 import WeeklyView from "./workouts/WeeklyView";
 import Dashboard from "./dashboard/Dashboard";
-import NotFoundPage from './NotFoundPage/NotFoundPage';
-import * as AuthService from '../utils/AuthService';
+import NotFoundPage from "./NotFoundPage/NotFoundPage";
+import * as AuthService from "../utils/AuthService";
 
 class AppView extends Component {
   static propTypes = {
@@ -22,7 +22,7 @@ class AppView extends Component {
   UNSAFE_componentWillMount() {
     const { history, loginError, loginSuccess } = this.props;
     // Add callback for lock's `authenticated` event
-    AuthService.lock.on('authenticated', authResult => {
+    AuthService.lock.on("authenticated", authResult => {
       AuthService.lock.getUserInfo(authResult.accessToken, (error, profile) => {
         if (error) {
           return loginError(error);
@@ -30,14 +30,14 @@ class AppView extends Component {
         AuthService.setToken(authResult.idToken); // static method
         AuthService.setProfile(profile); // static method
         loginSuccess(profile);
-        history.push({ pathname: '/dashboard' });
+        history.push({ pathname: "/dashboard" });
         AuthService.lock.hide();
       });
     });
     // Add callback for lock's `authorization_error` event
-    AuthService.lock.on('authorization_error', error => {
+    AuthService.lock.on("authorization_error", error => {
       loginError(error);
-      history.push({ pathname: '/NotFoundPage' });
+      history.push({ pathname: "/NotFoundPage" });
     });
   }
 
@@ -46,11 +46,11 @@ class AppView extends Component {
       <div>
         <Header />
         <Switch>
-        <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/workout" component={DailyView} />
-            <Route exact path="/workout-week" component={WeeklyView} />
+          <Route exact path="/User" component={User} />
+          <Route exact path="/workout-week" component={WeeklyView} />
           <Route exact path="/NotFoundPage" component={NotFoundPage} />
         </Switch>
       </div>

@@ -5,26 +5,26 @@
 }
 
 .header {
-  padding: 75px 0;
+  padding: 75px 0 0 0;
   width: 80%;
   margin: auto;
   justify-content: space-between;
+  height: 400px;
 }
 
 .line {
 position: absolute;
-width: 80%;
+width: 100%;
 height: 0px;
-left: 10%;
-top: 50px;
-border: 3px solid #5C9EAD;
+top: -30px;
+border: 2px solid #5C9EAD;
 }
 
 .signOut {
   position: absolute;
   font-size: 18px;
-  top: 2%;
-  right: 10%;
+  top: -265px;
+  color: #326273;
 }
 
 .signOut button:active {
@@ -32,33 +32,32 @@ border: 3px solid #5C9EAD;
 }
 
 .logo {
-width: 228px;
-height: 61px;
-left: 89px;
-top: 40px;
-font-family: 'Sedgwick Ave', cursive;
-font-style: normal;
-font-weight: normal;
-line-height: normal;
-font-size: 48px;
-text-decoration: underline;
-color: #E39774 !important;
-text-shadow:
-   -1px -1px 0 #5C9EAD,  
-    1px -1px 0 #5C9EAD,
-    -1px 1px 0 #5C9EAD,
-     1px 1px 0 #5C9EAD;
+position: absolute;
+top: 0px;
+object-fit: contain;
+width: 450px;
+height: 412px;
+left: calc(50% - 225px);
+}
 
+.logo img {
+position: absolute;
+object-fit: contain;
+top: -50px;
+width: 450px;
+height: 412px;
 }
 
 .header__icons {
-width: 700px;
+width: 100%;
 height: 35px;
 justify-content: space-between;
-font-family: Sedgwick Ave;
+font-family: Amaranth;
 font-style: normal;
-font-weight: normal;
+font-weight: bold;
 line-height: normal;
+position: relative;
+top: 200px;
 }
 
 .header__icons--color {
@@ -84,4 +83,50 @@ line-height: normal;
     -1px 1px 0 #5C9EAD,
      1px 1px 0 #5C9EAD;
 }
+
+.welcome {
+  background-color: rgba(238, 238, 238, 0.9);
+  height: 40%;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.welcome button {
+  border: none;
+  background: none;
+  color:  #E39774;
+  position: relative;
+  left: calc(50% - 42 px);
+}
+
+.welcome button:hover {
+  background: #5C9EAD;
+  color: white;
+}
+
+@media screen and (max-width: 950px) {
+  .welcome {
+    font-size: 1.8rem;
+    width: 70%;
+    left: 15%;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .welcome {
+    font-size: 1.6rem;
+    width: 80%;
+    left: 10%;
+  }
+}
+
+
+
+
+
+
 /* Footer component -------------------------------------------------*/

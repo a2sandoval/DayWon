@@ -12,18 +12,16 @@ import * as actions from "../redux/modules/actions";
 // import Videos from "./videos/Videos";
 // import Calculator from "./sidebarFeats/calculator/Calc";
 // import UserHistory from "./sidebarFeats/userHistory/HistoryLogs";
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import { authActions } from '../redux/modules/auth';
-import AppView from './AppView';
+import { authActions } from "../redux/modules/auth";
+import AppView from "./AppView";
 
 // class App extends Component {
 //   // componentDidMount() {
 //   //   this.props.fetchUser();
 //   // }
-
-
 
 //   render() {
 //     return (
@@ -43,7 +41,7 @@ import AppView from './AppView';
 //             <Route exact path="/history" component={UserHistory} /> */}
 
 //             {/* <Route path="/surveys/new" component={SurveyNew} /> */}
-            
+
 //             <Footer />
 //           </div>
 //         </BrowserRouter>
@@ -60,6 +58,7 @@ const mapDispatchToProps = dispatch => ({
 
 export default withRouter(
   connect(
-  null,
-  mapDispatchToProps,
-)(AppView));
+    null,
+    mapDispatchToProps
+  )(AppView)
+);
