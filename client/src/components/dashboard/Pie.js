@@ -32,6 +32,7 @@ function MyPie(props) {
       id: 'Deadlift',
       label: 'Deadlift',
       value: 138,
+      color:'red',
 
     },
     {

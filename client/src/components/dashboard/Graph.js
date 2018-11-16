@@ -16,6 +16,11 @@ class Graph extends Component {
                         label: 'Weight Progress',
                         data: [180, 165, 245, 130],
                         backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)'],
+                    },
+                    {
+                        label: 'Weight Update',
+                        data: [195, 185, 250, 125],
+                        backgroundColor: ['rgba(200, 100, 132, 0.6)', 'rgba(54, 100, 235, 0.6)', 'rgba(255, 226, 86, 0.6)', 'rgba(75, 152, 192, 0.6)'],
                     }
                 ]
             }
@@ -42,28 +47,27 @@ class Graph extends Component {
                     min={50}
                     max={200}
                 />
-  
-                  {/* <Line
+                {/* <Doughnut
                     data={this.state.chartData}
                     width={700}
                     height={375}
                     options={{
-                        title: {
-                            display: true,
-                            text: 'Best lift'
-                        },
-                    legend: {
-                        display: true,
-                        position: 'bottom'
-                    }
+                        elements: {
+                            center: {
+                                text: '90%',
+                                color: '#FF6384', // Default is #000000
+                                fontStyle: 'Arial', // Default is Arial
+                                sidePadding: 20 // Defualt is 20 (as a percentage)
+                            }
+                        }
                     }}
-                />     */}
+                /> */}
             </div>
         )
     }
 }
 
-export default Graph;
+export default Graph
 
 // let bpObj = {
 //     id: "benchpress",

@@ -76,4 +76,8 @@
   background-color: white;
   border-style: solid;
   border-color: darkgray;
+  border: outset;
+}
+#root{
+  width: 90%;
 }
