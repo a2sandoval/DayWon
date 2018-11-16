@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Graph from "./Graph";
 import Intro from "./Intro";
-import MyPie from "./Pie";
+import Pie from "./Pie2";
 import PieStats from "./PieStats";
 import MaxCalc from "./MaxCalc";
 import Stats from "./Stats";
@@ -31,7 +31,7 @@ class Dashboard extends Component {
             <Graph measurement={this.props.measurement} />
           </div>
           <div className="pie-chart col s3" id="pie-chart">
-            <MyPie measurement={this.props.measurement} />
+            <Pie measurement={this.props.measurement} />
             <PieStats measurement={this.props.measurement} />
           </div>
         </div>
