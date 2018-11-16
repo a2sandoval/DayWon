@@ -9,21 +9,11 @@ import { connect } from "react-redux";
 
 class Home extends Component {
   componentDidMount() {
-    if (!localStorage.getItem("profile")) {
-      this.props.history.push("/");
-    }
-    if (localStorage.getItem("profile")) {
-      // this.props.authUser(() => {
-      //   console.log("authUser");
-      // });
-    }
+ 
   }
 
   componentDidUpdate() {
-    if (!localStorage.getItem("token") && !localStorage.getItem("profile")) {
-      this.props.history.push("/");
-    }
-    console.log(this.props.user);
+  
   }
 
   render() {
