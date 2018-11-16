@@ -17,6 +17,7 @@ class Dashboard extends Component {
       this.props.userToDb(profile, () => {
         console.log("handled user");
         console.log(this.props.user);
+        this.props.fetchUser(this.props.user.userId);
       });
     }
   }

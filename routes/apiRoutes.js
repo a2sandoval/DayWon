@@ -1,15 +1,9 @@
 const jwt = require('jsonwebtoken');
 const db = require('../models');
-const userId = require('../services/userId');
 
 module.exports = app => {
 
-  app.get('/api/user/:id', (req, res) => {
-
-  })
-
   app.post('/api/user', (req, res) => {
-    console.log(req.body);
     var updates = {
       name: req.body.name,
       picture: req.body.picture,
@@ -21,18 +15,64 @@ module.exports = app => {
       }
       // if a new user
       if (!user) {
-        var newUser = new db.User({ email: req.body.email, name: req.body.name, picture: req.body.picture})
-        newUser.save(err => {
-          console.log(newUser);
-          if (err) return res.status(500).send(err);
-          return res.status(200).send(newUser);
-        })
+        
+        var dataId, settingsId;
+        
+        var newMaxData = new db.UserMaxes({
+            bpMax: null,
+            sqtMax: null,
+            mpMax: null,
+            dlMax: null, 
+            historicalMaxes: []
+          })
+        var newSettingsData = new db.Settings({weight: "lb", program: "juggernaut", timePerSet: 180, weightIncrement: 2.5})
+        
+        newMaxData.save(err => {
+            if (err) return res.status(500).send(err);
+            dataId = newMaxData._id;
+            console.log(dataId);
+            return dataId
+          }).then((maxData) => {
+            console.log(maxData);
+            console.log(dataId);
+            newSettingsData.save(err => {
+              if (err) return res.status(500).send(err);
+              settingsId = newSettingsData._id;
+              console.log(settingsId);
+              return settingsId
+                }).then((res) => {
+                  console.log(res);
+                  console.log(dataId);
+                  var newUser = new db.User({ email: req.body.email, name: req.body.name, picture: req.body.picture, historicalWorkouts: [], userMaxes: dataId, settings: res._id})
+                  newUser.save(err => {
+                    console.log(newUser);
+                    if (err) return res.status(500).send(err);                 
+                })  
+                })
+          })
+        
+       
+        
       } else {
-      console.log(user);
-      return res.send(user);
-      }
-    })
-  })
+        var userObj = {}
+        // console.log(user);
+        var userMax = db.UserMaxes.findById(user.userMaxes).then(userMaxPopulated => {
+          console.log(userMaxPopulated);
+          return userMaxPopulated
+          }) 
+
+        var settings = db.Settings.findById(user.settings).then(settings => {
+            // userObj= {...userMaxPopulated, ...settings };
+            // console.log(userObj);
+            console.log(settings);
+            return settings
+            })
+        userObj = {...settings, ...userMax}
+        console.log(userObj);
+        // res.send(userObj)
+          }
+        })
+      })
 
   app.post('/api/update-maxes', (req, res) => {
     console.log(req.body);
@@ -144,20 +184,21 @@ module.exports = app => {
   )
   })
 
-  app.get('/api/day', (req, res) => {
+  app.get('/api/populateUserForState/:id', (req, res) => {
     // can combine this with accessory lifts 
-    User.findById(req.body.userId, 'historicalWorkouts', (err, workouts) => {
-      if (err) return handleError(err);
-      if (!workouts){
-        return;
-        // will have state with predetermined day 1, etc
-      }
-      var lastWorkout = workouts.length - 1;
-      console.log(workouts);
-      var day = workouts.length;
-      console.log(day);
-      res.send(day);
-    })
+    console.log(req.params.id);
+    db.User.findById(req.params.id).populate('userMaxes', 'historicalWorkouts', 'settings').then(user => {
+      console.log(user);
+      res.send(user);
+    }) 
+      
+      // need to do on other end, will just kick it all back to client
+      // var lastWorkout = workouts.length - 1;
+      // console.log(workouts);
+      // var day = workouts.length;
+      // console.log(day);
+      // res.send(day);
+
   })
 
   app.post('/api/workout', (req,res) => {

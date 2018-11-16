@@ -29,6 +29,23 @@ import {
 //   };
 // };
 
+export const fetchUser = userId => async dispatch => {
+  console.log(userId);
+  try {
+    const response = await axios
+      .get(`/api/populateUserForState/${userId}`)
+      .then(user => {
+        console.log(user.data);
+        return user.data;
+      });
+    console.log(response);
+    // dispatch({type: , payload: {}})
+    // dispatch({type: })
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 export const userToDb = (res, cb) => async dispatch => {
   console.log(res);
   try {

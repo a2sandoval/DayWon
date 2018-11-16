@@ -20,6 +20,6 @@ const settingsSchema = new Schema({
   }
 });
 
-const Settings = mongoose.model('Settings', settingsSchema);
+const Settings = mongoose.model('settings', settingsSchema);
 
 module.exports = Settings;
