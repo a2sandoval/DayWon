@@ -65,6 +65,11 @@ top: 200px;
   color: #326273 !important;
 }
 
+.header__icons a {
+  text-decoration: none;
+  color: #326273 !important;
+}
+
 .header__icons button {
   border: none;
   background-color: transparent;

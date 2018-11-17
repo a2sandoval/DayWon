@@ -9,5 +9,6 @@ export const SIGN_OUT = "signout_user";
 export const NEW_USER = "new_user";
 export const FETCH_USER_LIFT_DATA = "fetch_lift_data";
 export const FETCH_WORKOUT_DATA = "fetch_workout_data";
-export const CHANGE_WEIGHT = "change_weight";
+export const CHANGE_SETTINGS = "change_settings";
 export const USER_LIFT_DATA = "user_lift_data";
+export const ACCES_LIFT_DATA = "acces_lift_data";

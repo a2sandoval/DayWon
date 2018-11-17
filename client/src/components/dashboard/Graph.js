@@ -2,54 +2,65 @@ import React, { Component } from "react";
 // import { Line } from "@nivo/line";
 import { connect } from "react-redux";
 import * as actions from "../../redux/modules/actions";
-import { Bar, Line, Pie, Bubble, Doughnut, Scatter } from 'react-chartjs-2';
-
+import { Bar, Line, Pie, Bubble, Doughnut, Scatter } from "react-chartjs-2";
 
 class Graph extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            chartData: {
-                labels: ['Deadlift', 'Benchpress', 'Squat', 'Military Press'],
-                datasets: [
-                    {
-                        label: 'Weight Progress',
-                        fill: false,
-                        data: [180, 165, 245, 130],
-                        backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)', 'rgba(255, 206, 86, 0.6)', 'rgba(75, 192, 192, 0.6)'],
-                    },
-                    {
-                        label: 'Weight Update',
-                        fill: true,
-                        data: [195, 185, 250, 125],
-                        backgroundColor: ['rgba(200, 100, 132, 0.6)', 'rgba(54, 100, 235, 0.6)', 'rgba(255, 226, 86, 0.6)', 'rgba(75, 152, 192, 0.6)'],
-                    }
-                ]
-            }
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      chartData: {
+        labels: ["Deadlift", "Benchpress", "Squat", "Military Press"],
+        datasets: [
+          {
+            label: "Weight Progress",
+            fill: false,
+            data: [180, 165, 245, 130],
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.6)",
+              "rgba(54, 162, 235, 0.6)",
+              "rgba(255, 206, 86, 0.6)",
+              "rgba(75, 192, 192, 0.6)"
+            ]
+          },
+          {
+            label: "Weight Update",
+            fill: true,
+            data: [195, 185, 250, 125],
+            backgroundColor: [
+              "rgba(200, 100, 132, 0.6)",
+              "rgba(54, 100, 235, 0.6)",
+              "rgba(255, 226, 86, 0.6)",
+              "rgba(75, 152, 192, 0.6)"
+            ]
+          }
+        ]
+      }
+    };
+  }
 
-    render() {
-        return (
-            <div classname='chart'>
-                { <Bar
-                    data={this.state.chartData}
-                    width={700}
-                    height={375}
-                    options={{
-                        title: {
-                            display: true,
-                            text: 'Best lift'
-                        },
-                    legend: {
-                        display: true,
-                        position: 'bottom'
-                    }
-                    }}
-                    min={50}
-                    max={200}
-                /> }
-                {/* {<Doughnut
+  render() {
+    return (
+      <div className="chart">
+        {
+          <Bar
+            data={this.state.chartData}
+            width={700}
+            height={375}
+            options={{
+              title: {
+                display: true,
+                text: "Best lift"
+              },
+              legend: {
+                display: true,
+                position: "bottom"
+              }
+            }}
+            min={50}
+            max={200}
+          />
+        }
+        {/* {<Doughnut
                     data={this.state.chartData}
                     width={700}
                     height={375}
@@ -64,12 +75,12 @@ class Graph extends Component {
                         }
                     }}
                 />} */}
-            </div>
-        )
-    }
+      </div>
+    );
+  }
 }
 
-export default Graph
+export default Graph;
 
 // let bpObj = {
 //     id: "benchpress",
@@ -163,4 +174,3 @@ export default Graph
 //   mapStateToProps,
 //   actions
 // )(graph);
-

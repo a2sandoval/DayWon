@@ -20,6 +20,7 @@ class User extends Component {
 
   componentDidMount() {}
   render() {
+    console.log(this.props);
     return (
       <div className="user-components">
         <div className="row">
@@ -50,10 +51,11 @@ class User extends Component {
           open={this.state.open}
           onClose={() => this.settingsRender()}
         >
-          <div className="workout-modal">
+          <div className="settings-modal">
             <Settings
               settings={this.props.settings}
               measurement={this.props.measurement}
+              submitSettings={this.props.submitSettings}
             />
           </div>
         </Modal>

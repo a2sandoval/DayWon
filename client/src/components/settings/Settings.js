@@ -1,22 +1,30 @@
 import React, { Component } from "react";
 import { string } from "prop-types";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 
 class Settings extends Component {
   state = {
-    weight: "lb",
-    program: "Juggernaut",
-    timePerSet: 180,
-    weightIncrement: 2.5
+    weight: this.props.settings.weight,
+    program: this.props.settings.program,
+    timePerSet: this.props.settings.timePerSet,
+    weightIncrement: this.props.settings.weightIncrement,
+    weightVal: "lb",
+    programVal: "juggernaut",
+    timeVal: "180",
+    incrementVal: "2.5"
   };
 
-  componentDidMount() {
-    this.setState({
-      weight: this.props.settings.weight,
-      program: this.props.settings.program,
-      timePerSet: this.props.settings.timePerSet,
-      weightIncrement: this.props.settings.weightIncrement
-    });
-  }
+  handleChange = (event, type) => {
+    console.log(event.target.value);
+    console.log(type);
+    var key = type + "Val";
+    this.setState({ [key]: event.target.value });
+  };
 
   isNewUser = () => {
     console.log(this.props.measurement);
@@ -34,10 +42,21 @@ class Settings extends Component {
         </React.Fragment>
       );
     } else {
-      return (
-        <div className="existing-user">Thinking of making some changes?</div>
-      );
+      // return (
+      //   <div className="existing-user">Thinking of making some changes?</div>
+      // );
     }
+  };
+
+  handleChange = () => {
+    var newSettingsObj = {
+      weightType: this.state.weightVal,
+      program: this.state.programVal,
+      timePerSet: this.state.timeVal,
+      weightIncrement: this.state.incrementVal,
+      userId: this.props.user.userId
+    };
+    this.props.submitSettings(newSettingsObj);
   };
 
   render() {
@@ -46,60 +65,91 @@ class Settings extends Component {
       <div className="update-settings">
         {this.isNewUser()}
         <h3 className="update__header">Update Settings</h3>
-        <div className="q1 switch">
-          Workout in pounds:
-          <label>
-            No
-            <input type="checkbox" />
-            <span class="lever" />
-            Yes
-          </label>
-        </div>
-        <div className="q2">
-          Do you know what workout program you want?
-          <div class="input-field col s12">
-            <select>
-              <option value="" disabled selected>
-                Choose your option
-              </option>
-              <option value="1">Juggernaunt</option>
-              <option value="2">Inverted Juggernaut</option>
-              <option value="3">5/3/1</option>
-              <option value="3">GZCL</option>
-            </select>
-            <label>Programs</label>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">Weight</FormLabel>
+          <div className="form-settings">
+            <RadioGroup
+              aria-label="Weight"
+              name="q1"
+              value={this.state.weightVal}
+              onChange={event => this.handleChange(event, "weight")}
+            >
+              <FormControlLabel value="kg" control={<Radio />} label="KG" />
+              <FormControlLabel value="lb" control={<Radio />} label="LB" />
+            </RadioGroup>
           </div>
+        </FormControl>
+        <div className="q2">
+          <FormControl component="fieldset">
+            <FormLabel component="legend">
+              Do you know what workout program you want?
+            </FormLabel>
+            <RadioGroup
+              aria-label="program"
+              name="q2"
+              value={this.state.programVal}
+              onChange={event => this.handleChange(event, "program")}
+            >
+              <FormControlLabel
+                value="juggernaut"
+                control={<Radio />}
+                label="Juggernaut"
+              />
+              <FormControlLabel
+                value="inverted juggernaut"
+                control={<Radio />}
+                label="Inverted Juggernaut"
+              />
+              <FormControlLabel
+                value="5/3/1"
+                control={<Radio />}
+                label="5/3/1"
+              />
+              <FormControlLabel
+                value="cowboy method"
+                control={<Radio />}
+                label="Cowboy Method"
+              />
+            </RadioGroup>
+          </FormControl>
         </div>
         <div className="q3">
-          How much time would you like between sets?
-          <form>
-            <p class="range-field">
-              <input type="range" id="days-workingout" min="60" max="240" />
-            </p>
-          </form>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">
+              How much time are you looking for between sets?
+            </FormLabel>
+            <RadioGroup
+              aria-label="time"
+              name="q3"
+              value={this.state.timeVal}
+              onChange={event => this.handleChange(event, "time")}
+            >
+              <FormControlLabel value="60" control={<Radio />} label="60" />
+              <FormControlLabel value="90" control={<Radio />} label="90" />
+              <FormControlLabel value="120" control={<Radio />} label="120" />
+              <FormControlLabel value="180" control={<Radio />} label="180" />
+            </RadioGroup>
+          </FormControl>
         </div>
         <div className="q4">
-          What weight increments do you have available to you?
-          <form>
-            <p>
-              <label>
-                <input name="group1" type="radio" checked />
-                <span>1.25</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input name="group1" type="radio" />
-                <span>2.5</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input name="group1" type="radio" />
-                <span>5</span>
-              </label>
-            </p>
-          </form>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">
+              What weight increments do you have available to you?
+            </FormLabel>
+            <RadioGroup
+              aria-label="increment"
+              name="q3"
+              value={this.state.incrementVal}
+              onChange={event => this.handleChange(event, "increment")}
+            >
+              <FormControlLabel value="1.25" control={<Radio />} label="1.25" />
+              <FormControlLabel value="2.5" control={<Radio />} label="2.5" />
+              <FormControlLabel value="5" control={<Radio />} label="5" />
+            </RadioGroup>
+          </FormControl>
+          <button className="submitSettings" onClick={this.handleChange}>
+            Submit Changes
+          </button>
         </div>
       </div>
     );

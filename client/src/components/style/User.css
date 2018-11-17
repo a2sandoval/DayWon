@@ -37,3 +37,34 @@
     left: 10%;
   }
 }
+
+.settings-modal {
+  display: flex;
+  margin: 10% 15%;
+  overflow: auto;
+  background: rgb(214, 213, 213);
+
+  width: 70%;
+  height: 80%;
+}
+
+.update-settings {
+  padding: 2rem;
+}
+
+.MuiFormGroup-root-16 {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.MuiFormControl-root-5 {
+  margin-top: 3rem !important;
+}
+
+.MuiRadio-colorSecondary-178.MuiRadio-checked-175 {
+  color: #E39774 !important;
+}
+
+.MuiButtonBase-root-37 {
+  color: #E39774 !important;
+}
