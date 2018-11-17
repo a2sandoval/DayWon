@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../style/Partials.css";
 import "../style/User.css";
-import dayWon_logo from "../../images/DayWon.png";
+import dayWon_logo from "../../images/dayWon.png";
 import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../../redux/modules/actions";
 
 import * as AuthService from "../../utils/AuthService";
 
@@ -83,36 +85,10 @@ class HeaderView extends Component {
                 <button onClick={this.handleLogoutClick}>logout</button>
               </div>
             </div>
-<<<<<<< HEAD
             <div className="first_header__icons--color">
               <Link to="/user">
                 <button>User Profile</button>
               </Link>
-=======
-            <div className="1h header__icons--color">
-              <button
-                onClick={() => {
-                  this.settingsRender("open");
-                }}
-              >
-                Settings
-              </button>
-              <Modal
-                className="col s6 offset-s3 max-calc"
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-                open={this.state.open}
-                onClose={() => this.settingsRender()}
-              >
-                <div className="settings-modal">
-                  <Settings
-                    settings={this.props.settings}
-                    measurement={this.props.measurement}
-                    submitSettings={this.props.submitSettings}
-                  />
-                </div>
-              </Modal>
->>>>>>> 72345663de1bef16630ca6826c07e496b1c058eb
             </div>
             <div className="second_header__icons--color">
               <Link to="/dashboard">
