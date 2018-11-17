@@ -9,7 +9,6 @@ import DailyViewLayout from "./tables/DailyViewLayout";
 import calcs from "../../utils/calcs";
 import ModalWorkout from "./ModalWorkout";
 import Timer from "./Timer";
-import "../style/Daily.css";
 
 class DailyView extends Component {
   state = {

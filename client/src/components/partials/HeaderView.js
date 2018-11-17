@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import "../style/Partials.css";
-import "../style/User.css";
 import dayWon_logo from "../../images/dayWon.png";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../../redux/modules/actions";
 
 import * as AuthService from "../../utils/AuthService";
-
 
 class HeaderView extends Component {
   state = {
@@ -57,17 +54,14 @@ class HeaderView extends Component {
     this.props.history.push({ pathname: "/" });
   };
 
-
   render() {
     console.log(this.props);
     const { auth } = this.props;
-  
+
     return (
       <div className="header flex-container">
         <div className="logo">
-    
-            <img src={dayWon_logo} alt="dayWon logo" />
-    
+          <img src={dayWon_logo} alt="dayWon logo" />
         </div>
         {window.localStorage.getItem("profile") ? (
           <div className="header__icons flex-container">
@@ -80,8 +74,8 @@ class HeaderView extends Component {
                   style={this.border}
                   alt="profile"
                 />
-               
-                <span>Welcome, {auth.profile.nickname}  </span>
+
+                <span>Welcome, {auth.profile.nickname} </span>
                 <button onClick={this.handleLogoutClick}>logout</button>
               </div>
             </div>
@@ -104,13 +98,9 @@ class HeaderView extends Component {
         ) : (
           <div>
             <div className="welcome">
-              <p>
-                Welcome to DayWon. </p>
-                <p>
-                The Ultimate Platform for New and Lifelong
-                Powerlifters. 
-              </p>
-         
+              <p>Welcome to DayWon. </p>
+              <p>The Ultimate Platform for New and Lifelong Powerlifters.</p>
+
               <button className="login-button" onClick={this.handleLoginClick}>
                 Get Jacked!
               </button>
@@ -131,4 +121,3 @@ export default connect(
   mapStateToProps,
   actions
 )(HeaderView);
-

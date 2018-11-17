@@ -18,10 +18,10 @@ mongoose.connect("mongodb://localhost/DayWon", {
 
 
 // THIS IS FOR FINAL PRODUCTION RENDERING
-// if(keys.mongoURI){
-//   mongoose.connect(keys.mongoURI)  
+// if(process.env.mongoURI){
+//   mongoose.connect(process.env.mongoURI)  
 // } else {
-  // mongoose.connect(keys.mongoLocal)
+//   mongoose.connect(keys.mongoLocal)
 // }
 
 const app = express();

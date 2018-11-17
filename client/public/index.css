@@ -47,3 +47,742 @@ body {
 h5 {
   padding-top: 5px;
 }
+
+.upcomingSet {
+  opacity: .4;
+}
+
+.previousSet {
+  opacity: .2;
+}
+
+.currentSet {
+  background-color: white;
+  font-weight: 700;
+}
+
+.workout-modal {
+  display: flex;
+  margin: 3rem 5%;
+  overflow: auto;
+  background: rgb(214, 213, 213);
+  width: 90%;
+  height: 90%;
+}
+
+@media screen and (max-width: 720px) {
+  .workout-modal {
+    width: 95%;
+    margin: 4rem 2.5%;
+  }
+  }
+
+.daily {
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media screen and (max-width: 950px) {
+  .daily {
+  margin: 0
+  }
+}
+
+
+.diffWorkout {
+  align-self: flex-start;
+  font-size: .8rem;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.change-day-buttons button{
+  border: none;
+  background: none;
+  padding: 0 1rem;
+  margin-left: 1rem;
+}
+
+.change-day-buttons button:hover {
+  background: #5C9EAD;
+  color: white;
+}
+
+.main-lift {
+margin: .5rem 3rem;
+font-size: .8rem;
+}
+
+@media screen and (max-width: 950px) {
+  .main-lift {
+  margin: .5rem 0;
+  }
+
+  .fillableForm {
+    height: 80%;
+    }
+  }
+
+.main-lift tbody {
+  overflow-y: scroll;
+}
+
+.main-lift tbody tr{
+  padding: 0;
+  border: none;
+}
+
+.main-lift tbody tr td {
+  padding: 0;
+}
+
+.main-lift tbody tr button {
+  border: none;
+  background: #5C9EAD;
+  color: white;
+
+}
+
+.main-lift tbody td input {
+  border: none;
+}
+
+.timer {
+  margin-top: 2rem;
+}
+
+.timer-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.timer-clock {
+  color: #E39774;
+  font-weight: 500;
+  font-size: 3rem;
+  align-self: center;
+  padding: 0px 5px;
+  border-bottom: #5C9EAD 2px solid;
+}
+
+.timer-buttons button {
+  border: none;
+  background: none;
+  margin-top: 1rem;
+}
+
+.timer-buttons button:hover {
+  color: white;
+  background: #5C9EAD;
+}
+
+#negative-value {
+  color: red;
+}
+
+.fillableForm {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  overflow: auto;
+}
+
+/* @media screen and (max-width: 1200px) {
+  .fillableForm {
+  height: 65%;
+  }
+  }
+@media screen and (max-width: 990px) {
+  .fillableForm {
+  height: 75%;
+  }
+  } */
+
+.program-title {
+  margin: 1.5rem 3rem 0rem 3rem;
+  color: #E39774;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+
+.program-status {
+  font-size: 1rem;  
+}
+
+#workoutSubmit {
+  border: none;
+  background: none;
+  color: #E39774;
+  font-size: 2.5rem;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0;
+}
+
+#workoutSubmit:hover {
+  background: #5C9EAD;
+  color: white;
+}
+
+
+/* Dashboard components --------------------------------------- */
+.dash-components {
+  margin-left: 10vw;
+  width: 80vw;
+}
+
+
+.click {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.btn:hover {
+  background-color: #1d67bb;
+}
+
+.btn:active {
+  background-color: #6d1b25;
+}
+
+.btn {
+  background-color: grey;
+  float: left;
+  position: relative;
+  margin:1%;
+}
+
+.calc-modal {
+  background: rgb(214, 213, 213);
+  color: white;
+  width: 33%;
+  position: absolute;
+  left: 33%;
+  height: 45%;
+  padding: 5px 30px;
+  top: 25%;
+}
+
+@media screen and (max-width: 1040px) {
+  .calc-modal {
+  height: 48%;
+  width: 45%;
+  left: 27.5%
+  }
+  }
+@media screen and (max-width: 740px) {
+  .calc-modal {
+  width: 50%;
+  left: 25%
+  }
+  }
+
+
+  @media screen and (max-width: 470px) {
+  .calc-modal {
+  width: 80%;
+  left: 10%
+  }
+  }
+
+.calc input {
+  width: 40%;
+}
+
+.weight-label {
+
+}
+
+.reps-label {
+}
+
+
+.max-calc-weight-inputs {
+  /* margin: 20px !important;
+  width: 40px !important; */
+}
+
+.max-calc-reps-inputs {
+  /* margin: 20px !important;
+  width: 40px !important; */
+}
+
+.new-max {
+  font-size: 24px;
+  justify-self: center;
+  align-self: center;
+}
+
+.input-form {
+  margin-left: 20px;
+}
+
+.maxUpdate-modal {
+  background: rgb(214, 213, 213);
+  color: white;
+  width: 33%;
+  position: absolute;
+  left: 33%;
+  height: 70%;
+  padding: 5px 30px;
+  top: 15%;
+}
+
+.maxUpdate-modal button{
+  color: #E39774;
+  border: none;
+  background: none;
+  padding: 0 1rem;
+  margin-left: 1rem;
+}
+
+.maxUpdate-modal button:hover {
+  background: #5C9EAD;
+  color: white;
+}
+
+.videos-modal {
+  background: rgb(214, 213, 213);
+  color: white;
+  width: 80%;
+  position: absolute;
+  left: 10%;
+  height: 70%;
+  padding: 5px 30px;
+  top: 15%;
+}
+
+.video-player {
+  display: flex;
+  flex-direction: row;
+}
+
+.video-detail {
+  margin-top: 10%;
+  flex: 2;
+  flex-basis: 70%;
+}
+
+.embed-responsive {
+  width: 90%;
+  height: 50%;
+  object-fit: contain;
+  background-size: contain;
+}
+
+.video-detail iframe {
+  background-size: contain;
+  width: 100%;
+  height: 56.25%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1104px) {
+  .embed-responsive {
+    width: 90%;
+    height: 40%;
+    object-fit: contain;
+    background-size: contain;
+  } 
+   .video-detail iframe {
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  }
+@media screen and (max-width: 1300px) {
+  .embed-responsive {
+    width: 90%;
+    height: 50%;
+    object-fit: contain;
+    background-size: contain;
+  } 
+   .video-detail iframe {
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  }
+@media screen and (min-width: 1500px) {
+  .embed-responsive {
+    width: 90%;
+    height: 65%;
+    object-fit: contain;
+    background-size: contain;
+  } 
+   .video-detail iframe {
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  }
+
+.video-list {
+  flex: 1;
+  flex-basis: 30%;
+  overflow-y: auto;
+}
+
+.video-item img {
+  max-width: 64px;
+}
+
+.video-detail .details {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.videos-modal button {
+  color: #E39774;
+  border: none;
+  background: none;
+  padding: 0 1rem;
+  margin-left: 1rem;
+}
+
+.active-button {
+  background: #5C9EAD;
+  color: white;
+}
+
+.intro-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.intro-buttons button {
+  width: 20%;
+}
+/* Graph Component ------------------------------------------------------ */
+
+.graph-component {
+  height: 400px;
+  width: 800px;
+  padding-top: 30px;
+}
+
+.pie-chart {
+  height: 800px;
+  background-color: white;
+  border-style: solid;
+  border-color: darkgray;
+  border: outset;
+}
+#root{
+  width: 90%;
+}
+
+/* settings --------------------------------------------- */
+
+
+/* 
+MuiIconButton-root-31 MuiSwitchBase-root-27 MuiRadio-root-22 MuiRadio-colorSecondary-26 MuiSwitchBase-checked-28 MuiRadio-checked-23 */
+
+#pie-chart {
+  width:70%;
+  height:70%;
+  margin-bottom: 5%;
+}
+
+@media screen and (max-width: 950px) {
+  #pie-chart {
+      width:70%;
+      height:70%;
+      margin-bottom: 5%;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  #pie-chart {
+      width:70%;
+      height:70%;
+      margin-bottom: 30%;
+      margin-top:10%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #pie-chart {
+      width:130%;
+      height:70%;
+      margin-bottom: 5%;
+      margin-left: -5%;
+      margin-right:-5%;
+      margin-top:-80%;
+  }
+
+}
+
+/* Header component -------------------------------------------------*/
+
+.flex-container {
+  display: flex;
+}
+
+.header {
+  padding: 75px 0 0 0;
+  width: 80vw;
+  margin-left: 10vw;
+  justify-content: space-between;
+  height: 400px;
+}
+
+.line {
+position: absolute;
+width: 100%;
+height: 0px;
+top: -30px;
+border: 2px solid #5C9EAD;
+}
+
+.signOut {
+  position: absolute;
+  font-size: 18px;
+  top: -265px;
+  color: #326273;
+}
+
+.signOut button:active {
+  font-size: 19px;
+}
+
+.logo {
+position: absolute;
+top: 0px;
+object-fit: contain;
+width: 450px;
+height: 412px;
+left: calc(50% - 225px);
+}
+
+.logo img {
+position: absolute;
+object-fit: contain;
+top: -50px;
+width: 450px;
+height: 412px;
+}
+
+.header__icons {
+width: 100%;
+height: 35px;
+justify-content: space-between;
+font-family: Amaranth;
+font-style: normal;
+font-weight: bold;
+line-height: normal;
+position: relative;
+top: 200px;
+}
+
+.header__icons--color {
+  font-size: 24px;
+  color: #326273 !important;
+}
+
+.header__icons a {
+  text-decoration: none;
+  color: #326273 !important;
+}
+
+.header__icons button {
+  border: none;
+  background-color: transparent;
+}
+
+.header__icons button:hover {
+  color: #E39774;
+}
+
+.header__icons button:active {
+  color: #E39774;
+  font-size: 25px;
+  text-shadow:
+   -1px -1px 0 #5C9EAD,  
+    1px -1px 0 #5C9EAD,
+    -1px 1px 0 #5C9EAD,
+     1px 1px 0 #5C9EAD;
+}
+
+.welcome {
+  background-color: rgba(238, 238, 238, 0.9);
+  height: 40%;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.welcome button {
+  border: none;
+  background: none;
+  color:  #E39774;
+  position: relative;
+  left: calc(50% - 42 px);
+}
+
+.welcome button:hover {
+  background: #5C9EAD;
+  color: white;
+}
+
+@media screen and (max-width: 950px) {
+  .welcome {
+    font-size: 1.8rem;
+    width: 70%;
+    left: 15%;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .welcome {
+    font-size: 1.6rem;
+    width: 80%;
+    left: 10%;
+  }
+}
+
+
+
+
+
+
+/* Footer component -------------------------------------------------*/
+
+
+.user-components {
+  background-color: rgba(238, 238, 238, 0.9);
+  height: 40%;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.user-components button {
+  border: none;
+  background: none;
+  color:  #E39774;
+  position: relative;
+  left: calc(50% - 42 px);
+}
+
+.user-components button:hover {
+  background: #5C9EAD;
+  color: white;
+}
+
+@media screen and (max-width: 950px) {
+  .user-components {
+    font-size: 1.8rem;
+    width: 70%;
+    left: 15%;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .user-components {
+    font-size: 1.6rem;
+    width: 80%;
+    left: 10%;
+  }
+}
+
+.settings-modal {
+  display: flex;
+  margin: 10% 15%;
+  overflow: auto;
+  background: rgb(214, 213, 213);
+
+  width: 70%;
+  height: 80%;
+}
+
+.update-settings {
+  padding: 2rem;
+}
+
+.MuiFormGroup-root-16 {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.MuiFormControl-root-5 {
+  margin-top: 3rem !important;
+}
+
+.MuiRadio-colorSecondary-178.MuiRadio-checked-175 {
+  color: #E39774 !important;
+}
+
+.MuiButtonBase-root-37 {
+  color: #E39774 !important;
+}
+
+.weekly-view {
+  margin: 0 5rem;
+
+}
+
+@media screen and (max-width: 650px) {
+  .weekly-view {
+  margin: 0 .5rem;
+  font-size: .8rem;
+  }
+  }
+
+.weekly-view table tr {
+  border: none;
+  color: rgb(50, 98, 115);
+
+}
+
+.weekly-view table td,  .weekly-view table th {
+  padding: 3px;
+  text-align: left;
+  width: 300px;
+}
+
+.workoutday-buttons button {
+  border: none;
+  background: none;
+  margin-top: 1rem;
+  width: 10rem;
+}
+
+.workoutday-buttons button:hover {
+  color: white;
+  background: #5C9EAD;
+}
+
+.workoutday-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(50, 98, 115);
+}
+
+.workoutday-view h6{
+  font-size: 2.3rem;
+  font-weight: 600;
+}

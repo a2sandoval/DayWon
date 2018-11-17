@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style/Welcome.css";
 import * as actions from "../actions";
 
 class NewUser extends Component {

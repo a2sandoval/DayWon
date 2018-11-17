@@ -5,7 +5,6 @@ import calcs from "../../utils/calcs";
 import program from "../../utils/allProgramData";
 import WeeklyFormPrimary from "./tables/WeeklyFormPrim";
 import WeeklyFormAccess from "./tables/WeeklyFormAcc";
-import "../style/Weekly.css";
 
 class WeeklyView extends Component {
   constructor(props) {
