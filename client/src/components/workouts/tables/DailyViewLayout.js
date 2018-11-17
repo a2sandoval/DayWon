@@ -52,6 +52,7 @@ export default function DailyViewLayout(props) {
               liftingData={props.liftingData}
               setRowAsCurrent={props.setRowAsCurrent}
               rowIsCurrent={props.rowIsCurrent}
+              accData={props.measurement.accessoryLifts}
             />
           );
         });

@@ -15,60 +15,17 @@ const userSchema = new Schema({
   userMaxes: 
     {
       type: Schema.Types.ObjectId,
-      ref: "UserMaxes"
+      ref: "usermaxes"
     },
   historicalWorkouts: Array,
   settings: 
     {
       type: Schema.Types.ObjectId,
-      ref: 'Settings'
+      ref: 'settings'
     }
 });
 
-// On Save Hook, encrypt password
-// Before saving a model, run this function
-// literally means pre save, before saving, run this function
-// userSchema.pre('save', function(next) {
-//   // get access to the user model
-//   const user = this; // user is now an instance of the user model, allows us to use user.email, user.password
 
-//   // generate a salt then run callback, salt takes time
-//   bcrypt.genSalt(10, function(err, salt) {
-//     if (err) {
-//       return next(err);
-//     }
-
-//     // hash (encrypt) our password using the salt
-//     bcrypt.hash(user.password, salt, null, function(err, hash) {
-//       if (err) {
-//         return next(err);
-//       }
-
-//       // overwrite plain text password with encrypted password
-//       user.password = hash;
-//       // then save the model
-//       next();
-//     });
-//   });
-// });
-
-// // whenever we create a user object, it will have access to anything function defines on this methods property
-// // this will compare the cnadidatePassword (what the user used to sign in) and compare it to the this.password which is a reference to our hashed and salted password
-// userSchema.methods.comparePassword = function(candidatePassword, callback) {
-//   // bycrpt does the salt/hash process to candidate pass to then compare
-//   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-//     if (err) {
-//       return callback(err);
-//     }
-
-//     callback(null, isMatch);
-//   });
-// };
-
-// Create the model class
-// this loads the schema into mongoose which corresponds to a collection called user
-// note its a modelclass, so it represents all users
-//TODO:
 const UserClass = mongoose.model('user', userSchema);
 
 // Export the model

@@ -1,15 +1,11 @@
-const jwt = require('jsonwebtoken');
+
 const db = require('../models');
-const userId = require('../services/userId');
 
 module.exports = app => {
 
-  app.get('/api/user/:id', (req, res) => {
-
-  })
-
+  
+  
   app.post('/api/user', (req, res) => {
-    console.log(req.body);
     var updates = {
       name: req.body.name,
       picture: req.body.picture,
@@ -21,18 +17,64 @@ module.exports = app => {
       }
       // if a new user
       if (!user) {
-        var newUser = new db.User({ email: req.body.email, name: req.body.name, picture: req.body.picture})
-        newUser.save(err => {
-          console.log(newUser);
-          if (err) return res.status(500).send(err);
-          return res.status(200).send(newUser);
-        })
+        
+        var dataId, settingsId;
+        
+        var newMaxData = new db.UserMaxes({
+            bpMax: null,
+            sqtMax: null,
+            mpMax: null,
+            dlMax: null, 
+            historicalMaxes: []
+          })
+        var newSettingsData = new db.Settings({weight: "lb", program: "juggernaut", timePerSet: 180, weightIncrement: 2.5})
+        
+        // newMaxData.save(err => {
+        //     if (err) return res.status(500).send(err);
+        //     dataId = newMaxData._id;
+        //     console.log(dataId);
+        //     return dataId
+        //   }).then((maxData) => {
+        //     console.log(maxData);
+        //     console.log(dataId);
+            newSettingsData.save(err => {
+              if (err) return res.status(500).send(err);
+              settingsId = newSettingsData._id;
+              console.log(settingsId);
+              return settingsId
+                }).then((res) => {
+                  console.log(res);
+                  console.log(dataId);
+                  var newUser = new db.User({ email: req.body.email, name: req.body.name, picture: req.body.picture, historicalWorkouts: [], userMaxes: null, settings: res._id})
+                  newUser.save(err => {
+                    console.log(newUser);
+                    if (err) return res.status(500).send(err);                 
+                })  
+                })
+          
+        
+       
+        
       } else {
-      console.log(user);
-      return res.send(user);
-      }
-    })
-  })
+        // var userObj = {}
+        // // console.log(user);
+        // var userMax = db.UserMaxes.findById(user.userMaxes).then(userMaxPopulated => {
+        //   console.log(userMaxPopulated);
+        //   return userMaxPopulated
+        //   }) 
+
+        // var settings = db.Settings.findById(user.settings).then(settings => {
+        //     // userObj= {...userMaxPopulated, ...settings };
+        //     // console.log(userObj);
+        //     console.log(settings);
+        //     return settings
+        //     })
+        // userObj = {...settings, ...userMax}
+        // console.log(userObj);
+        res.send(user)
+          }
+        })
+      })
 
   app.post('/api/update-maxes', (req, res) => {
     console.log(req.body);
@@ -101,68 +143,35 @@ module.exports = app => {
   })
 
 
-  app.get('/api/settings', function(req, res){
-    console.log(req.body);
-    // need userid
-    db.User.findById(req.body.user.userId, (err, user) => {
-      if (err) return handleError(err);
-      if (!user.settings){
-        console.log("no settings");
-          var newSettingsData = new db.Settings({})
-          newSettingsData.save(err => {
-            console.log(newSettingsData);
-            if (err) return res.status(500).send(err);
-            return res.status(200).send(newSettingsData);
-          }).then(() => {
-            db.User.findByIdAndUpdate(req.body.userId, {
-              userMaxes: newSettingsData._id
-          }, (err, user) => {
-            if (err) return handleError(err);
-            console.log(user);
-          }
-          )
-          })     
-    }
-    else {
-     db.Settings.findById(user.settings).then((settings) => {
-       console.log(settings);
-       console.log("settings");  
+  app.get('/api/settings/:id', function(req, res){
+     db.Settings.findById(req.params.id).then((settings) => {
+      console.log("lgging settings");  
+      console.log(settings); 
        res.send(settings);
-     })
-    }
   }
   )
   })
 
-  app.post('/api/settings', function(req, res){
+  app.post('/api/update-settings/:id',  (req,res) => {
     console.log(req.body);
-    User.findById(req.body.user.userId, 'program', (err, user) => {
+    db.Settings.findByIdAndUpdate(req.params.id, req.body).then((settings) => {
+  })
+})
+
+  app.post('/api/userMaxes', function(req, res){
+    console.log(req.body);
+    db.UserMaxesfindById(req.body.user.userMaxes).then((userMaxes) => {
       if (err) return handleError(err);
-      console.log(user);
-      res.send(user)
+      console.log(userMaxes);
+      res.send(userMaxes)
     }
   )
   })
 
-  app.get('/api/day', (req, res) => {
-    // can combine this with accessory lifts 
-    User.findById(req.body.userId, 'historicalWorkouts', (err, workouts) => {
-      if (err) return handleError(err);
-      if (!workouts){
-        return;
-        // will have state with predetermined day 1, etc
-      }
-      var lastWorkout = workouts.length - 1;
-      console.log(workouts);
-      var day = workouts.length;
-      console.log(day);
-      res.send(day);
-    })
-  })
 
   app.post('/api/workout', (req,res) => {
     var date= Date();
-    // console.log(req.body);
+    console.log(req.body);
     var updateWorkout;
     switch (req.body.workoutDay) {
       case "Squat":
@@ -180,43 +189,60 @@ module.exports = app => {
       default:
         break;
     }
-    var workoutData= [req.body.workoutEntered]
+    var workoutData= req.body.workoutEntered
     var date = Date();
     workoutData.date = date;
-    console.log(workoutData);
+    workoutData.workout = req.body.workoutDay.workout;
+
     console.log("Submitted Workout");
       db.User.findByIdAndUpdate(req.body.user.userId, {$push: {historicalWorkouts: workoutData}}, {new:true}, (err, user) => {
         console.log(user);
-        var update = {
-          [updateWorkout]: parseInt(req.body.maxForWorkout),
-        }
-        console.log(update);
-        var pushUpdate = { historicalMaxes: { 
-              bpMax: parseInt(req.body.maxes.bpMax),
-              sqtMax: parseInt(req.body.maxes.sqtMax),
-              mpMax: parseInt(req.body.maxes.mpMax),
-              dlMax: parseInt(req.body.maxes.dlMax), 
-              date: date
-            }
+      })
+      var update = {
+        [updateWorkout]: parseInt(req.body.maxForWorkout),
+      }
+      var pushUpdate = { historicalMaxes: { 
+            bpMax: parseInt(req.body.maxes.bpMax),
+            sqtMax: parseInt(req.body.maxes.sqtMax),
+            mpMax: parseInt(req.body.maxes.mpMax),
+            dlMax: parseInt(req.body.maxes.dlMax), 
+            date: date
           }
-          console.log(pushUpdate);
-        db.UserMaxes.findByIdAndUpdate(user.userMaxes, {$set: update, $push: pushUpdate}, {new: true}, (err, userMax) => {
-            res.send(user)
-        })
+        }
+      db.UserMaxes.findByIdAndUpdate(req.body.user.maxesId, {$set: update, $push: pushUpdate}, {new: true}, (err, userMax) => {
+        console.log("userMaxes");
+          console.log(userMax);
+          res.send(userMax)
       })
     })
 
-  app.get('api/accesoryLift', (req, res) => {
-    console.log(req.body);
-    // will need all accessory lifts listed
-    User.findById(req.body.userId, 'historicalWorkouts', (err, workouts) => {
-      if (err) return handleError(err);
-      console.log(workouts);
-      var lastWorkout = workouts.length - 1;
-      // array to find last
-      // findLast of accessory lift, return weight entered to accessoryLift weight, this will be called on every day rendered, and week will call with all.
-      // make a list of last weight used in a reducer
-    })
-  })
+  //   app.get('/api/accessory-lifts/:id', (req, res) => {
+  //     console.log("found me!");
+  //     console.log(req.params.id);
+  //     db.User.findById(req.params.id).then((user) => {
+  //       console.log(user);
+  //       var lastWorkout = user.historicalWorkouts.length - 1;
+  //       if (lastWorkout === 0) {
+  //         return null
+  //       } 
+  //       accObj = {};
+  //       var keys = [];
+  //       for (i = lastWorkout; i>= (lastWorkout - 3); i--){
+  //         if (i <= 0) {
+  //           return;
+  //         }
+  //         keys = Object.keys(user.historicalWorkouts[i])
+  //         for (let workout of keys) {
+  //           if (workout === "date" || workout === "workout"){
+  //             return
+  //           }
+  //           accObj[workout] = user.historicalWorkouts[i][workout]["1"]["weight"]
+  //         }
+  //       }
+  //       console.log(accObj);
+  //       accObj.lastWorkout = user.historicalWorkouts[lastWorkout]["workout"];
+  //       res.send(accObj);
+  //   })
+  // })
 
 }

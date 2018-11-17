@@ -47,7 +47,7 @@ const userMaxesSchema = new Schema({
   },
 });
 
-const UserMaxes = mongoose.model('UserMaxes', userMaxesSchema);
+const UserMaxes = mongoose.model('usermaxes', userMaxesSchema);
 
 // Export the model
 module.exports = UserMaxes;
