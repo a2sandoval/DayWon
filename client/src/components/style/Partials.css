@@ -1,5 +1,5 @@
 /* Header component -------------------------------------------------*/
-
+/* 
 .flex-container {
   display: flex;
 }
@@ -58,8 +58,8 @@ font-weight: bold;
 line-height: normal;
 position: relative;
 top: 200px;
-}
-
+} */
+/* 
 .header__icons--color {
   font-size: 24px;
   color: #326273 !important;
@@ -127,7 +127,7 @@ top: 200px;
     width: 80%;
     left: 10%;
   }
-}
+} */
 
 
 

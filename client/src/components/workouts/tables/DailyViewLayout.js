@@ -1,7 +1,6 @@
 import React from "react";
 import PrimaryForm from "./PrimaryForm";
 import AccesForm from "./AccesForm";
-import "../../style/Daily.css";
 
 export default function DailyViewLayout(props) {
   // console.log(props);

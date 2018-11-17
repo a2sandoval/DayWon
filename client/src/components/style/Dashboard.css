@@ -1,11 +1,11 @@
 
 /* Dashboard components --------------------------------------- */
-.dash-components {
+/* .dash-components {
   margin-left: 10vw;
   width: 80vw;
-}
+} */
 
-
+/* 
 .click {
   display: flex;
   justify-content: space-around;
@@ -36,9 +36,9 @@
   height: 45%;
   padding: 5px 30px;
   top: 25%;
-}
+} */
 
-@media screen and (max-width: 1040px) {
+/* @media screen and (max-width: 1040px) {
   .calc-modal {
   height: 48%;
   width: 45%;
@@ -58,8 +58,8 @@
   width: 80%;
   left: 10%
   }
-  }
-
+  } */
+/* 
 .calc input {
   width: 40%;
 }
@@ -75,12 +75,12 @@
 .max-calc-weight-inputs {
   /* margin: 20px !important;
   width: 40px !important; */
-}
+/* }
 
-.max-calc-reps-inputs {
+.max-calc-reps-inputs { */
   /* margin: 20px !important;
   width: 40px !important; */
-}
+/* }
 
 .new-max {
   font-size: 24px;
@@ -125,8 +125,8 @@
   height: 70%;
   padding: 5px 30px;
   top: 15%;
-}
-
+} */ 
+/* 
 .video-player {
   display: flex;
   flex-direction: row;
@@ -218,8 +218,8 @@
   background: none;
   padding: 0 1rem;
   margin-left: 1rem;
-}
-
+} */
+/* 
 .active-button {
   background: #5C9EAD;
   color: white;
@@ -233,13 +233,10 @@
 
 .intro-buttons button {
   width: 20%;
-}
-
-
-
+} */
 /* Graph Component ------------------------------------------------------ */
 
-.graph-component {
+/* .graph-component {
   height: 400px;
   width: 800px;
   padding-top: 30px;
@@ -254,10 +251,10 @@
 }
 #root{
   width: 90%;
-}
+} */
 
 /* settings --------------------------------------------- */
 
 
 /* 
-MuiIconButton-root-31 MuiSwitchBase-root-27 MuiRadio-root-22 MuiRadio-colorSecondary-26 MuiSwitchBase-checked-28 MuiRadio-checked-23 */
+MuiIconButton-root-31 MuiSwitchBase-root-27 MuiRadio-root-22 MuiRadio-colorSecondary-26 MuiSwitchBase-checked-28 MuiRadio-checked-23 */ 

@@ -8,7 +8,6 @@ import program from "../../utils/allProgramData";
 import DailyViewLayout from "./tables/DailyViewLayout";
 import calcs from "../../utils/calcs";
 import Timer from "./Timer";
-import "../style/Daily.css";
 
 class ModalWorkout extends Component {
   state = {

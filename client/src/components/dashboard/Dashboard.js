@@ -5,7 +5,6 @@ import Pie from "./Pie2";
 import PieStats from "./PieStats";
 import MaxCalc from "./MaxCalc";
 import Stats from "./Stats";
-import "../style/Dashboard.css";
 import { connect } from "react-redux";
 import * as actions from "../../redux/modules/actions";
 
