@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style/Welcome.css";
 import { Link, Redirect } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
 import Header from "./partials/Header";
@@ -9,21 +8,11 @@ import { connect } from "react-redux";
 
 class Home extends Component {
   componentDidMount() {
-    if (!localStorage.getItem("profile")) {
-      this.props.history.push("/");
-    }
-    if (localStorage.getItem("profile")) {
-      // this.props.authUser(() => {
-      //   console.log("authUser");
-      // });
-    }
+ 
   }
 
   componentDidUpdate() {
-    if (!localStorage.getItem("token") && !localStorage.getItem("profile")) {
-      this.props.history.push("/");
-    }
-    console.log(this.props.user);
+  
   }
 
   render() {
@@ -31,6 +20,7 @@ class Home extends Component {
     return (
       <div className="row">
         <div className="col s12" />
+     
       </div>
     );
   }
