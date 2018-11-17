@@ -634,15 +634,15 @@ top: 200px;
 
 .welcome button {
   border: none;
-  background: none;
-  color:  #E39774;
+  background: #5C9EAD;
+  color: white;
   position: relative;
   left: calc(50% - 42 px);
 }
 
 .welcome button:hover {
-  background: #5C9EAD;
-  color: white;
+  background: none;
+  color:  #E39774;
 }
 
 @media screen and (max-width: 950px) {
