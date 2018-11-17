@@ -12,17 +12,17 @@ require('./models');
 
 mongoose.Promise = global.Promise;
 // we pass the address of the mongo instance we crated on mlab.com. Each project on there will give us a uri. We place it in config to hide from people
-mongoose.connect("mongodb://localhost/DayWon", {
-  useMongoClient: true
-})
+
 
 
 // THIS IS FOR FINAL PRODUCTION RENDERING
-// if(process.env.mongoURI){
-//   mongoose.connect(process.env.mongoURI)  
-// } else {
-//   mongoose.connect(keys.mongoLocal)
-// }
+if(process.env.mongoURI){
+  mongoose.connect(process.env.mongoURI)  
+} else {
+  mongoose.connect("mongodb://localhost/DayWon", {
+  useMongoClient: true
+})
+}
 
 const app = express();
 // all app.use are middlewares that get applied to our app before the route handlers, you can also place them elsewhere if you don't want all these middlewares being used between all routes handlers
