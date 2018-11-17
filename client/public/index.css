@@ -621,13 +621,15 @@ top: 200px;
 
 .welcome {
   background-color: rgba(238, 238, 238, 0.9);
-  height: 40%;
+  height: 20%;
   width: 60%;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 20%;
-  font-size: 2rem;
-  padding: 2rem;
+  font-size: 1rem;
+  padding: 2rem 2rem 0 2rem 2rem ;
+  margin-top:6rem;
+  text-align: center;
 }
 
 .welcome button {
