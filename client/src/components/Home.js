@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./style/Welcome.css";
 import { Link, Redirect } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
 import Header from "./partials/Header";
@@ -21,6 +20,7 @@ class Home extends Component {
     return (
       <div className="row">
         <div className="col s12" />
+     
       </div>
     );
   }

@@ -5,9 +5,6 @@
   width: 80%;
 }
 
-.stats {
-  
-}
 
 .click {
   display: flex;
@@ -25,6 +22,9 @@
 
 .btn {
   background-color: grey;
+  float: left;
+  position: relative;
+  margin:1%;
 }
 
 .calc-modal {

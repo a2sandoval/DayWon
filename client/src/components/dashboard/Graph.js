@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { Line } from "@nivo/line";
 import { connect } from "react-redux";
 import * as actions from "../../redux/modules/actions";
+import "../style/graph.css"
 import { Bar, Line, Pie, Bubble, Doughnut, Scatter } from 'react-chartjs-2';
 
 
@@ -31,7 +32,7 @@ class Graph extends Component {
 
     render() {
         return (
-            <div classname='chart'>
+            <div className='chart'>
                 { <Bar
                     data={this.state.chartData}
                     width={700}

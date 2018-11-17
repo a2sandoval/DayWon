@@ -30,6 +30,7 @@ class AppView extends Component {
         AuthService.setToken(authResult.idToken); // static method
         AuthService.setProfile(profile); // static method
         loginSuccess(profile);
+        //Once logged in  and authenticated go to this path
         history.push({ pathname: "/dashboard" });
         AuthService.lock.hide();
       });
@@ -37,6 +38,7 @@ class AppView extends Component {
     // Add callback for lock's `authorization_error` event
     AuthService.lock.on("authorization_error", error => {
       loginError(error);
+      //if not logged in, or error logging in, go to NotFoundPage
       history.push({ pathname: "/NotFoundPage" });
     });
   }
