@@ -17,9 +17,18 @@ class Dashboard extends Component {
       this.props.userToDb(profile, () => {
         console.log("handled user");
         console.log(this.props.user);
+        this.props.fetchSettings(this.props.user);
+        this.props.getAccesWorkoutData(this.props.user.workoutsId, () => {
+          console.log(this.props);
+        });
       });
     }
   }
+
+  componentWillUnmount() {
+    this.props.fetchSettings(this.props.user);
+  }
+
   render() {
     return (
       <div className="dash-components">

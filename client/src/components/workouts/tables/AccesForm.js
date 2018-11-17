@@ -22,6 +22,14 @@ export default function AccesForm(props) {
     }
   };
 
+  let hasVal = () => {
+    if (!props.accData[props.lift]) {
+      return props.accData[props.lift];
+    } else {
+      return props.liftingData[props.lift][props.set]["weight"];
+    }
+  };
+
   // console.log(props);
   return (
     <tr className={isCurrentSet(props.row, "for class naming")} id={props.row}>
@@ -43,7 +51,7 @@ export default function AccesForm(props) {
           className="input-field"
           type="text-field"
           placeholder="To failure"
-          value={props.liftingData[props.lift][props.set]["weight"]}
+          value={hasVal()}
         />
       </td>
       <td data-label="Weight-Percentage">

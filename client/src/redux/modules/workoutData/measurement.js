@@ -1,4 +1,4 @@
-import { USER_LIFT_DATA } from "../actions/types";
+import { USER_LIFT_DATA, ACCES_LIFT_DATA } from "../actions/types";
 
 export default function(
   state = {
@@ -10,7 +10,14 @@ export default function(
     historicalWorkouts: [
       { lift: "benchpress", weight: 225, reps: 10, time: 20181015 },
       { lift: "squat", weight: 265, reps: 10, time: 20181015 }
-    ]
+    ],
+    lastWorkout: 0,
+    accessoryLifts: {},
+    initialBp: "",
+    initialMp: "",
+    initialSqt: "",
+    initialDl: ""
+
     // need to have user max, and date, need max to automatically change based on realization phase
   },
   action
@@ -25,15 +32,20 @@ export default function(
           sqt: action.payload.sqtMax,
           historicalMaxes: [action.payload.historicalMaxes],
           historicalWorkouts:
-            [action.payload.historicalWorkouts] || state.historicalWorkouts
+            [action.payload.historicalWorkouts] || state.historicalWorkouts,
+          lastWorkout: state.lastWorkout,
+          accessoryLifts: state.accessoryLifts,
+          initialBp: action.payload.historicalMaxes[0].bpMax || "",
+          initialMp: action.payload.historicalMaxes[0].mpMax || "",
+          initialDl: action.payload.historicalMaxes[0].dlMax || "",
+          initialSqt: action.payload.historicalMaxes[0].sqtMax || ""
         } || state
       );
-    // case FETCH_WORKOUT_DATA:
-    //   if (!action.payload) {
-    //     return { historicalWorkouts: state.historicalWorkouts };
-    //   } else {
-    //     return { historicalWorkouts: action.payload };
-    //   }
+    case ACCES_LIFT_DATA:
+      return {
+        ...state,
+        accessoryLifts: action.payload
+      };
 
     default:
       return state;

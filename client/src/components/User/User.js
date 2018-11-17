@@ -10,15 +10,28 @@ class User extends Component {
     open: false
   };
 
+  border = {
+    borderRadius: "50%"
+  };
+
   settingsRender = open => {
     !open ? this.setState({ open: false }) : this.setState({ open: true });
   };
 
   componentDidMount() {}
   render() {
+    console.log(this.props);
     return (
       <div className="user-components">
         <div className="row">
+          <div>
+            <img
+              src={this.props.user.picture}
+              height="40px"
+              style={this.border}
+              alt="profile"
+            />
+          </div>
           <div className="s12">Welcome {this.props.user.name}</div>
           <div className="maxes">Your current maxes are</div>
           <div className="userdata">Here are your user stats</div>
@@ -38,10 +51,11 @@ class User extends Component {
           open={this.state.open}
           onClose={() => this.settingsRender()}
         >
-          <div className="workout-modal">
+          <div className="settings-modal">
             <Settings
               settings={this.props.settings}
               measurement={this.props.measurement}
+              submitSettings={this.props.submitSettings}
             />
           </div>
         </Modal>

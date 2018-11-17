@@ -1,8 +1,8 @@
 
 /* Dashboard components --------------------------------------- */
 .dash-components {
-  margin: auto;
-  width: 80%;
+  margin-left: 10vw;
+  width: 80vw;
 }
 
 
@@ -225,6 +225,15 @@
   color: white;
 }
 
+.intro-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.intro-buttons button {
+  width: 20%;
+}
 
 
 
@@ -246,3 +255,9 @@
 #root{
   width: 90%;
 }
+
+/* settings --------------------------------------------- */
+
+
+/* 
+MuiIconButton-root-31 MuiSwitchBase-root-27 MuiRadio-root-22 MuiRadio-colorSecondary-26 MuiSwitchBase-checked-28 MuiRadio-checked-23 */

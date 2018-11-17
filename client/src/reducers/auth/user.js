@@ -23,6 +23,7 @@ export default function(
         isLoggedIn: true,
         name: action.payload.profile.name,
         email: action.payload.profile.email,
+        picture: action.payload.profile.picture,
         userId: action.payload.id._id,
         settingsId: action.payload.id.settings,
         maxesId: action.payload.id.userMaxes,

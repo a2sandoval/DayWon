@@ -3,6 +3,5 @@
 module.exports = {
   User: require("./User"),
   Settings: require("./Settings"),
-  UserMaxes: require("./UserMaxes"),
-  // Workouts: require("./Workouts")
+  UserMaxes: require("./UserMaxes")
 };

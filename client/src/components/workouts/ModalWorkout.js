@@ -21,7 +21,8 @@ class ModalWorkout extends Component {
     workouts: [],
     accesData: {},
     runThrough: 0,
-    nextWorkoutTime: false
+    nextWorkoutTime: false,
+    ready: false
   };
 
   liftType = undefined;
@@ -131,6 +132,7 @@ class ModalWorkout extends Component {
               return null;
             }
             return {
+              ready: true,
               liftingData: {
                 ...state.liftingData,
                 [lift]: {
@@ -180,7 +182,11 @@ class ModalWorkout extends Component {
     this.workoutDay = this.userDay;
     this.setState(
       {
-        workoutDay: this.userDay
+        workoutDay: this.userDay,
+        liftingData: {},
+        previousSet: [],
+        currentSet: "",
+        ready: false
       },
       () => this.showWorkouts(this.props.workoutDay)
     );
@@ -222,6 +228,7 @@ class ModalWorkout extends Component {
 
   submitWorkout = e => {
     e.preventDefault();
+    this.props.workoutRender("Workout");
     let program = this.state.programDay;
     let programDayLift = this.state.programDay.day;
     let last = Object.keys(this.state.liftingData[programDayLift]).length - 1;
@@ -245,7 +252,7 @@ class ModalWorkout extends Component {
     let userMaxQuery = calcs.userCurrentMax(programDayLift);
     let userMax = this.props.measurement[userMaxQuery] + addToTrainingMax;
     let workoutSubmit = {
-      workoutDay: programDayLift,
+      workoutDay: this.state.programDay,
       maxForWorkout: userMax,
       workoutEntered: this.state.liftingData,
       user: this.props.user,
@@ -262,9 +269,34 @@ class ModalWorkout extends Component {
     });
   };
 
+  isReady = () => {
+    if (this.state.ready === true) {
+      return (
+        <DailyViewLayout
+          submitWorkout={this.submitWorkout}
+          week={this.state.programDay.week}
+          wave={this.state.programDay.wave}
+          day={this.state.programDay.workout}
+          programDay={this.state.programDay}
+          submitWorkout={this.submitWorkout}
+          liftingData={this.state.liftingData}
+          nextSet={this.nextSet}
+          currentSet={this.state.currentSet}
+          previousSet={this.state.previousSet}
+          setRowAsCurrent={this.setRowAsCurrent}
+          rowIsCurrent={this.rowIsCurrent}
+          updateVal={this.updateVal}
+          measurement={this.props.measurement}
+        />
+      );
+    } else {
+      return;
+    }
+  };
+
   componentWillMount() {
     {
-      this.showWorkouts(this.props.workoutDay);
+      this.showWorkouts(this.props.measurement.lastWorkout + 1);
     }
   }
 
@@ -287,21 +319,7 @@ class ModalWorkout extends Component {
           <div className="timer">
             <Timer update={this.state.nextWorkoutTime} updated={this.updated} />
           </div>
-          <DailyViewLayout
-            submitWorkout={this.submitWorkout}
-            week={this.state.programDay.week}
-            wave={this.state.programDay.wave}
-            day={this.state.programDay.workout}
-            programDay={this.state.programDay}
-            submitWorkout={this.submitWorkout}
-            liftingData={this.state.liftingData}
-            nextSet={this.nextSet}
-            currentSet={this.state.currentSet}
-            previousSet={this.state.previousSet}
-            setRowAsCurrent={this.setRowAsCurrent}
-            rowIsCurrent={this.rowIsCurrent}
-            updateVal={this.updateVal}
-          />
+          {this.isReady()}
         </div>
       </div>
     );

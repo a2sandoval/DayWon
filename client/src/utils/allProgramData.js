@@ -1,5 +1,4 @@
 // programData(program, day, userMax);
-
 const program = {
   juggernaut: {
     about:
@@ -4952,686 +4951,686 @@ const program = {
             weight: "To Failure"
           }
         ]
-      },
-      {
-        workout: 7,
-        week: 2,
-        phase: "Cycle 1",
-        day: "Benchpress",
-        primaryWorkouts: {
-          lift: "Benchpress",
-          reps: [2, 2, 2, 2, 2],
-          sets: 5,
-          weightPerc: [0.8, 0.8, 0.8, 0.8, 0.8]
-        },
-        accessWorkouts: [
-          {
-            lift: "Closegrip Bench",
-            reps: ["2-4", "2-4", "2-4"],
-            sets: 3,
-            weight: [0.85, 0.85, 0.85]
-          },
-          {
-            lift: "Spoto Press",
-            reps: ["6-8", "6-8", "6-8"],
-            sets: 5,
-            weight: [0.75, 0.75, 0.75]
-          },
-          {
-            lift: "DB Chest Supported Row",
-            reps: ["10-12", "10-12", "10-12", "10-12", "10-12"],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "DB Front Raises",
-            reps: ["12", "12", "12"],
-            sets: 3,
-            weight: "To Failure"
-          },
-          {
-            lift: "DB Skullcrushers",
-            reps: ["12", "12", "12"],
-            sets: 3,
-            weight: "To Failure"
-          },
-          {
-            lift: "Bike Tempos",
-            reps: ["8 x 40seconds", "8 x 40seconds"],
-            sets: 2,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 8,
-        week: 2,
-        phase: "Cycle 1",
-        day: "Front Squat",
-        primaryWorkouts: {
-          lift: "Front Squat",
-          reps: [3, 3, 3, 3, 3],
-          sets: 5,
-          weightPerc: [0.6, 0.65, 0.7, 0.75, 0.8]
-        },
-        accessWorkouts: [
-          {
-            lift: "Deadlift",
-            reps: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            sets: 12,
-            weight: [
-              0.65,
-              0.65,
-              0.65,
-              0.65,
-              0.65,
-              0.65,
-              0.65,
-              0.65,
-              0.65,
-              0.65,
-              0.65,
-              0.65
-            ],
-            timePerPrimarySet: 10
-          },
-          {
-            lift: "Pullups",
-            reps: ["7-9", "7-9", "7-9", "7-9", "7-9"],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Single Leg Lowering",
-            reps: [12, 12, 12, 12, 12],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 9,
-        week: 2,
-        phase: "Cycle 1",
-        day: "Squat",
-        primaryWorkouts: {
-          lift: "Squat",
-          reps: ["Up to 8rm"],
-          sets: 1,
-          weightPerc: "To Failure"
-        },
-        accessWorkouts: [
-          {
-            lift: "Pause Squats",
-            reps: ["5-7", "5-7", "5-7"],
-            sets: 5,
-            weight: [0.7, 0.7, 0.7]
-          },
-          {
-            lift: "Chinups",
-            reps: ["8-10", "8-10", "8-10", "8-10", "8-10"],
-            sets: 5,
-            weight: "Bodyweight"
-          }
-        ]
-      },
-      {
-        workout: 10,
-        week: 2,
-        phase: "Cycle 1",
-        day: "Military Press",
-        primaryWorkouts: {
-          lift: "Military Press",
-          reps: ["5-7", "5-7", "5-7"],
-          sets: 3,
-          weightPerc: "To Failure"
-        },
-        accessWorkouts: [
-          {
-            lift: "Pullups",
-            reps: ["5-7", "5-7", "5-7", "5-7", "5-7"],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      }
-    ]
-  },
-  "5/3/1": {
-    about:
-      "Also known as the boring but big method, this is a great program for introductory lifters and competitors alike",
-    timePerPrimarySet: 180,
-    programWorkouts: [
-      {
-        workout: 1,
-        week: 1,
-        phase: "Cycle 1",
-        day: "Squat",
-        wave: 5,
-        primaryWorkouts: {
-          lift: "Squat",
-          reps: [5, 5, "5+"],
-          sets: 5,
-          weightPerc: [0.65, 0.75, 0.85]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 2,
-        week: 1,
-        phase: "Cycle 1",
-        day: "Benchpress",
-        wave: 5,
-        primaryWorkouts: {
-          lift: "Benchpress",
-          reps: [5, 5, "5+"],
-          sets: 5,
-          weightPerc: [0.65, 0.75, 0.85]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 3,
-        week: 1,
-        phase: "Cycle 1",
-        day: "Deadlift",
-        wave: 5,
-        primaryWorkouts: {
-          lift: "Deadlift",
-          reps: [5, 5, "5+"],
-          sets: 5,
-          weightPerc: [0.65, 0.75, 0.85]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 4,
-        week: 1,
-        phase: "Cycle 1",
-        day: "OH Press",
-        wave: 5,
-        primaryWorkouts: {
-          lift: "OH Press",
-          reps: [5, 5, "5+"],
-          sets: 5,
-          weightPerc: [0.65, 0.75, 0.85]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 5,
-        week: 2,
-        phase: "Cycle 1",
-        day: "Squat",
-        wave: 3,
-        primaryWorkouts: {
-          lift: "Squat",
-          reps: [3, 3, "3+"],
-          sets: 3,
-          weightPerc: [0.7, 0.8, 0.9]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 6,
-        week: 2,
-        phase: "Cycle 1",
-        day: "Benchpress",
-        wave: 3,
-        primaryWorkouts: {
-          lift: "Benchpress",
-          reps: [3, 3, "3+"],
-          sets: 3,
-          weightPerc: [0.7, 0.8, 0.9]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 7,
-        week: 2,
-        phase: "Cycle 1",
-        day: "Deadlift",
-        wave: 3,
-        primaryWorkouts: {
-          lift: "Deadlift",
-          reps: [3, 3, "3+"],
-          sets: 3,
-          weightPerc: [0.7, 0.8, 0.9]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 8,
-        week: 2,
-        phase: "Cycle 1",
-        day: "OH Press",
-        wave: 3,
-        primaryWorkouts: {
-          lift: "OH Press",
-          reps: [3, 3, "3+"],
-          sets: 3,
-          weightPerc: [0.7, 0.8, 0.9]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 9,
-        week: 3,
-        phase: "Cycle 1",
-        day: "Squat",
-        wave: 1,
-        primaryWorkouts: {
-          lift: "Squat",
-          reps: [5, 3, "1+"],
-          sets: 3,
-          weightPerc: [0.75, 0.85, 0.95]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 10,
-        week: 3,
-        phase: "Cycle 1",
-        day: "Benchpress",
-        wave: 1,
-        primaryWorkouts: {
-          lift: "Benchpress",
-          reps: [5, 3, "1+"],
-          sets: 3,
-          weightPerc: [0.75, 0.85, 0.95]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 11,
-        week: 3,
-        phase: "Cycle 1",
-        day: "Deadlift",
-        wave: 1,
-        primaryWorkouts: {
-          lift: "Deadlift",
-          reps: [5, 3, "1+"],
-          sets: 3,
-          weightPerc: [0.75, 0.85, 0.95]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 12,
-        week: 3,
-        phase: "Cycle 1",
-        day: "OH Press",
-        wave: 1,
-        primaryWorkouts: {
-          lift: "OH Press",
-          reps: [5, 3, "1+"],
-          sets: 3,
-          weightPerc: [0.75, 0.85, 0.95]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 13,
-        week: 4,
-        phase: "Cycle 1",
-        day: "Squat",
-        wave: 5,
-        primaryWorkouts: {
-          lift: "Squat",
-          reps: [5, 5, 5],
-          sets: 3,
-          weightPerc: [0.4, 0.5, 0.6]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 14,
-        week: 4,
-        phase: "Cycle 1",
-        day: "Benchpress",
-        wave: 5,
-        primaryWorkouts: {
-          lift: "Benchpress",
-          reps: [5, 5, 5],
-          sets: 3,
-          weightPerc: [0.4, 0.5, 0.6]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 15,
-        week: 4,
-        phase: "Cycle 1",
-        day: "Deadlift",
-        wave: 5,
-        primaryWorkouts: {
-          lift: "Deadlift",
-          reps: [5, 5, 5],
-          sets: 3,
-          weightPerc: [0.4, 0.5, 0.6]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
-      },
-      {
-        workout: 16,
-        week: 4,
-        phase: "Cycle 1",
-        day: "OH Press",
-        wave: 5,
-        primaryWorkouts: {
-          lift: "OH Press",
-          reps: [5, 5, 5],
-          sets: 3,
-          weightPerc: [0.4, 0.5, 0.6]
-        },
-        accessWorkouts: [
-          {
-            lift: "Assistance 1",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Assistance 2",
-            reps: [10, 10, 10, 10, 10],
-            sets: 5,
-            weight: "To Failure"
-          },
-          {
-            lift: "Core Exercise",
-            reps: [13, 13, 13, 13, 13],
-            sets: 5,
-            weight: "To Failure"
-          }
-        ]
       }
     ]
   }
 };
 
 export default program;
+// ]
+// }
+// };
+//     {
+//       workout: 7,
+//       week: 2,
+//       phase: "Cycle 1",
+//       day: "Benchpress",
+//       primaryWorkouts: {
+//         lift: "Benchpress",
+//         reps: [2, 2, 2, 2, 2],
+//         sets: 5,
+//         weightPerc: [0.8, 0.8, 0.8, 0.8, 0.8]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Closegrip Bench",
+//           reps: ["2-4", "2-4", "2-4"],
+//           sets: 3,
+//           weight: [0.85, 0.85, 0.85]
+//         },
+//         {
+//           lift: "Spoto Press",
+//           reps: ["6-8", "6-8", "6-8"],
+//           sets: 5,
+//           weight: [0.75, 0.75, 0.75]
+//         },
+//         {
+//           lift: "DB Chest Supported Row",
+//           reps: ["10-12", "10-12", "10-12", "10-12", "10-12"],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "DB Front Raises",
+//           reps: ["12", "12", "12"],
+//           sets: 3,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "DB Skullcrushers",
+//           reps: ["12", "12", "12"],
+//           sets: 3,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Bike Tempos",
+//           reps: ["8 x 40seconds", "8 x 40seconds"],
+//           sets: 2,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 8,
+//       week: 2,
+//       phase: "Cycle 1",
+//       day: "Front Squat",
+//       primaryWorkouts: {
+//         lift: "Front Squat",
+//         reps: [3, 3, 3, 3, 3],
+//         sets: 5,
+//         weightPerc: [0.6, 0.65, 0.7, 0.75, 0.8]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Deadlift",
+//           reps: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+//           sets: 12,
+//           weight: [
+//             0.65,
+//             0.65,
+//             0.65,
+//             0.65,
+//             0.65,
+//             0.65,
+//             0.65,
+//             0.65,
+//             0.65,
+//             0.65,
+//             0.65,
+//             0.65
+//           ],
+//           timePerPrimarySet: 10
+//         },
+//         {
+//           lift: "Pullups",
+//           reps: ["7-9", "7-9", "7-9", "7-9", "7-9"],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Single Leg Lowering",
+//           reps: [12, 12, 12, 12, 12],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 9,
+//       week: 2,
+//       phase: "Cycle 1",
+//       day: "Squat",
+//       primaryWorkouts: {
+//         lift: "Squat",
+//         reps: ["Up to 8rm"],
+//         sets: 1,
+//         weightPerc: "To Failure"
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Pause Squats",
+//           reps: ["5-7", "5-7", "5-7"],
+//           sets: 5,
+//           weight: [0.7, 0.7, 0.7]
+//         },
+//         {
+//           lift: "Chinups",
+//           reps: ["8-10", "8-10", "8-10", "8-10", "8-10"],
+//           sets: 5,
+//           weight: "Bodyweight"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 10,
+//       week: 2,
+//       phase: "Cycle 1",
+//       day: "Military Press",
+//       primaryWorkouts: {
+//         lift: "Military Press",
+//         reps: ["5-7", "5-7", "5-7"],
+//         sets: 3,
+//         weightPerc: "To Failure"
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Pullups",
+//           reps: ["5-7", "5-7", "5-7", "5-7", "5-7"],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     }
+//   ]
+// },
+// "5/3/1": {
+//   about:
+//     "Also known as the boring but big method, this is a great program for introductory lifters and competitors alike",
+//   timePerPrimarySet: 180,
+//   programWorkouts: [
+//     {
+//       workout: 1,
+//       week: 1,
+//       phase: "Cycle 1",
+//       day: "Squat",
+//       wave: 5,
+//       primaryWorkouts: {
+//         lift: "Squat",
+//         reps: [5, 5, "5+"],
+//         sets: 5,
+//         weightPerc: [0.65, 0.75, 0.85]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 2,
+//       week: 1,
+//       phase: "Cycle 1",
+//       day: "Benchpress",
+//       wave: 5,
+//       primaryWorkouts: {
+//         lift: "Benchpress",
+//         reps: [5, 5, "5+"],
+//         sets: 5,
+//         weightPerc: [0.65, 0.75, 0.85]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 3,
+//       week: 1,
+//       phase: "Cycle 1",
+//       day: "Deadlift",
+//       wave: 5,
+//       primaryWorkouts: {
+//         lift: "Deadlift",
+//         reps: [5, 5, "5+"],
+//         sets: 5,
+//         weightPerc: [0.65, 0.75, 0.85]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 4,
+//       week: 1,
+//       phase: "Cycle 1",
+//       day: "OH Press",
+//       wave: 5,
+//       primaryWorkouts: {
+//         lift: "OH Press",
+//         reps: [5, 5, "5+"],
+//         sets: 5,
+//         weightPerc: [0.65, 0.75, 0.85]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 5,
+//       week: 2,
+//       phase: "Cycle 1",
+//       day: "Squat",
+//       wave: 3,
+//       primaryWorkouts: {
+//         lift: "Squat",
+//         reps: [3, 3, "3+"],
+//         sets: 3,
+//         weightPerc: [0.7, 0.8, 0.9]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 6,
+//       week: 2,
+//       phase: "Cycle 1",
+//       day: "Benchpress",
+//       wave: 3,
+//       primaryWorkouts: {
+//         lift: "Benchpress",
+//         reps: [3, 3, "3+"],
+//         sets: 3,
+//         weightPerc: [0.7, 0.8, 0.9]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 7,
+//       week: 2,
+//       phase: "Cycle 1",
+//       day: "Deadlift",
+//       wave: 3,
+//       primaryWorkouts: {
+//         lift: "Deadlift",
+//         reps: [3, 3, "3+"],
+//         sets: 3,
+//         weightPerc: [0.7, 0.8, 0.9]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 8,
+//       week: 2,
+//       phase: "Cycle 1",
+//       day: "OH Press",
+//       wave: 3,
+//       primaryWorkouts: {
+//         lift: "OH Press",
+//         reps: [3, 3, "3+"],
+//         sets: 3,
+//         weightPerc: [0.7, 0.8, 0.9]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 9,
+//       week: 3,
+//       phase: "Cycle 1",
+//       day: "Squat",
+//       wave: 1,
+//       primaryWorkouts: {
+//         lift: "Squat",
+//         reps: [5, 3, "1+"],
+//         sets: 3,
+//         weightPerc: [0.75, 0.85, 0.95]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 10,
+//       week: 3,
+//       phase: "Cycle 1",
+//       day: "Benchpress",
+//       wave: 1,
+//       primaryWorkouts: {
+//         lift: "Benchpress",
+//         reps: [5, 3, "1+"],
+//         sets: 3,
+//         weightPerc: [0.75, 0.85, 0.95]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 11,
+//       week: 3,
+//       phase: "Cycle 1",
+//       day: "Deadlift",
+//       wave: 1,
+//       primaryWorkouts: {
+//         lift: "Deadlift",
+//         reps: [5, 3, "1+"],
+//         sets: 3,
+//         weightPerc: [0.75, 0.85, 0.95]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 12,
+//       week: 3,
+//       phase: "Cycle 1",
+//       day: "OH Press",
+//       wave: 1,
+//       primaryWorkouts: {
+//         lift: "OH Press",
+//         reps: [5, 3, "1+"],
+//         sets: 3,
+//         weightPerc: [0.75, 0.85, 0.95]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 13,
+//       week: 4,
+//       phase: "Cycle 1",
+//       day: "Squat",
+//       wave: 5,
+//       primaryWorkouts: {
+//         lift: "Squat",
+//         reps: [5, 5, 5],
+//         sets: 3,
+//         weightPerc: [0.4, 0.5, 0.6]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 14,
+//       week: 4,
+//       phase: "Cycle 1",
+//       day: "Benchpress",
+//       wave: 5,
+//       primaryWorkouts: {
+//         lift: "Benchpress",
+//         reps: [5, 5, 5],
+//         sets: 3,
+//         weightPerc: [0.4, 0.5, 0.6]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 15,
+//       week: 4,
+//       phase: "Cycle 1",
+//       day: "Deadlift",
+//       wave: 5,
+//       primaryWorkouts: {
+//         lift: "Deadlift",
+//         reps: [5, 5, 5],
+//         sets: 3,
+//         weightPerc: [0.4, 0.5, 0.6]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"
+//         }
+//       ]
+//     },
+//     {
+//       workout: 16,
+//       week: 4,
+//       phase: "Cycle 1",
+//       day: "OH Press",
+//       wave: 5,
+//       primaryWorkouts: {
+//         lift: "OH Press",
+//         reps: [5, 5, 5],
+//         sets: 3,
+//         weightPerc: [0.4, 0.5, 0.6]
+//       },
+//       accessWorkouts: [
+//         {
+//           lift: "Assistance 1",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Assistance 2",
+//           reps: [10, 10, 10, 10, 10],
+//           sets: 5,
+//           weight: "To Failure"
+//         },
+//         {
+//           lift: "Core Exercise",
+//           reps: [13, 13, 13, 13, 13],
+//           sets: 5,
+//           weight: "To Failure"

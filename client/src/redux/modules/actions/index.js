@@ -6,8 +6,8 @@ import {
   POST_WORKOUT,
   FETCH_PROGRAM,
   FETCH_WORKOUTDAY,
-  // FETCH_WORKOUT_DATA,
-  // SOCIAL_USER,
+  CHANGE_SETTINGS,
+  ACCES_LIFT_DATA,
   FETCH_USER,
   AUTH_ERROR,
   FETCH_USER_LIFT_DATA,
@@ -15,19 +15,22 @@ import {
 } from "./types";
 // auth -------------------------------------------------------------
 
-// export const signout = () => {
-//   localStorage.removeItem("token");
-//   return {
-//     type: AUTH_USER,
-//     payload: {
-//       isLoggedIn: false,
-//       userId: "",
-//       email: "",
-//       name: "",
-//       picture: ""
-//     }
-//   };
-// };
+export const fetchUser = userId => async dispatch => {
+  console.log(userId);
+  try {
+    const response = await axios
+      .get(`/api/populateUserForState/${userId}`)
+      .then(user => {
+        console.log(user.data);
+        return user.data;
+      });
+    console.log(response);
+    // dispatch({type: , payload: {}})
+    // dispatch({type: })
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const userToDb = (res, cb) => async dispatch => {
   console.log(res);
@@ -48,6 +51,32 @@ export const userToDb = (res, cb) => async dispatch => {
   }
 };
 
+export const getAccesWorkoutData = (values, cb) => async dispatch => {
+  console.log(values);
+  var lastWorkout = values.length - 1;
+  if (lastWorkout === 0) {
+    return null;
+  }
+  var accObj = {};
+  var keys = [];
+  for (let i = lastWorkout; i >= lastWorkout - 3; i--) {
+    if (i <= 0) {
+      return;
+    }
+    keys = Object.keys(values[i]);
+    for (let workout of keys) {
+      if (workout === "date" || workout === "workout") {
+      } else {
+        accObj[workout] = values[i][workout]["1"]["weight"];
+      }
+    }
+  }
+  accObj.lastWorkout = values[lastWorkout]["workout"];
+  console.log(accObj);
+  dispatch({ type: ACCES_LIFT_DATA, payload: accObj });
+  cb();
+};
+
 // // WORKOUTS ------------------------------------------
 export const submitWorkout = values => async dispatch => {
   console.log(values);
@@ -55,13 +84,6 @@ export const submitWorkout = values => async dispatch => {
   const res = await axios.post("/api/workout/", values);
   // history.push("/dashboard");
   dispatch({ type: POST_WORKOUT, payload: res.data });
-};
-
-export const getAccesWorkoutData = values => async dispatch => {
-  console.log(values);
-  const res = await axios.get("/api/get-accessory-workouts");
-  console.log(res);
-  // dispatch({type: ACCES_LIFT_DATA, payload: res.data})
 };
 
 export const newMax = (values, cb) => async dispatch => {
@@ -73,14 +95,14 @@ export const newMax = (values, cb) => async dispatch => {
 };
 
 //SETTINGS
-export const fetchProgram = () => async dispatch => {
-  const res = await axios.get("/api/program");
-  dispatch({ type: FETCH_PROGRAM, payload: res.data });
+export const fetchSettings = value => async dispatch => {
+  const res = await axios.get("/api/settings/" + value.settingsId);
+  console.log(res.data);
+  dispatch({ type: CHANGE_SETTINGS, payload: res.data });
 };
 
-export const fetchDay = () => async dispatch => {
-  const res = await axios.get("/api/day");
-  // TODO: FIX REDUCER
-  const day = res.data.length;
-  dispatch({ type: FETCH_WORKOUTDAY, payload: day });
+export const submitSettings = value => async dispatch => {
+  const res = await axios.post("/api/submit-settings/" + value.userId, value);
+  console.log(res.data);
+  dispatch({ type: CHANGE_SETTINGS, payload: res.data });
 };
