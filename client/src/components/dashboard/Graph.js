@@ -14,7 +14,7 @@ class Graph extends Component {
           {
             label: "Weight Progress",
             fill: false,
-            data: [this.props.measurement.bp, this.props.measurement.sqt, this.props.measurement.mp, this.props.measurement.dl],
+            data: [this.props.measurement.dl, this.props.measurement.bp, this.props.measurement.sqt, this.props.measurement.mp],
             backgroundColor: [
               "rgba(255, 99, 132, 0.6)",
               "rgba(54, 162, 235, 0.6)",
@@ -25,7 +25,7 @@ class Graph extends Component {
           {
             label: "Weight Update",
             fill: true,
-            data: [195, 185, 250, 125],
+            data: [this.props.measurement.initialDl, this.props.measurement.initialBp, this.props.measurement.initialSqt, this.props.measurement.initialMp],
             backgroundColor: [
               "rgba(200, 100, 132, 0.6)",
               "rgba(54, 100, 235, 0.6)",
@@ -39,13 +39,15 @@ class Graph extends Component {
   }
 
   render() {
+    console.log(this.props.measurement);
     return (
+      
       <div className="chart">
         {
           <Bar
             data={this.state.chartData}
-            width={700}
-            height={375}
+            width={350}
+            height={187.5}
             options={{
               title: {
                 display: true,
