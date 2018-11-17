@@ -35,10 +35,10 @@ class Dashboard extends Component {
           <div className="s12">
             <Intro />
           </div>
-          <div className="graph-component col s9">
+          <div className="graph-component col s6">
             <Graph measurement={this.props.measurement} />
           </div>
-          <div className="pie-chart col s3" id="pie-chart">
+          <div className="pie-chart col s6" id="pie-chart">
             <Pie measurement={this.props.measurement} />
             <PieStats measurement={this.props.measurement} />
           </div>

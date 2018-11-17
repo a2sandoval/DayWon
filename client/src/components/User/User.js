@@ -26,15 +26,20 @@ class User extends Component {
           <div>
             <img
               src={this.props.user.picture}
-              height="40px"
+              height="60px"
               style={this.border}
               alt="profile"
             />
+            Welcome {this.props.user.name}!
           </div>
-          <div className="s12">Welcome {this.props.user.name}</div>
-          <div className="maxes">Your current maxes are</div>
-          <div className="userdata">Here are your user stats</div>
-          <div className="setting">update settings</div>
+          <div className="settings-info">
+          <div className="s12"></div>
+          <div>Current Program {this.props.settings.program}</div>
+          <div className="maxes">Your current raw total is: {this.props.measurement.bp + this.props.measurement.sqt + this.props.measurement.dl + this.props.measurement.mp }lbs</div>
+          <div className="userdata">Here are your user stats:</div>
+          <div>Workouts logged: {this.props.measurement.historicalWorkouts.length - 1}</div>
+          <div>Total max improvement: {(this.props.measurement.bp + this.props.measurement.sqt + this.props.measurement.dl + this.props.measurement.mp) - (this.props.measurement.initialBp + this.props.measurement.initialMp + this.props.measurement.initialSqt + this.props.measurement.initialDl)}</div>
+          </div>
           <button
             onClick={() => {
               this.settingsRender("open");
@@ -53,6 +58,7 @@ class User extends Component {
           <div className="settings-modal">
             <Settings
               settings={this.props.settings}
+              user={this.props.user}
               measurement={this.props.measurement}
               submitSettings={this.props.submitSettings}
             />
