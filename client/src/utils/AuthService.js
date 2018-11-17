@@ -9,11 +9,14 @@ export const lock = new Auth0Lock(config.AUTH0_CLIENT_ID, config.AUTH0_DOMAIN, {
     redirectUrl: config.REDIRECT_URL,
     responseType: 'token id_token'
   },
+
+
   theme: {
-    primaryColor: '#b81b1c'
+    primaryColor: '#000000',
+    logo: 'https://i.imgur.com/vWlQS2i.png'
   },
   languageDictionary: {
-    title: 'DayWon'
+    title: ''
   }
 });
 
