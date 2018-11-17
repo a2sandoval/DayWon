@@ -14,7 +14,7 @@ class Graph extends Component {
           {
             label: "Weight Progress",
             fill: false,
-            data: [180, 165, 245, 130],
+            data: [this.props.measurement.bp, this.props.measurement.sqt, this.props.measurement.mp, this.props.measurement.dl],
             backgroundColor: [
               "rgba(255, 99, 132, 0.6)",
               "rgba(54, 162, 235, 0.6)",
