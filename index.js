@@ -16,8 +16,8 @@ mongoose.Promise = global.Promise;
 
 
 // THIS IS FOR FINAL PRODUCTION RENDERING
-if(process.env.mongoURI){
-  mongoose.connect(process.env.mongoURI, {
+if(process.env.MONGODB_URI){
+  mongoose.connect(process.env.MONGODB_URI, {
     useMongoClient: true
   })  
 } else {
