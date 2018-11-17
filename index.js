@@ -32,7 +32,6 @@ app.use(cors());
 app.use(require('express-session')({ secret: "fur babies", resave: true, saveUninitialized: true }));
 
 // requiring routes
-require('./routes/authRoutes')(app);
 require('./routes/apiRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
