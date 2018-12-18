@@ -10,24 +10,24 @@ These instructions will get you a copy of the project up and running on your loc
 A step by step installaltion to run the app
 
 Cloning the repository 
-```Git Clone https://github.com/a2sandoval/DayWon.git
-```
+``Git Clone https://github.com/a2sandoval/DayWon.git
+``
 Change into project diretory 
-```cd DayWon
-```
+``cd DayWon
+``
 Install necessary packages 
-```npm install 
-```
+``npm install 
+``
 Change to client directory 
-```cd client
-```
+``cd client
+``
 Install necessary packages on the client and then change back to main directory
-```
+``
 npm install 
-```
+``
 Run the application 
-```npm run dev
-```
+``npm run dev
+``
 Enjoy your workout session! 
 
 
