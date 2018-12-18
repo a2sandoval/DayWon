@@ -48,7 +48,7 @@ class Settings extends Component {
     }
   };
 
-  handleChange = () => {
+  handleSubmit = () => {
     var newSettingsObj = {
       weightType: this.state.weightVal,
       program: this.state.programVal,
@@ -147,7 +147,7 @@ class Settings extends Component {
               <FormControlLabel value="5" control={<Radio />} label="5" />
             </RadioGroup>
           </FormControl>
-          <button className="submitSettings" onClick={this.handleChange}>
+          <button className="submitSettings" onClick={this.handleSubmit}>
             Submit Changes
           </button>
         </div>

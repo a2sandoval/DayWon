@@ -13,7 +13,7 @@ class Pie extends Component {
           {
             label: "Weight Progress",
             fill: false,
-            data: [180, 165, 245, 130],
+            data: [this.props.measurement.dl, this.props.measurement.bp, this.props.measurement.sqt, this.props.measurement.mp],
             backgroundColor: [
               "rgba(255, 99, 132, 0.6)",
               "rgba(54, 162, 235, 0.6)",
@@ -24,7 +24,7 @@ class Pie extends Component {
           {
             label: "Weight Update",
             fill: true,
-            data: [195, 185, 250, 125],
+            data: [this.props.measurement.initialDl, this.props.measurement.initialBp, this.props.measurement.initialSqt, this.props.measurement.initialMp],
             backgroundColor: [
               "rgba(200, 100, 132, 0.6)",
               "rgba(54, 100, 235, 0.6)",
@@ -43,8 +43,8 @@ class Pie extends Component {
         {
           <Doughnut
             data={this.state.chartData}
-            width={700}
-            height={375}
+            width={525}
+            height={281.25}
             options={{
               elements: {
                 center: {

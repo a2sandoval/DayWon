@@ -13,10 +13,10 @@ export default function(
     ],
     lastWorkout: 0,
     accessoryLifts: {},
-    initialBp: "",
-    initialMp: "",
-    initialSqt: "",
-    initialDl: ""
+    initialBp: 225,
+    initialMp: 135,
+    initialSqt: 315,
+    initialDl: 275
 
     // need to have user max, and date, need max to automatically change based on realization phase
   },
@@ -35,10 +35,10 @@ export default function(
             [action.payload.historicalWorkouts] || state.historicalWorkouts,
           lastWorkout: state.lastWorkout,
           accessoryLifts: state.accessoryLifts,
-          initialBp: action.payload.historicalMaxes[0].bpMax || "",
-          initialMp: action.payload.historicalMaxes[0].mpMax || "",
-          initialDl: action.payload.historicalMaxes[0].dlMax || "",
-          initialSqt: action.payload.historicalMaxes[0].sqtMax || ""
+          initialBp: action.payload.historicalMaxes[0].bpMax || action.payload.bpMax,
+          initialMp: action.payload.historicalMaxes[0].mpMax || action.payload.mpMax,
+          initialDl: action.payload.historicalMaxes[0].dlMax || action.payload.dlMax,
+          initialSqt: action.payload.historicalMaxes[0].sqtMax || action.payload.sqtMax
         } || state
       );
     case ACCES_LIFT_DATA:

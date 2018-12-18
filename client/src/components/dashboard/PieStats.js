@@ -4,15 +4,6 @@ import calcs from "../../utils/calcs";
 export default function PieStats(props) {
   return (
     <div className="stats">
-      <div className="totals">
-        <div className="title">History</div>
-        <div className="lists">
-          Days logged: <br />
-          Total Sets: <br />
-          Total Volume: <br />
-          Avg Daily Volume:
-        </div>
-      </div>
       <div>
         <div className="title">Maxes</div>
         <div className="lists row">
@@ -38,7 +29,7 @@ export default function PieStats(props) {
             </p>
           </div>
           <div className="col s3">
-            <p>Military Press </p>
+            <p>Military</p>
 
             <p>
               <MaxRender type="mp" measurement={props.measurement} />

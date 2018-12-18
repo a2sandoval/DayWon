@@ -78,7 +78,6 @@ h5 {
   }
 
 .daily {
-  margin: 3rem;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -210,6 +209,7 @@ font-size: .8rem;
   display: flex;
   justify-content: space-between;
   font-size: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 .program-status {
@@ -356,7 +356,7 @@ font-size: .8rem;
   width: 80%;
   position: absolute;
   left: 10%;
-  height: 70%;
+  height: 80%;
   padding: 5px 30px;
   top: 15%;
 }
@@ -374,7 +374,7 @@ font-size: .8rem;
 
 .embed-responsive {
   width: 90%;
-  height: 50%;
+  height: 60%;
   object-fit: contain;
   background-size: contain;
 }
@@ -382,7 +382,7 @@ font-size: .8rem;
 .video-detail iframe {
   background-size: contain;
   width: 100%;
-  height: 56.25%;
+  height: 65%;
   object-fit: contain;
 }
 
@@ -403,7 +403,7 @@ font-size: .8rem;
 @media screen and (max-width: 1300px) {
   .embed-responsive {
     width: 90%;
-    height: 50%;
+    height: 60%;
     object-fit: contain;
     background-size: contain;
   } 
@@ -473,7 +473,7 @@ font-size: .8rem;
 .graph-component {
   height: 400px;
   width: 800px;
-  padding-top: 30px;
+  margin-top: 30px;
 }
 
 .pie-chart {
@@ -484,7 +484,7 @@ font-size: .8rem;
   border: outset;
 }
 #root{
-  width: 90%;
+  width: 100%;
 }
 
 /* settings --------------------------------------------- */
@@ -494,7 +494,6 @@ font-size: .8rem;
 MuiIconButton-root-31 MuiSwitchBase-root-27 MuiRadio-root-22 MuiRadio-colorSecondary-26 MuiSwitchBase-checked-28 MuiRadio-checked-23 */
 
 #pie-chart {
-  width:70%;
   height:70%;
   margin-bottom: 5%;
 }
@@ -672,10 +671,10 @@ top: 200px;
 .user-components {
   background-color: rgba(238, 238, 238, 0.9);
   height: 40%;
-  width: 60%;
+  width: 35%;
   position: absolute;
   top: 50%;
-  left: 20%;
+  left: 32.5%;
   font-size: 2rem;
   padding: 2rem;
 }
@@ -741,7 +740,7 @@ top: 200px;
 }
 
 .weekly-view {
-  margin: 0 5rem;
+  margin-left: 10%;
 
 }
 
@@ -777,6 +776,7 @@ top: 200px;
 }
 
 .workoutday-view {
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -787,4 +787,14 @@ top: 200px;
 .workoutday-view h6{
   font-size: 2.3rem;
   font-weight: 600;
+}
+
+.settings-info {
+  font-size: 1rem;
+  margin: 1rem 0rem;
+}
+
+.submitSettings {
+  position: relative;
+  bottom: -150px;
 }
