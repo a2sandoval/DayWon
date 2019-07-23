@@ -40,7 +40,7 @@
     "graphql": "^14.0.2",
     "gravatar": "^1.6.0",
     "localtunnel": "^1.8.3",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "mongoose": "^4.11.1",
     "morgan": "*",
     "nodemon": "^1.11.0",
