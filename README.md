@@ -1,4 +1,5 @@
 # DayWon
+
 The Ultimate Platform for New and Lifelong Powerlifters
 
 ## Getting Started
