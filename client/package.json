@@ -13,7 +13,7 @@
     "@nivo/line": "^0.48.0",
     "@nivo/pie": "^0.50.0",
     "auth0-lock": "^11.11.0",
-    "axios": "^0.16.2",
+    "axios": "^0.21.1",
     "dotenv": "^6.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
