@@ -29,7 +29,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "concurrently": "^3.5.0",
     "cors": "^2.8.4",
     "create-react-app": "^1.5.2",
