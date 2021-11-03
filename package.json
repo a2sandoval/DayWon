@@ -46,6 +46,6 @@
     "nodemon": "^1.11.0",
     "path-parser": "^2.0.2",
     "react-chartjs-2": "^2.7.4",
-    "validator": "^9.4.1"
+    "validator": "^13.7.0"
   }
 }
