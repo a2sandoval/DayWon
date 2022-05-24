@@ -12,7 +12,7 @@
     "@material-ui/icons": "^3.0.1",
     "@nivo/line": "^0.48.0",
     "@nivo/pie": "^0.50.0",
-    "auth0-lock": "^11.11.0",
+    "auth0-lock": "^11.33.0",
     "axios": "^0.16.2",
     "dotenv": "^6.0.0",
     "enzyme": "^3.3.0",
