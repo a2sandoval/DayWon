@@ -41,7 +41,7 @@
     "gravatar": "^1.6.0",
     "localtunnel": "^1.8.3",
     "lodash": "^4.17.11",
-    "mongoose": "^4.11.1",
+    "mongoose": "^4.13.21",
     "morgan": "*",
     "nodemon": "^1.11.0",
     "path-parser": "^2.0.2",
